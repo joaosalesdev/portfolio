@@ -1,2 +1,14 @@
-# portfolio
-My professional portfolio built with React, TypeScript and GitHub Pages.
+# Portfolio
+
+Professional portfolio built with React and TypeScript.
+
+## Tech Stack
+
+- React
+- TypeScript
+- Vite
+- GitHub Pages
+
+## Status
+
+🚧 Under development
