@@ -16,7 +16,7 @@ const content = {
     nav: { home: 'Início', projects: 'Projetos', about: 'Sobre' },
     home: {
       eyebrow: 'Desenvolvedor de software',
-      title: 'Soluções que conectam sistemas, pessoas e ideias.',
+      title: 'Soluções que conectam sistemas, pessoas e ideias. (teste)',
       description:
         'Trabalho com integrações, automação e inteligência artificial para transformar desafios complexos em produtos úteis.',
       primaryAction: 'Ver projetos',
