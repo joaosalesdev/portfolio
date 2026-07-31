@@ -92,7 +92,7 @@ export const content: Record<Language, SiteContent> = {
           caseStudy: {
             responsibility: 'Desenhei e implementei o fluxo de integração, defini o mapeamento dos dados e organizei o tratamento de falhas para tornar a sincronização observável e segura.',
             architecture: 'A solução separa a origem dos dados, a camada de integração e o Salesforce. A comunicação por APIs mantém os sistemas desacoplados, enquanto validações e registros de execução facilitam o acompanhamento de cada operação.',
-            requestFlow: ['Sistema de origem', 'API Gateway', 'Amazon SQS', 'Salesforce'],
+            requestFlow: ['Source system', 'API Gateway', 'Amazon SQS', 'Salesforce'],
             challenges: ['Conciliar modelos de dados diferentes', 'Evitar registros duplicados durante reprocessamentos', 'Rastrear falhas sem interromper todo o fluxo'],
             decisions: ['Centralizar transformações na camada de integração', 'Usar identificadores externos para garantir idempotência', 'Registrar contexto e resultado de cada sincronização'],
             result: 'O fluxo reduziu tarefas manuais, aumentou a consistência das informações comerciais e criou uma base mais confiável para evoluir novas integrações.',
@@ -110,7 +110,7 @@ export const content: Record<Language, SiteContent> = {
           caseStudy: {
             responsibility: 'Estruturei o comportamento do agente, organizei as fontes de contexto e implementei o fluxo de conversa, incluindo validações para respostas mais consistentes.',
             architecture: 'A aplicação recebe a mensagem, recupera o contexto relevante e monta uma solicitação estruturada para o modelo. A resposta passa por validação antes de retornar à interface e atualizar o histórico.',
-            requestFlow: ['Usuário', 'AWS Lambda', 'LangChain', 'LLM'],
+            requestFlow: ['User', 'AWS Lambda', 'LangChain', 'LLM'],
             challenges: ['Preservar contexto sem aumentar ruído na conversa', 'Reduzir respostas imprecisas ou fora do objetivo', 'Equilibrar qualidade, latência e custo'],
             decisions: ['Separar instruções, memória e mensagem do usuário', 'Limitar o contexto ao conteúdo relevante', 'Validar a saída antes de apresentá-la na interface'],
             result: 'O agente passou a produzir interações mais contextualizadas e previsíveis, criando uma base clara para testes, avaliação e evolução do produto.',
@@ -128,7 +128,7 @@ export const content: Record<Language, SiteContent> = {
           caseStudy: {
             responsibility: 'Implementei as rotinas em Python, estruturei a execução na AWS e defini mecanismos de validação, logs e reprocessamento para operar o fluxo com segurança.',
             architecture: 'A arquitetura orientada a eventos recebe a solicitação, orquestra o workflow e executa tarefas de automação independentes, preservando o estado e o resultado de cada etapa.',
-            requestFlow: ['Evento', 'Step Functions', 'Automação Python', 'Sistema externo'],
+            requestFlow: ['Event', 'Step Functions', 'Python automation', 'External system'],
             challenges: ['Processar volumes variáveis sem intervenção manual', 'Lidar com falhas temporárias de serviços externos', 'Manter cada execução rastreável'],
             decisions: ['Adotar processamento assíncrono orientado a eventos', 'Criar tarefas pequenas e com responsabilidade definida', 'Aplicar retentativas controladas e estados explícitos de falha'],
             result: 'A automação diminuiu o tempo dedicado a tarefas repetitivas e permitiu escalar o processamento de forma previsível, com maior visibilidade operacional.',
