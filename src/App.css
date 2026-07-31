@@ -296,10 +296,10 @@ p {
 }
 
 .node-client { top: 42%; left: 2%; }
-.node-api { top: 42%; left: 36%; }
-.node-queue { top: 42%; right: 2%; }
-.node-function { top: 8%; right: 2%; }
-.node-database { right: 2%; bottom: 8%; }
+.node-api-gateway { top: 42%; left: 36%; }
+.node-lambda { top: 42%; right: 2%; }
+.node-sqs { top: 8%; right: 2%; }
+.node-external-api { right: 2%; bottom: 8%; }
 
 .architecture-caption {
   position: absolute;
@@ -826,10 +826,10 @@ footer {
   }
 
   .node-client { top: 12%; left: 7%; }
-  .node-api { top: 12%; right: 7%; left: auto; }
-  .node-queue { top: 43%; left: calc(50% - 48px); right: auto; }
-  .node-function { top: auto; bottom: 12%; left: 7%; right: auto; }
-  .node-database { right: 7%; bottom: 12%; }
+  .node-api-gateway { top: 12%; right: 7%; left: auto; }
+  .node-lambda { top: 43%; left: calc(50% - 48px); right: auto; }
+  .node-sqs { top: auto; bottom: 12%; left: 7%; right: auto; }
+  .node-external-api { right: 7%; bottom: 12%; }
 
   .contact-links {
     grid-template-columns: 1fr;

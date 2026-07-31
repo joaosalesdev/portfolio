@@ -11,12 +11,12 @@ export function Header({ language, onLanguageChange, text }: HeaderProps) {
   return (
     <header className="site-header">
       <Link className="brand" to="/" aria-label={text.nav.home}>
-        PF<span>.</span>
+        João Paulo<span>.</span>
       </Link>
       <nav aria-label="Main navigation">
         <NavLink to="/">{text.nav.home}</NavLink>
-        <NavLink to="/projects">{text.nav.projects}</NavLink>
         <NavLink to="/about">{text.nav.about}</NavLink>
+        <NavLink to="/projects">{text.nav.projects}</NavLink>
       </nav>
       <div className="language-switcher" aria-label="Select language">
         {(['pt', 'en'] as Language[]).map((item, index) => (

@@ -1,9 +1,9 @@
 const nodes = [
-  { name: 'Client', className: 'node-client' },
-  { name: 'API', className: 'node-api' },
-  { name: 'Queue', className: 'node-queue' },
-  { name: 'Function', className: 'node-function' },
-  { name: 'Database', className: 'node-database' },
+  { name: 'Client', category: 'application', className: 'node-client' },
+  { name: 'API Gateway', category: 'AWS', className: 'node-api-gateway' },
+  { name: 'Lambda', category: 'function', className: 'node-lambda' },
+  { name: 'SQS', category: 'queue', className: 'node-sqs' },
+  { name: 'External API', category: 'integration', className: 'node-external-api' },
 ]
 
 export function ArchitectureVisual() {
@@ -23,7 +23,7 @@ export function ArchitectureVisual() {
         <div className={`architecture-node ${node.className}`} key={node.name}>
           <span className="node-status" />
           <strong>{node.name}</strong>
-          <small>service</small>
+          <small>{node.category}</small>
         </div>
       ))}
       <span className="architecture-caption" aria-hidden="true">

@@ -2,12 +2,12 @@ import type { Language, SiteContent } from './types'
 
 export const content: Record<Language, SiteContent> = {
   pt: {
-    nav: { home: 'Início', projects: 'Projetos', about: 'Sobre' },
+    nav: { home: 'Home', about: 'Sobre', projects: 'Projetos' },
     home: {
       eyebrow: 'Software Engineer | Backend & Cloud',
-      title: 'Soluções que conectam sistemas, pessoas e ideias.',
+      title: 'Engenharia de sistemas backend escaláveis.',
       description:
-        'Trabalho com integrações, automação e inteligência artificial para transformar desafios complexos em produtos úteis.',
+        'Desenvolvo APIs, integrações e arquiteturas serverless com Python e AWS para criar sistemas distribuídos executados em produção.',
       primaryAction: 'Ver projetos',
       secondaryAction: 'Entrar em contato',
       specialtiesLabel: 'Especialidades',
@@ -145,12 +145,12 @@ export const content: Record<Language, SiteContent> = {
     },
   },
   en: {
-    nav: { home: 'Home', projects: 'Projects', about: 'About' },
+    nav: { home: 'Home', about: 'About', projects: 'Projects' },
     home: {
       eyebrow: 'Software Engineer | Backend & Cloud',
-      title: 'Solutions that connect systems, people, and ideas.',
+      title: 'Engineering scalable backend systems.',
       description:
-        'I work with integrations, automation, and artificial intelligence to turn complex challenges into useful products.',
+        'I build APIs, integrations, and serverless architectures with Python and AWS, delivering distributed systems for production environments.',
       primaryAction: 'View projects',
       secondaryAction: 'Get in touch',
       specialtiesLabel: 'Expertise',
