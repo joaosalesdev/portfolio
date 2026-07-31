@@ -212,6 +212,12 @@ p {
   letter-spacing: 0.08em;
   text-decoration: none;
   text-transform: uppercase;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
 }
 
 .button.primary {
@@ -220,10 +226,25 @@ p {
   color: var(--background);
 }
 
-.button:hover {
-  border-color: var(--accent);
-  background: var(--accent);
-  color: var(--background);
+@media (hover: hover) {
+  .button:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .button.primary:hover {
+    box-shadow: 0 10px 24px rgba(69, 215, 232, 0.22);
+  }
+
+  .button.secondary:hover {
+    background: rgba(69, 215, 232, 0.1);
+    color: var(--accent);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  }
+}
+
+.button:active {
+  transform: translateY(0) scale(0.98);
 }
 
 .architecture-visual {
@@ -253,15 +274,17 @@ p {
   height: 100%;
 }
 
-.architecture-lines path {
+.connection-path {
   fill: none;
   stroke: var(--accent);
   stroke-dasharray: 5 6;
   stroke-width: 1.5;
+  animation: connection-glow 3.5s ease-in-out infinite;
 }
 
-.architecture-lines circle {
+.connection-particle {
   fill: var(--accent);
+  filter: drop-shadow(0 0 4px var(--accent));
 }
 
 .architecture-node {
@@ -298,9 +321,77 @@ p {
 
 .node-client { top: 42%; left: 2%; }
 .node-api-gateway { top: 42%; left: 36%; }
-.node-lambda { top: 42%; right: 2%; }
-.node-sqs { top: 8%; right: 2%; }
-.node-external-api { right: 2%; bottom: 8%; }
+.node-api-gateway {
+  animation: gateway-pulse 3.2s ease-in-out infinite;
+}
+.node-lambda { top: 5%; right: 2%; }
+.node-sqs { top: 28%; right: 2%; }
+.node-docker { top: 52%; right: 2%; }
+.node-external-api { top: 76%; right: 2%; }
+
+.node-lambda,
+.node-sqs,
+.node-docker,
+.node-external-api {
+  border-color: rgba(69, 215, 232, 0.48);
+  border-left-width: 3px;
+  background: linear-gradient(110deg, rgba(69, 215, 232, 0.12), rgba(12, 26, 45, 0.98) 45%);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.24), 0 0 14px rgba(69, 215, 232, 0.09);
+}
+
+.node-lambda strong,
+.node-sqs strong,
+.node-docker strong,
+.node-external-api strong {
+  color: #ffffff;
+}
+
+.node-lambda .node-status,
+.node-sqs .node-status,
+.node-docker .node-status,
+.node-external-api .node-status {
+  box-shadow: 0 0 12px var(--accent), 0 0 3px var(--accent);
+}
+
+@media (hover: hover) {
+  .node-lambda,
+  .node-sqs,
+  .node-docker,
+  .node-external-api {
+    transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  }
+
+  .node-lambda:hover,
+  .node-sqs:hover,
+  .node-docker:hover,
+  .node-external-api:hover {
+    border-color: var(--accent);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28), 0 0 20px rgba(69, 215, 232, 0.18);
+    transform: translateX(-3px);
+  }
+}
+
+@keyframes connection-glow {
+  0%, 100% {
+    opacity: 0.55;
+    filter: drop-shadow(0 0 1px rgba(69, 215, 232, 0.25));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 5px rgba(69, 215, 232, 0.7));
+  }
+}
+
+@keyframes gateway-pulse {
+  0%, 100% {
+    border-color: var(--border);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    border-color: rgba(69, 215, 232, 0.55);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2), 0 0 16px rgba(69, 215, 232, 0.15);
+  }
+}
 
 .architecture-caption {
   position: absolute;
@@ -826,11 +917,12 @@ footer {
     width: 96px;
   }
 
-  .node-client { top: 12%; left: 7%; }
-  .node-api-gateway { top: 12%; right: 7%; left: auto; }
-  .node-lambda { top: 43%; left: calc(50% - 48px); right: auto; }
-  .node-sqs { top: auto; bottom: 12%; left: 7%; right: auto; }
-  .node-external-api { right: 7%; bottom: 12%; }
+  .node-client { top: 31%; left: 5%; }
+  .node-api-gateway { top: 56%; left: 5%; }
+  .node-lambda { top: 4%; right: 5%; }
+  .node-sqs { top: 28%; right: 5%; }
+  .node-docker { top: 52%; right: 5%; }
+  .node-external-api { top: 76%; right: 5%; }
 
   .contact-links {
     grid-template-columns: 1fr;
@@ -854,5 +946,14 @@ footer {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+
+  .connection-particle {
+    display: none;
+  }
+
+  .connection-path,
+  .node-api-gateway {
+    animation: none;
   }
 }

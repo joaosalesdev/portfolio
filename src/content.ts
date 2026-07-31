@@ -5,9 +5,9 @@ export const content: Record<Language, SiteContent> = {
     nav: { home: 'Home', about: 'Sobre', projects: 'Projetos' },
     home: {
       eyebrow: 'Software Engineer | Backend & Cloud',
-      title: 'Engenharia de sistemas backend escaláveis.',
+      title: 'Engenharia de sistemas backend escaláveis',
       description:
-        'Desenvolvo APIs, integrações e arquiteturas serverless com Python e AWS para criar sistemas distribuídos executados em produção.',
+        'Desenvolvo APIs, integrações e arquiteturas serverless para criar sistemas distribuídos executados em produção.',
       primaryAction: 'Ver projetos',
       secondaryAction: 'Entrar em contato',
       specialtiesLabel: 'Especialidades',
@@ -148,9 +148,9 @@ export const content: Record<Language, SiteContent> = {
     nav: { home: 'Home', about: 'About', projects: 'Projects' },
     home: {
       eyebrow: 'Software Engineer | Backend & Cloud',
-      title: 'Engineering scalable backend systems.',
+      title: 'Engineering scalable backend systems',
       description:
-        'I build APIs, integrations, and serverless architectures with Python and AWS, delivering distributed systems for production environments.',
+        'I build APIs, integrations, and serverless architectures to create distributed systems running in production.',
       primaryAction: 'View projects',
       secondaryAction: 'Get in touch',
       specialtiesLabel: 'Expertise',
