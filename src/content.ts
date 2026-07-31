@@ -172,7 +172,7 @@ export const content: Record<Language, SiteContent> = {
     common: {
       featuredLink: 'Ver todos os projetos',
       email: 'Enviar e-mail',
-      footer: 'Desenvolvido com React e curiosidade.',
+      footer: 'Desenvolvido com React, TypeScript e atenção aos detalhes.',
       imageUnavailable: 'Imagem do projeto será adicionada em breve',
     },
   },
@@ -346,7 +346,7 @@ export const content: Record<Language, SiteContent> = {
     common: {
       featuredLink: 'View all projects',
       email: 'Send an email',
-      footer: 'Built with React and curiosity.',
+      footer: 'Built with React, TypeScript and attention to detail.',
       imageUnavailable: 'Project image coming soon',
     },
   },
