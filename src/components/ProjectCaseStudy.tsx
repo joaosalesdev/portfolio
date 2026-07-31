@@ -19,7 +19,7 @@ export function ProjectCaseStudy({ project, text }: { project: Project; text: Si
     <main className="case-study">
       <section className="case-study-hero section">
         <Link className="back-link" to="/projects">← {text.projects.backToProjects}</Link>
-        <p className="eyebrow">{project.number} / {text.projects.eyebrow}</p>
+        <p className="eyebrow">{text.projects.eyebrow}</p>
         <h1>{project.title}</h1>
         <p className="hero-description">{project.summary}</p>
       </section>

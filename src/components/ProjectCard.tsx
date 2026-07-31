@@ -25,9 +25,8 @@ export function ProjectCard({
         <div className="project-media project-flow-preview" role="img" aria-label={project.imageAlt}>
           <div className="project-flow-grid" aria-hidden="true" />
           <ol>
-            {project.caseStudy.requestFlow.slice(0, 4).map((step, index) => (
+            {project.caseStudy.requestFlow.slice(0, 4).map((step) => (
               <li key={step}>
-                <span>{String(index + 1).padStart(2, '0')}</span>
                 <strong>{step}</strong>
               </li>
             ))}
@@ -35,10 +34,7 @@ export function ProjectCard({
         </div>
       )}
       <div className="project-card-body">
-        <div className="project-card-heading">
-          <span className="project-number">{project.number}</span>
-          <h3>{project.title}</h3>
-        </div>
+        <h3>{project.title}</h3>
         <p>{project.summary}</p>
         <ul aria-label="Technologies">
           {project.stack.map((item) => <li key={item}>{item}</li>)}

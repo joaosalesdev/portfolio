@@ -5,9 +5,8 @@ export function CaseArchitectureDiagram({ project }: { project: Project }) {
     <div className="case-architecture-diagram" role="img" aria-label={project.imageAlt}>
       <div className="case-diagram-grid" aria-hidden="true" />
       <ol>
-        {project.caseStudy.requestFlow.map((step, index) => (
+        {project.caseStudy.requestFlow.map((step) => (
           <li key={step}>
-            <span>{String(index + 1).padStart(2, '0')}</span>
             <strong>{step}</strong>
           </li>
         ))}

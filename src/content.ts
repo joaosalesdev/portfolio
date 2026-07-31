@@ -83,7 +83,6 @@ export const content: Record<Language, SiteContent> = {
       items: [
         {
           slug: 'salesforce-serverless-integration',
-          number: '01',
           title: 'Integração Salesforce',
           summary: 'Integração distribuída entre Salesforce e serviços AWS utilizando arquitetura serverless e orientada a eventos.',
           challenge: 'Unificar informações distribuídas e diminuir tarefas manuais entre sistemas.',
@@ -102,7 +101,6 @@ export const content: Record<Language, SiteContent> = {
         },
         {
           slug: 'melita-ai-agent',
-          number: '02',
           title: 'Melita AI Agent',
           summary: 'Agente de IA serverless com LangChain e AWS Lambda para processamento de linguagem natural e integração com LLMs.',
           challenge: 'Oferecer respostas úteis sem perder o contexto da conversa.',
@@ -121,7 +119,6 @@ export const content: Record<Language, SiteContent> = {
         },
         {
           slug: 'process-automation-platform',
-          number: '03',
           title: 'Plataforma de Automação de Processos',
           summary: 'Plataforma de automação de processos em cloud para integração de sistemas, processamento de dados e execução de workflows.',
           challenge: 'Processos repetitivos consumiam tempo e dificultavam a escalabilidade.',
@@ -140,7 +137,6 @@ export const content: Record<Language, SiteContent> = {
         },
         {
           slug: 'italian-learning-saas',
-          number: '04',
           title: 'Plataforma SaaS de Ensino de Italiano',
           summary: 'Plataforma SaaS para ensino de idiomas com APIs, pagamentos, gamificação e recursos de Inteligência Artificial.',
           challenge: 'Organizar conteúdos de maneira clara, progressiva e motivadora.',
@@ -261,7 +257,6 @@ export const content: Record<Language, SiteContent> = {
       items: [
         {
           slug: 'salesforce-serverless-integration',
-          number: '01',
           title: 'Salesforce Integration',
           summary: 'Distributed integration between Salesforce and AWS services using a serverless, event-driven architecture.',
           challenge: 'Unify distributed information and reduce manual tasks across systems.',
@@ -280,7 +275,6 @@ export const content: Record<Language, SiteContent> = {
         },
         {
           slug: 'melita-ai-agent',
-          number: '02',
           title: 'Melita AI Agent',
           summary: 'Serverless AI agent built with LangChain and AWS Lambda for natural language processing and LLM integration.',
           challenge: 'Provide useful answers without losing conversation context.',
@@ -299,7 +293,6 @@ export const content: Record<Language, SiteContent> = {
         },
         {
           slug: 'process-automation-platform',
-          number: '03',
           title: 'Process Automation Platform',
           summary: 'Cloud process automation platform for system integration, data processing, and workflow execution.',
           challenge: 'Repetitive processes consumed time and made scaling difficult.',
@@ -318,7 +311,6 @@ export const content: Record<Language, SiteContent> = {
         },
         {
           slug: 'italian-learning-saas',
-          number: '04',
           title: 'Italian Learning SaaS Platform',
           summary: 'Language learning SaaS platform with APIs, payments, gamification, and artificial intelligence features.',
           challenge: 'Organize content in a clear, progressive, and motivating way.',

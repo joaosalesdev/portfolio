@@ -8,7 +8,6 @@ export type Specialty = {
 
 export type Project = {
   slug: string
-  number: string
   title: string
   summary: string
   challenge: string

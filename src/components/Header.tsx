@@ -11,7 +11,7 @@ export function Header({ language, onLanguageChange, text }: HeaderProps) {
   return (
     <header className="site-header">
       <Link className="brand" to="/" aria-label={text.nav.home}>
-        João Paulo<span>.</span>
+        João <span>Paulo</span>
       </Link>
       <nav aria-label="Main navigation">
         <NavLink to="/">{text.nav.home}</NavLink>
