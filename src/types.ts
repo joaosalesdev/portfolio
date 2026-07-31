@@ -16,6 +16,15 @@ export type Project = {
   stack: string[]
   image?: string
   imageAlt: string
+  caseStudy: {
+    responsibility: string
+    architecture: string
+    requestFlow: string[]
+    challenges: string[]
+    decisions: string[]
+    result: string
+    skills: string[]
+  }
 }
 
 export type Experience = {
@@ -55,14 +64,14 @@ export type SiteContent = {
     solution: string
     stack: string
     caseStudy: {
+      architectureImage: string
       architecture: string
-      responsibilities: string
+      responsibility: string
+      requestFlow: string
       decisions: string
       challenges: string
       results: string
-      evidence: string
-      links: string
-      placeholder: string
+      skills: string
     }
     items: Project[]
   }

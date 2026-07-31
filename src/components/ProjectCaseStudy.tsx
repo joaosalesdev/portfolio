@@ -1,20 +1,18 @@
 import { Link } from 'react-router-dom'
 import type { Project, SiteContent } from '../types'
-import { ImagePlaceholder } from './ImagePlaceholder'
+import { CaseArchitectureDiagram } from './CaseArchitectureDiagram'
 
-export function ProjectCaseStudy({
-  project,
-  text,
-}: {
-  project: Project
-  text: SiteContent
-}) {
-  const placeholderSections = [
-    text.projects.caseStudy.architecture,
-    text.projects.caseStudy.responsibilities,
-    text.projects.caseStudy.decisions,
-    text.projects.caseStudy.challenges,
-    text.projects.caseStudy.results,
+export function ProjectCaseStudy({ project, text }: { project: Project; text: SiteContent }) {
+  const sections = [
+    { title: text.projects.challenge, content: project.challenge },
+    { title: text.projects.caseStudy.responsibility, content: project.caseStudy.responsibility },
+    { title: text.projects.caseStudy.architecture, content: project.caseStudy.architecture },
+  ]
+
+  const listSections = [
+    { title: text.projects.caseStudy.requestFlow, items: project.caseStudy.requestFlow, ordered: true },
+    { title: text.projects.caseStudy.challenges, items: project.caseStudy.challenges },
+    { title: text.projects.caseStudy.decisions, items: project.caseStudy.decisions },
   ]
 
   return (
@@ -25,53 +23,62 @@ export function ProjectCaseStudy({
         <h1>{project.title}</h1>
         <p className="hero-description">{project.summary}</p>
       </section>
-      <section className="case-cover section">
-        <ImagePlaceholder
-          src={project.image}
-          alt={project.imageAlt}
-          fallbackText={text.common.imageUnavailable}
-          eager
-        />
+
+      <section className="case-architecture section">
+        <div className="case-section-heading">
+          <p className="eyebrow">{text.projects.caseStudy.architectureImage}</p>
+          <h2>{text.projects.caseStudy.architecture}</h2>
+        </div>
+        <CaseArchitectureDiagram project={project} />
       </section>
-      <section className="case-overview section">
-        <article>
-          <p className="eyebrow">{text.projects.challenge}</p>
-          <p>{project.challenge}</p>
-        </article>
-        <article>
-          <p className="eyebrow">{text.projects.solution}</p>
-          <p>{project.solution}</p>
-        </article>
-        <article>
-          <p className="eyebrow">{text.projects.stack}</p>
-          <p>{project.stack.join(' · ')}</p>
-        </article>
+
+      <section className="case-technologies section">
+        <p className="eyebrow">{text.projects.stack}</p>
+        <ul aria-label={text.projects.stack}>
+          {project.stack.map((technology) => <li key={technology}>{technology}</li>)}
+        </ul>
       </section>
+
       <section className="case-sections section">
-        {placeholderSections.map((title) => (
-          <article key={title}>
-            <h2>{title}</h2>
-            <p className="placeholder-copy">{text.projects.caseStudy.placeholder}</p>
+        {sections.map((section) => (
+          <article key={section.title}>
+            <h2>{section.title}</h2>
+            <p>{section.content}</p>
           </article>
         ))}
+        {listSections.map((section) => (
+          <article key={section.title}>
+            <h2>{section.title}</h2>
+            {section.ordered ? (
+              <ol className="case-detail-list">
+                {section.items.map((item) => <li key={item}>{item}</li>)}
+              </ol>
+            ) : (
+              <ul className="case-detail-list">
+                {section.items.map((item) => <li key={item}>{item}</li>)}
+              </ul>
+            )}
+          </article>
+        ))}
+        <article>
+          <h2>{text.projects.caseStudy.results}</h2>
+          <p>{project.caseStudy.result}</p>
+        </article>
       </section>
-      <section className="evidence-section section">
-        <div className="section-heading">
-          <p className="eyebrow">{text.projects.caseStudy.evidence}</p>
+
+      <section className="case-skills section">
+        <div className="case-section-heading">
+          <p className="eyebrow">{text.projects.caseStudy.skills}</p>
+          <h2>{text.projects.caseStudy.skills}</h2>
         </div>
-        <div className="evidence-grid">
-          {[1, 2, 3].map((item) => (
-            <ImagePlaceholder
-              key={item}
-              alt={`${project.imageAlt} — ${item}`}
-              fallbackText={text.common.imageUnavailable}
-            />
+        <ul>
+          {project.caseStudy.skills.map((skill, index) => (
+            <li key={skill}>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <strong>{skill}</strong>
+            </li>
           ))}
-        </div>
-        <div className="external-links">
-          <p className="eyebrow">{text.projects.caseStudy.links}</p>
-          <p className="placeholder-copy">{text.projects.caseStudy.placeholder}</p>
-        </div>
+        </ul>
       </section>
     </main>
   )
