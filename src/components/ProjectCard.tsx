@@ -25,8 +25,8 @@ export function ProjectCard({
         <div className="project-media project-flow-preview" role="img" aria-label={project.imageAlt}>
           <div className="project-flow-grid" aria-hidden="true" />
           <ol>
-            {project.caseStudy.requestFlow.slice(0, 4).map((step) => (
-              <li key={step}>
+            {project.caseStudy.requestFlow.map((step, index) => (
+              <li key={`${step}-${index}`}>
                 <strong>{step}</strong>
               </li>
             ))}
