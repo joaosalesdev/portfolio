@@ -1,4 +1,4 @@
-import type { Specialty } from '../types'
+import type { Specialty } from '../../../types'
 
 export function SpecialtyCard({
   specialty,

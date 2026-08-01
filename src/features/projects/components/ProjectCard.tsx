@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import type { Project } from '../types'
+import type { Project } from '../../../types'
 import { ImagePlaceholder } from './ImagePlaceholder'
 
 type ProjectCardProps = {

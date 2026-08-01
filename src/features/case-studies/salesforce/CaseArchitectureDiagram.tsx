@@ -1,4 +1,4 @@
-import type { Project } from '../types'
+import type { Project } from '../../../types'
 
 export function CaseArchitectureDiagram({ project }: { project: Project }) {
   const supportingNodes = project.caseStudy.architectureNodes

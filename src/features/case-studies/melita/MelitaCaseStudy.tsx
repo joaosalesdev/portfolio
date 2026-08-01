@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import type { Project, SiteContent } from '../types'
-import { AutomationWorkflow } from './AutomationWorkflow'
+import type { Project, SiteContent } from '../../../types'
+import { AiAgentPipeline } from './AiAgentPipeline'
 
-export function ProcessAutomationCaseStudy({ project, text }: { project: Project; text: SiteContent }) {
+export function MelitaCaseStudy({ project, text }: { project: Project; text: SiteContent }) {
   const introductionSections = [
     { title: text.projects.caseStudy.businessContext, content: project.caseStudy.businessContext },
     { title: text.projects.challenge, content: project.challenge },
@@ -14,7 +14,7 @@ export function ProcessAutomationCaseStudy({ project, text }: { project: Project
   ]
 
   return (
-    <main className="case-study automation-case-study">
+    <main className="case-study melita-case-study">
       <section className="case-study-hero section">
         <Link className="back-link" to="/projects">← {text.projects.backToProjects}</Link>
         <p className="eyebrow">{text.projects.eyebrow}</p>
@@ -33,10 +33,10 @@ export function ProcessAutomationCaseStudy({ project, text }: { project: Project
 
       <section className="case-architecture section">
         <div className="case-section-heading">
-          <p className="eyebrow">{text.projects.caseStudy.processFlow}</p>
-          <h2>{text.projects.caseStudy.executionCycle}</h2>
+          <p className="eyebrow">{text.projects.caseStudy.aiPipeline}</p>
+          <h2>{text.projects.caseStudy.agentArchitecture}</h2>
         </div>
-        <AutomationWorkflow project={project} recoveryLabel={text.projects.caseStudy.recoveryPath} />
+        <AiAgentPipeline project={project} />
       </section>
 
       <section className="case-sections section">
@@ -45,7 +45,7 @@ export function ProcessAutomationCaseStudy({ project, text }: { project: Project
           <p>{project.caseStudy.responsibility}</p>
         </article>
         <article>
-          <h2>{text.projects.caseStudy.architecture}</h2>
+          <h2>{text.projects.caseStudy.agentArchitecture}</h2>
           <p>{project.caseStudy.architecture}</p>
         </article>
       </section>
@@ -59,7 +59,7 @@ export function ProcessAutomationCaseStudy({ project, text }: { project: Project
 
       <section className="case-sections section">
         <article>
-          <h2>{text.projects.caseStudy.executionCycle}</h2>
+          <h2>{text.projects.caseStudy.processingPipeline}</h2>
           <ol className="case-detail-list">
             {project.caseStudy.requestFlow.map((step, index) => (
               <li key={`${step.name}-${index}`}>
@@ -67,19 +67,6 @@ export function ProcessAutomationCaseStudy({ project, text }: { project: Project
               </li>
             ))}
           </ol>
-        </article>
-        <article>
-          <h2>{text.projects.caseStudy.reliabilityRecovery}</h2>
-          <div className="automation-reliability-detail">
-            <p>{project.caseStudy.reliability}</p>
-            <ol className="case-detail-list">
-              {project.caseStudy.recoveryFlow?.map((step, index) => (
-                <li key={`${step.name}-${index}`}>
-                  <strong>{step.name}</strong> — {step.description}
-                </li>
-              ))}
-            </ol>
-          </div>
         </article>
         {listSections.map((section) => (
           <article key={section.title}>

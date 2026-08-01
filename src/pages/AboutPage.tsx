@@ -1,4 +1,4 @@
-import { ContactSection } from '../components/ContactSection'
+import { ContactSection } from '../features/home/components/ContactSection'
 import type { SiteContent } from '../types'
 
 export function AboutPage({ text }: { text: SiteContent }) {

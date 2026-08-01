@@ -1,4 +1,4 @@
-import { ProjectCard } from '../components/ProjectCard'
+import { ProjectCard } from '../features/projects/components/ProjectCard'
 import type { SiteContent } from '../types'
 
 export function ProjectsPage({ text }: { text: SiteContent }) {

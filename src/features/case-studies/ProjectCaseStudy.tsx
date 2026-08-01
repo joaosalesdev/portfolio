@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
-import type { Project, SiteContent } from '../types'
-import { CaseArchitectureDiagram } from './CaseArchitectureDiagram'
-import { MelitaCaseStudy } from './MelitaCaseStudy'
-import { ProcessAutomationCaseStudy } from './ProcessAutomationCaseStudy'
-import { ItalianLearningCaseStudy } from './ItalianLearningCaseStudy'
+import type { Project, SiteContent } from '../../types'
+import { ProcessAutomationCaseStudy } from './automation/ProcessAutomationCaseStudy'
+import { ItalianLearningCaseStudy } from './italian-learning/ItalianLearningCaseStudy'
+import { MelitaCaseStudy } from './melita/MelitaCaseStudy'
+import { CaseArchitectureDiagram } from './salesforce/CaseArchitectureDiagram'
 
 export function ProjectCaseStudy({ project, text }: { project: Project; text: SiteContent }) {
   if (project.slug === 'melita-ai-agent') {

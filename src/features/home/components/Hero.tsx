@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import type { SiteContent } from '../types'
+import type { SiteContent } from '../../../types'
 import { ArchitectureVisual } from './ArchitectureVisual'
 
 export function Hero({ text }: { text: SiteContent }) {

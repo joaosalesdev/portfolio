@@ -1,4 +1,4 @@
-import type { SiteContent } from '../types'
+import type { SiteContent } from '../../types'
 
 export function Footer({ text }: { text: SiteContent }) {
   return (

@@ -1,4 +1,4 @@
-import type { SiteContent } from '../types'
+import type { SiteContent } from '../../../types'
 
 export function ContactSection({ text }: { text: SiteContent }) {
   return (

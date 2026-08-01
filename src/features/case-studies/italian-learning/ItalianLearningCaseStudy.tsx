@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import type { Project, SiteContent } from '../types'
-import { AiAgentPipeline } from './AiAgentPipeline'
+import type { Project, SiteContent } from '../../../types'
+import { WebApplicationArchitecture } from './WebApplicationArchitecture'
 
-export function MelitaCaseStudy({ project, text }: { project: Project; text: SiteContent }) {
+export function ItalianLearningCaseStudy({ project, text }: { project: Project; text: SiteContent }) {
   const introductionSections = [
     { title: text.projects.caseStudy.businessContext, content: project.caseStudy.businessContext },
     { title: text.projects.challenge, content: project.challenge },
@@ -14,7 +14,7 @@ export function MelitaCaseStudy({ project, text }: { project: Project; text: Sit
   ]
 
   return (
-    <main className="case-study melita-case-study">
+    <main className="case-study italian-learning-case-study">
       <section className="case-study-hero section">
         <Link className="back-link" to="/projects">← {text.projects.backToProjects}</Link>
         <p className="eyebrow">{text.projects.eyebrow}</p>
@@ -33,10 +33,13 @@ export function MelitaCaseStudy({ project, text }: { project: Project; text: Sit
 
       <section className="case-architecture section">
         <div className="case-section-heading">
-          <p className="eyebrow">{text.projects.caseStudy.aiPipeline}</p>
-          <h2>{text.projects.caseStudy.agentArchitecture}</h2>
+          <p className="eyebrow">{text.projects.caseStudy.architectureImage}</p>
+          <h2>{text.projects.caseStudy.applicationArchitecture}</h2>
         </div>
-        <AiAgentPipeline project={project} />
+        <WebApplicationArchitecture
+          project={project}
+          externalServicesLabel={text.projects.caseStudy.externalServices}
+        />
       </section>
 
       <section className="case-sections section">
@@ -45,7 +48,7 @@ export function MelitaCaseStudy({ project, text }: { project: Project; text: Sit
           <p>{project.caseStudy.responsibility}</p>
         </article>
         <article>
-          <h2>{text.projects.caseStudy.agentArchitecture}</h2>
+          <h2>{text.projects.caseStudy.applicationArchitecture}</h2>
           <p>{project.caseStudy.architecture}</p>
         </article>
       </section>
@@ -59,9 +62,9 @@ export function MelitaCaseStudy({ project, text }: { project: Project; text: Sit
 
       <section className="case-sections section">
         <article>
-          <h2>{text.projects.caseStudy.processingPipeline}</h2>
+          <h2>{text.projects.caseStudy.productJourney}</h2>
           <ol className="case-detail-list">
-            {project.caseStudy.requestFlow.map((step, index) => (
+            {project.caseStudy.userJourney?.map((step, index) => (
               <li key={`${step.name}-${index}`}>
                 <strong>{step.name}</strong> — {step.description}
               </li>

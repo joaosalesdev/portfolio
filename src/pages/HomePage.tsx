@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
-import { ContactSection } from '../components/ContactSection'
-import { ExperienceTimeline } from '../components/ExperienceTimeline'
-import { Hero } from '../components/Hero'
-import { ProjectCard } from '../components/ProjectCard'
-import { SpecialtyCard } from '../components/SpecialtyCard'
+import { ContactSection } from '../features/home/components/ContactSection'
+import { ExperienceTimeline } from '../features/home/components/ExperienceTimeline'
+import { Hero } from '../features/home/components/Hero'
+import { SpecialtyCard } from '../features/home/components/SpecialtyCard'
+import { ProjectCard } from '../features/projects/components/ProjectCard'
 import type { SiteContent } from '../types'
 
 export function HomePage({ text }: { text: SiteContent }) {

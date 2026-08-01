@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router-dom'
-import type { Language, SiteContent } from '../types'
+import type { Language, SiteContent } from '../../types'
 
 type HeaderProps = {
   language: Language
