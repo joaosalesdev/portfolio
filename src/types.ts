@@ -32,6 +32,8 @@ export type Project = {
     architecture: string
     architectureNodes?: ArchitectureNode[]
     requestFlow: RequestFlowStep[]
+    recoveryFlow?: RequestFlowStep[]
+    reliability?: string
     challenges: string[]
     decisions: string[]
     result: string
@@ -83,6 +85,10 @@ export type SiteContent = {
       aiPipeline: string
       agentArchitecture: string
       processingPipeline: string
+      processFlow: string
+      executionCycle: string
+      reliabilityRecovery: string
+      recoveryPath: string
       responsibility: string
       requestFlow: string
       decisions: string
