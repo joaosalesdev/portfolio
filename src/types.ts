@@ -11,6 +11,12 @@ export type RequestFlowStep = {
   description: string
 }
 
+export type ArchitectureNode = {
+  name: string
+  detail: string
+  type: 'external' | 'dlq'
+}
+
 export type Project = {
   slug: string
   title: string
@@ -24,10 +30,12 @@ export type Project = {
     businessContext: string
     responsibility: string
     architecture: string
+    architectureNodes?: ArchitectureNode[]
     requestFlow: RequestFlowStep[]
     challenges: string[]
     decisions: string[]
     result: string
+    resultBenefits: string[]
     skills: string[]
   }
 }

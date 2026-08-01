@@ -907,6 +907,10 @@ p {
   padding-top: clamp(3rem, 6vw, 5rem);
 }
 
+.case-study > .section:not(.case-study-hero) {
+  padding-block: clamp(3.5rem, 6vw, 5rem);
+}
+
 .back-link {
   margin-bottom: 4rem;
   color: var(--muted);
@@ -921,7 +925,7 @@ p {
 }
 
 .case-architecture {
-  padding-top: 0;
+  padding-top: clamp(3.5rem, 6vw, 5rem);
 }
 
 .case-architecture-diagram {
@@ -986,6 +990,52 @@ p {
   line-height: 1.45;
 }
 
+.case-architecture-diagram.has-supporting-nodes ol {
+  min-height: 270px;
+  padding-bottom: 2rem;
+}
+
+.case-diagram-supporting-nodes {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(130px, 1fr));
+  gap: 1rem;
+  max-width: 420px;
+  margin: -1rem auto 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.case-diagram-supporting-nodes li {
+  min-height: 72px;
+  border-color: rgba(144, 128, 248, 0.5);
+  background: linear-gradient(145deg, rgba(17, 36, 60, 0.96), rgba(12, 26, 45, 0.98));
+}
+
+.case-diagram-supporting-nodes li::before {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  height: 1rem;
+  border-left: 1px dashed var(--accent-secondary);
+  content: "";
+}
+
+.case-diagram-supporting-nodes li::after {
+  content: none !important;
+}
+
+.case-diagram-supporting-nodes small {
+  margin-top: 0.3rem;
+  color: var(--muted);
+  font-size: 0.65rem;
+  line-height: 1.35;
+}
+
+.case-diagram-supporting-nodes .supporting-node-dlq {
+  border-style: dashed;
+}
+
 .case-technologies {
   display: grid;
   grid-template-columns: minmax(180px, 0.5fr) 1.5fr;
@@ -1018,6 +1068,10 @@ p {
   border-top: 1px solid var(--border);
 }
 
+.case-sections > article:first-child {
+  border-top: 0;
+}
+
 .case-sections h2 {
   font-size: clamp(1.5rem, 2.3vw, 2.1rem);
 }
@@ -1043,6 +1097,38 @@ p {
 
 .case-detail-list li strong {
   color: var(--text);
+}
+
+.case-result-summary {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 700px;
+}
+
+.case-result-summary > p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.case-result-summary ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0;
+  padding: 1px;
+  background: var(--border);
+  list-style: none;
+}
+
+.case-result-summary li {
+  min-height: 82px;
+  padding: 1rem;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.45;
 }
 
 .case-skills ul {
@@ -1183,6 +1269,10 @@ footer {
     height: 2rem;
     border-top: 0;
     border-left: 1px dashed var(--accent);
+  }
+
+  .case-result-summary ul {
+    grid-template-columns: 1fr;
   }
 
   footer {

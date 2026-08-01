@@ -81,7 +81,14 @@ export function ProjectCaseStudy({ project, text }: { project: Project; text: Si
         ))}
         <article>
           <h2>{text.projects.caseStudy.results}</h2>
-          <p>{project.caseStudy.result}</p>
+          <div className="case-result-summary">
+            <p>{project.caseStudy.result}</p>
+            <ul>
+              {project.caseStudy.resultBenefits.map((benefit) => (
+                <li key={benefit}>{benefit}</li>
+              ))}
+            </ul>
+          </div>
         </article>
       </section>
 
