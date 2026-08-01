@@ -26,8 +26,8 @@ export function ProjectCard({
           <div className="project-flow-grid" aria-hidden="true" />
           <ol>
             {project.caseStudy.requestFlow.map((step, index) => (
-              <li key={`${step}-${index}`}>
-                <strong>{step}</strong>
+              <li key={`${step.name}-${index}`}>
+                <strong>{step.name}</strong>
               </li>
             ))}
           </ol>

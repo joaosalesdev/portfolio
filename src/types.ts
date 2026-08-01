@@ -6,6 +6,11 @@ export type Specialty = {
   icon: 'backend' | 'cloud' | 'systems'
 }
 
+export type RequestFlowStep = {
+  name: string
+  description: string
+}
+
 export type Project = {
   slug: string
   title: string
@@ -16,9 +21,10 @@ export type Project = {
   image?: string
   imageAlt: string
   caseStudy: {
+    businessContext: string
     responsibility: string
     architecture: string
-    requestFlow: string[]
+    requestFlow: RequestFlowStep[]
     challenges: string[]
     decisions: string[]
     result: string
@@ -63,6 +69,7 @@ export type SiteContent = {
     solution: string
     stack: string
     caseStudy: {
+      businessContext: string
       architectureImage: string
       architecture: string
       responsibility: string

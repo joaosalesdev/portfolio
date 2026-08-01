@@ -3,14 +3,17 @@ import type { Project, SiteContent } from '../types'
 import { CaseArchitectureDiagram } from './CaseArchitectureDiagram'
 
 export function ProjectCaseStudy({ project, text }: { project: Project; text: SiteContent }) {
-  const sections = [
+  const introductionSections = [
+    { title: text.projects.caseStudy.businessContext, content: project.caseStudy.businessContext },
     { title: text.projects.challenge, content: project.challenge },
+  ]
+
+  const detailSections = [
     { title: text.projects.caseStudy.responsibility, content: project.caseStudy.responsibility },
     { title: text.projects.caseStudy.architecture, content: project.caseStudy.architecture },
   ]
 
   const listSections = [
-    { title: text.projects.caseStudy.requestFlow, items: project.caseStudy.requestFlow, ordered: true },
     { title: text.projects.caseStudy.challenges, items: project.caseStudy.challenges },
     { title: text.projects.caseStudy.decisions, items: project.caseStudy.decisions },
   ]
@@ -24,12 +27,30 @@ export function ProjectCaseStudy({ project, text }: { project: Project; text: Si
         <p className="hero-description">{project.summary}</p>
       </section>
 
+      <section className="case-sections section">
+        {introductionSections.map((section) => (
+          <article key={section.title}>
+            <h2>{section.title}</h2>
+            <p>{section.content}</p>
+          </article>
+        ))}
+      </section>
+
       <section className="case-architecture section">
         <div className="case-section-heading">
           <p className="eyebrow">{text.projects.caseStudy.architectureImage}</p>
           <h2>{text.projects.caseStudy.architecture}</h2>
         </div>
         <CaseArchitectureDiagram project={project} />
+      </section>
+
+      <section className="case-sections section">
+        {detailSections.map((section) => (
+          <article key={section.title}>
+            <h2>{section.title}</h2>
+            <p>{section.content}</p>
+          </article>
+        ))}
       </section>
 
       <section className="case-technologies section">
@@ -40,24 +61,22 @@ export function ProjectCaseStudy({ project, text }: { project: Project; text: Si
       </section>
 
       <section className="case-sections section">
-        {sections.map((section) => (
-          <article key={section.title}>
-            <h2>{section.title}</h2>
-            <p>{section.content}</p>
-          </article>
-        ))}
+        <article>
+          <h2>{text.projects.caseStudy.requestFlow}</h2>
+          <ol className="case-detail-list">
+            {project.caseStudy.requestFlow.map((step, index) => (
+              <li key={`${step.name}-${index}`}>
+                <strong>{step.name}</strong> — {step.description}
+              </li>
+            ))}
+          </ol>
+        </article>
         {listSections.map((section) => (
           <article key={section.title}>
             <h2>{section.title}</h2>
-            {section.ordered ? (
-              <ol className="case-detail-list">
-                {section.items.map((item) => <li key={item}>{item}</li>)}
-              </ol>
-            ) : (
-              <ul className="case-detail-list">
-                {section.items.map((item) => <li key={item}>{item}</li>)}
-              </ul>
-            )}
+            <ul className="case-detail-list">
+              {section.items.map((item) => <li key={item}>{item}</li>)}
+            </ul>
           </article>
         ))}
         <article>
