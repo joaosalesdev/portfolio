@@ -1036,6 +1036,75 @@ p {
   border-style: dashed;
 }
 
+.ai-agent-pipeline {
+  position: relative;
+  min-height: 360px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(144, 128, 248, 0.09), transparent 36%),
+    var(--surface);
+}
+
+.ai-agent-pipeline ol {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: center;
+  min-height: 360px;
+  margin: 0;
+  padding: 2.5rem;
+  list-style: none;
+}
+
+.ai-pipeline-step {
+  position: relative;
+  display: grid;
+  align-content: start;
+  min-height: 150px;
+  padding: 1rem;
+  border: 1px solid rgba(154, 173, 200, 0.28);
+  background: linear-gradient(145deg, rgba(17, 36, 60, 0.96), rgba(12, 26, 45, 0.98));
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+}
+
+.ai-pipeline-step:not(:last-child)::after {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 1rem;
+  border-top: 1px dashed var(--accent-secondary);
+  content: "";
+}
+
+.ai-pipeline-step span {
+  margin-bottom: 1.25rem;
+  color: var(--accent-secondary);
+  font-family: monospace;
+  font-size: 0.68rem;
+}
+
+.ai-pipeline-step strong {
+  color: var(--text);
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
+.ai-pipeline-step small {
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font-size: 0.65rem;
+  line-height: 1.45;
+}
+
+.ai-pipeline-step-3,
+.ai-pipeline-step-4,
+.ai-pipeline-step-5 {
+  border-color: rgba(144, 128, 248, 0.55);
+  background: linear-gradient(145deg, rgba(144, 128, 248, 0.1), rgba(12, 26, 45, 0.98) 55%);
+}
+
 .case-technologies {
   display: grid;
   grid-template-columns: minmax(180px, 0.5fr) 1.5fr;
@@ -1275,6 +1344,30 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .ai-agent-pipeline,
+  .ai-agent-pipeline ol {
+    min-height: auto;
+  }
+
+  .ai-agent-pipeline ol {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .ai-pipeline-step {
+    min-height: 110px;
+  }
+
+  .ai-pipeline-step:not(:last-child)::after {
+    top: 100%;
+    left: 50%;
+    width: 0;
+    height: 2rem;
+    border-top: 0;
+    border-left: 1px dashed var(--accent-secondary);
+  }
+
   footer {
     margin-bottom: 64px;
   }
@@ -1508,6 +1601,39 @@ footer {
     height: 0;
     border-top: 1px dashed var(--accent);
     border-left: 0;
+  }
+
+  .ai-agent-pipeline,
+  .ai-agent-pipeline ol {
+    min-height: 210px;
+  }
+
+  .ai-agent-pipeline ol {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 0.65rem;
+    padding: 1rem;
+  }
+
+  .ai-pipeline-step {
+    min-height: 125px;
+    padding: 0.6rem;
+  }
+
+  .ai-pipeline-step:not(:last-child)::after {
+    top: 50%;
+    left: 100%;
+    width: 0.65rem;
+    height: 0;
+    border-top: 1px dashed var(--accent-secondary);
+    border-left: 0;
+  }
+
+  .ai-pipeline-step span {
+    margin-bottom: 0.65rem;
+  }
+
+  .ai-pipeline-step small {
+    font-size: 0.55rem;
   }
 
   .case-technologies {

@@ -1,21 +1,11 @@
 import { Link } from 'react-router-dom'
 import type { Project, SiteContent } from '../types'
-import { CaseArchitectureDiagram } from './CaseArchitectureDiagram'
-import { MelitaCaseStudy } from './MelitaCaseStudy'
+import { AiAgentPipeline } from './AiAgentPipeline'
 
-export function ProjectCaseStudy({ project, text }: { project: Project; text: SiteContent }) {
-  if (project.slug === 'melita-ai-agent') {
-    return <MelitaCaseStudy project={project} text={text} />
-  }
-
+export function MelitaCaseStudy({ project, text }: { project: Project; text: SiteContent }) {
   const introductionSections = [
     { title: text.projects.caseStudy.businessContext, content: project.caseStudy.businessContext },
     { title: text.projects.challenge, content: project.challenge },
-  ]
-
-  const detailSections = [
-    { title: text.projects.caseStudy.responsibility, content: project.caseStudy.responsibility },
-    { title: text.projects.caseStudy.architecture, content: project.caseStudy.architecture },
   ]
 
   const listSections = [
@@ -24,7 +14,7 @@ export function ProjectCaseStudy({ project, text }: { project: Project; text: Si
   ]
 
   return (
-    <main className="case-study">
+    <main className="case-study melita-case-study">
       <section className="case-study-hero section">
         <Link className="back-link" to="/projects">← {text.projects.backToProjects}</Link>
         <p className="eyebrow">{text.projects.eyebrow}</p>
@@ -43,19 +33,21 @@ export function ProjectCaseStudy({ project, text }: { project: Project; text: Si
 
       <section className="case-architecture section">
         <div className="case-section-heading">
-          <p className="eyebrow">{text.projects.caseStudy.architectureImage}</p>
-          <h2>{text.projects.caseStudy.architecture}</h2>
+          <p className="eyebrow">{text.projects.caseStudy.aiPipeline}</p>
+          <h2>{text.projects.caseStudy.agentArchitecture}</h2>
         </div>
-        <CaseArchitectureDiagram project={project} />
+        <AiAgentPipeline project={project} />
       </section>
 
       <section className="case-sections section">
-        {detailSections.map((section) => (
-          <article key={section.title}>
-            <h2>{section.title}</h2>
-            <p>{section.content}</p>
-          </article>
-        ))}
+        <article>
+          <h2>{text.projects.caseStudy.responsibility}</h2>
+          <p>{project.caseStudy.responsibility}</p>
+        </article>
+        <article>
+          <h2>{text.projects.caseStudy.agentArchitecture}</h2>
+          <p>{project.caseStudy.architecture}</p>
+        </article>
       </section>
 
       <section className="case-technologies section">
@@ -67,7 +59,7 @@ export function ProjectCaseStudy({ project, text }: { project: Project; text: Si
 
       <section className="case-sections section">
         <article>
-          <h2>{text.projects.caseStudy.requestFlow}</h2>
+          <h2>{text.projects.caseStudy.processingPipeline}</h2>
           <ol className="case-detail-list">
             {project.caseStudy.requestFlow.map((step, index) => (
               <li key={`${step.name}-${index}`}>
@@ -89,9 +81,7 @@ export function ProjectCaseStudy({ project, text }: { project: Project; text: Si
           <div className="case-result-summary">
             <p>{project.caseStudy.result}</p>
             <ul>
-              {project.caseStudy.resultBenefits.map((benefit) => (
-                <li key={benefit}>{benefit}</li>
-              ))}
+              {project.caseStudy.resultBenefits.map((benefit) => <li key={benefit}>{benefit}</li>)}
             </ul>
           </div>
         </article>
