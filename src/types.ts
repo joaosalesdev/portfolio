@@ -34,6 +34,8 @@ export type Project = {
     requestFlow: RequestFlowStep[]
     recoveryFlow?: RequestFlowStep[]
     reliability?: string
+    externalIntegrations?: RequestFlowStep[]
+    userJourney?: RequestFlowStep[]
     challenges: string[]
     decisions: string[]
     result: string
@@ -89,6 +91,9 @@ export type SiteContent = {
       executionCycle: string
       reliabilityRecovery: string
       recoveryPath: string
+      applicationArchitecture: string
+      productJourney: string
+      externalServices: string
       responsibility: string
       requestFlow: string
       decisions: string
