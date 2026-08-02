@@ -1649,23 +1649,42 @@ footer {
   }
 
   .architecture-visual {
-    aspect-ratio: 1 / 1;
-  }
-
-  .architecture-lines {
-    display: none;
+    aspect-ratio: 4 / 3;
   }
 
   .architecture-node {
-    width: 96px;
+    width: 20%;
+    min-width: 0;
+    padding: clamp(0.35rem, 2vw, 0.55rem);
   }
 
-  .node-client { top: 31%; left: 5%; }
-  .node-api-gateway { top: 56%; left: 5%; }
-  .node-lambda { top: 4%; right: 5%; }
-  .node-sqs { top: 28%; right: 5%; }
-  .node-docker { top: 52%; right: 5%; }
-  .node-external-api { top: 76%; right: 5%; }
+  .architecture-node strong {
+    overflow: hidden;
+    font-size: clamp(0.48rem, 2.25vw, 0.68rem);
+    line-height: 1.2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .architecture-node small {
+    overflow: hidden;
+    font-size: clamp(0.42rem, 1.8vw, 0.58rem);
+    line-height: 1.25;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .node-status {
+    width: 5px;
+    height: 5px;
+    margin: 0.18rem clamp(0.2rem, 1.2vw, 0.4rem) 0 0;
+  }
+
+  .architecture-caption {
+    bottom: 0.55rem;
+    left: 0.65rem;
+    font-size: clamp(0.52rem, 2vw, 0.68rem);
+  }
 
   .contact-links {
     grid-template-columns: 1fr;
