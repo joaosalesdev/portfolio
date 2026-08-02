@@ -113,7 +113,7 @@ export type SiteContent = {
     journeyTitle: string
     journey: string[]
     principlesLabel: string
-    principles: string[][]
+    principles: string[]
     goalsLabel: string
     goalsTitle: string
     goals: string
