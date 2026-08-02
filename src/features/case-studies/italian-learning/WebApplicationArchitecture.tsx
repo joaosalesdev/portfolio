@@ -15,6 +15,9 @@ export function WebApplicationArchitecture({
           <li key={`${step.name}-${index}`}>
             <span>{String(index + 1).padStart(2, '0')}</span>
             <strong>{step.name}</strong>
+            {step.technologies?.length ? (
+              <small className="web-architecture-technologies">{step.technologies.join(' • ')}</small>
+            ) : null}
             <small>{step.description}</small>
           </li>
         ))}
@@ -26,6 +29,9 @@ export function WebApplicationArchitecture({
             {project.caseStudy.externalIntegrations.map((service) => (
               <li key={service.name}>
                 <strong>{service.name}</strong>
+                {service.technologies?.length ? (
+                  <small className="web-architecture-technologies">{service.technologies.join(' • ')}</small>
+                ) : null}
                 <small>{service.description}</small>
               </li>
             ))}

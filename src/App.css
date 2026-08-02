@@ -1272,6 +1272,15 @@ p {
   line-height: 1.45;
 }
 
+.web-architecture-main-flow .web-architecture-technologies,
+.web-external-services .web-architecture-technologies {
+  margin-top: 0.3rem;
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
 .web-external-services {
   padding: 1.25rem 3rem 3rem;
   border-top: 1px dashed rgba(144, 128, 248, 0.35);

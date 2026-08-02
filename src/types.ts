@@ -8,6 +8,7 @@ export type Specialty = {
 
 export type RequestFlowStep = {
   name: string
+  technologies?: string[]
   description: string
 }
 
