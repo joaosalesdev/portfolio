@@ -84,6 +84,7 @@ export type SiteContent = {
       businessContext: string
       architectureImage: string
       architecture: string
+      applicationFunctioning: string
       aiPipeline: string
       agentArchitecture: string
       processingPipeline: string

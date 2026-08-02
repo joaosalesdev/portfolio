@@ -45,7 +45,7 @@ export function MelitaCaseStudy({ project, text }: { project: Project; text: Sit
           <p>{project.caseStudy.responsibility}</p>
         </article>
         <article>
-          <h2>{text.projects.caseStudy.agentArchitecture}</h2>
+          <h2>{text.projects.caseStudy.applicationFunctioning}</h2>
           <p>{project.caseStudy.architecture}</p>
         </article>
       </section>

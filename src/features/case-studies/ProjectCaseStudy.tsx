@@ -25,7 +25,7 @@ export function ProjectCaseStudy({ project, text }: { project: Project; text: Si
 
   const detailSections = [
     { title: text.projects.caseStudy.responsibility, content: project.caseStudy.responsibility },
-    { title: text.projects.caseStudy.architecture, content: project.caseStudy.architecture },
+    { title: text.projects.caseStudy.applicationFunctioning, content: project.caseStudy.architecture },
   ]
 
   const listSections = [

@@ -45,7 +45,7 @@ export function ProcessAutomationCaseStudy({ project, text }: { project: Project
           <p>{project.caseStudy.responsibility}</p>
         </article>
         <article>
-          <h2>{text.projects.caseStudy.architecture}</h2>
+          <h2>{text.projects.caseStudy.applicationFunctioning}</h2>
           <p>{project.caseStudy.architecture}</p>
         </article>
       </section>
