@@ -33,7 +33,7 @@ export function ItalianLearningCaseStudy({ project, text }: { project: Project; 
 
       <section className="case-architecture section">
         <div className="case-section-heading">
-          <p className="eyebrow">{text.projects.caseStudy.architectureImage}</p>
+          <p className="eyebrow">{text.projects.caseStudy.systemOverview}</p>
           <h2>{text.projects.caseStudy.applicationArchitecture}</h2>
         </div>
         <WebApplicationArchitecture
@@ -48,8 +48,8 @@ export function ItalianLearningCaseStudy({ project, text }: { project: Project; 
           <p>{project.caseStudy.responsibility}</p>
         </article>
         <article>
-          <h2>{text.projects.caseStudy.applicationFunctioning}</h2>
-          <p>{project.caseStudy.architecture}</p>
+          <h2>{text.projects.caseStudy.solutionOperation}</h2>
+          <p>{project.caseStudy.solutionOperation}</p>
         </article>
       </section>
 
@@ -64,7 +64,7 @@ export function ItalianLearningCaseStudy({ project, text }: { project: Project; 
         <article>
           <h2>{text.projects.caseStudy.productJourney}</h2>
           <ol className="case-detail-list">
-            {project.caseStudy.userJourney?.map((step, index) => (
+            {project.caseStudy.productJourney?.map((step, index) => (
               <li key={`${step.name}-${index}`}>
                 <strong>{step.name}</strong> — {step.description}
               </li>
@@ -82,9 +82,9 @@ export function ItalianLearningCaseStudy({ project, text }: { project: Project; 
         <article>
           <h2>{text.projects.caseStudy.results}</h2>
           <div className="case-result-summary">
-            <p>{project.caseStudy.result}</p>
+            <p>{project.caseStudy.outcome}</p>
             <ul>
-              {project.caseStudy.resultBenefits.map((benefit) => <li key={benefit}>{benefit}</li>)}
+              {project.caseStudy.benefits.map((benefit) => <li key={benefit}>{benefit}</li>)}
             </ul>
           </div>
         </article>

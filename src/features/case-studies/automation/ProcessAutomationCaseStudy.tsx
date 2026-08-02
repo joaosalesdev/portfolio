@@ -45,8 +45,8 @@ export function ProcessAutomationCaseStudy({ project, text }: { project: Project
           <p>{project.caseStudy.responsibility}</p>
         </article>
         <article>
-          <h2>{text.projects.caseStudy.applicationFunctioning}</h2>
-          <p>{project.caseStudy.architecture}</p>
+          <h2>{text.projects.caseStudy.solutionOperation}</h2>
+          <p>{project.caseStudy.solutionOperation}</p>
         </article>
       </section>
 
@@ -92,9 +92,9 @@ export function ProcessAutomationCaseStudy({ project, text }: { project: Project
         <article>
           <h2>{text.projects.caseStudy.results}</h2>
           <div className="case-result-summary">
-            <p>{project.caseStudy.result}</p>
+            <p>{project.caseStudy.outcome}</p>
             <ul>
-              {project.caseStudy.resultBenefits.map((benefit) => <li key={benefit}>{benefit}</li>)}
+              {project.caseStudy.benefits.map((benefit) => <li key={benefit}>{benefit}</li>)}
             </ul>
           </div>
         </article>

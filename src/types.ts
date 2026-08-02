@@ -30,17 +30,17 @@ export type Project = {
   caseStudy: {
     businessContext: string
     responsibility: string
-    architecture: string
-    architectureNodes?: ArchitectureNode[]
+    solutionOperation: string
+    supportingNodes?: ArchitectureNode[]
     requestFlow: RequestFlowStep[]
     recoveryFlow?: RequestFlowStep[]
     reliability?: string
-    externalIntegrations?: RequestFlowStep[]
-    userJourney?: RequestFlowStep[]
+    externalServices?: RequestFlowStep[]
+    productJourney?: RequestFlowStep[]
     challenges: string[]
     decisions: string[]
-    result: string
-    resultBenefits: string[]
+    outcome: string
+    benefits: string[]
     skills: string[]
   }
 }
@@ -83,9 +83,9 @@ export type SiteContent = {
     stack: string
     caseStudy: {
       businessContext: string
-      architectureImage: string
+      systemOverview: string
       architecture: string
-      applicationFunctioning: string
+      solutionOperation: string
       aiPipeline: string
       agentArchitecture: string
       processingPipeline: string

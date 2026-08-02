@@ -25,7 +25,7 @@ export function ProjectCaseStudy({ project, text }: { project: Project; text: Si
 
   const detailSections = [
     { title: text.projects.caseStudy.responsibility, content: project.caseStudy.responsibility },
-    { title: text.projects.caseStudy.applicationFunctioning, content: project.caseStudy.architecture },
+    { title: text.projects.caseStudy.solutionOperation, content: project.caseStudy.solutionOperation },
   ]
 
   const listSections = [
@@ -53,7 +53,7 @@ export function ProjectCaseStudy({ project, text }: { project: Project; text: Si
 
       <section className="case-architecture section">
         <div className="case-section-heading">
-          <p className="eyebrow">{text.projects.caseStudy.architectureImage}</p>
+          <p className="eyebrow">{text.projects.caseStudy.systemOverview}</p>
           <h2>{text.projects.caseStudy.architecture}</h2>
         </div>
         <CaseArchitectureDiagram project={project} />
@@ -97,9 +97,9 @@ export function ProjectCaseStudy({ project, text }: { project: Project; text: Si
         <article>
           <h2>{text.projects.caseStudy.results}</h2>
           <div className="case-result-summary">
-            <p>{project.caseStudy.result}</p>
+            <p>{project.caseStudy.outcome}</p>
             <ul>
-              {project.caseStudy.resultBenefits.map((benefit) => (
+              {project.caseStudy.benefits.map((benefit) => (
                 <li key={benefit}>{benefit}</li>
               ))}
             </ul>

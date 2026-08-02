@@ -22,11 +22,11 @@ export function WebApplicationArchitecture({
           </li>
         ))}
       </ol>
-      {project.caseStudy.externalIntegrations?.length ? (
+      {project.caseStudy.externalServices?.length ? (
         <div className="web-external-services">
           <p>{externalServicesLabel}</p>
           <ul>
-            {project.caseStudy.externalIntegrations.map((service) => (
+            {project.caseStudy.externalServices.map((service) => (
               <li key={service.name}>
                 <strong>{service.name}</strong>
                 {service.technologies?.length ? (

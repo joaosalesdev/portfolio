@@ -72,9 +72,9 @@ export const content: Record<Language, SiteContent> = {
       stack: 'Tecnologias',
       caseStudy: {
         businessContext: 'Contexto do negócio',
-        architectureImage: 'Visão do sistema',
+        systemOverview: 'Visão do sistema',
         architecture: 'Arquitetura',
-        applicationFunctioning: 'Funcionamento da solução',
+        solutionOperation: 'Funcionamento da solução',
         aiPipeline: 'Pipeline de IA',
         agentArchitecture: 'Arquitetura do agente',
         processingPipeline: 'Pipeline de processamento',
@@ -104,8 +104,8 @@ export const content: Record<Language, SiteContent> = {
           caseStudy: {
             businessContext: 'As informações necessárias para o processo comercial estavam distribuídas entre o Salesforce e serviços externos, exigindo uma integração confiável para sincronizar dados e reduzir atividades manuais.',
             responsibility: 'Desenhei e implementei o fluxo de integração, defini o mapeamento dos dados e organizei o tratamento de falhas para tornar a sincronização observável e segura.',
-            architecture: 'A solução desacopla a origem dos dados da camada de integração, permitindo que cada sistema evolua de forma independente enquanto aumenta a resiliência e a observabilidade do processo.',
-            architectureNodes: [
+            solutionOperation: 'A solução desacopla a origem dos dados da camada de integração, permitindo que cada sistema evolua de forma independente enquanto aumenta a resiliência e a observabilidade do processo.',
+            supportingNodes: [
               { name: 'External System', detail: 'Serviço externo de consulta', type: 'external' },
               { name: 'Dead Letter Queue (DLQ)', detail: 'Falhas do Amazon SQS', type: 'dlq' },
             ],
@@ -118,8 +118,8 @@ export const content: Record<Language, SiteContent> = {
             ],
             challenges: ['Conciliar modelos de dados diferentes', 'Evitar registros duplicados durante reprocessamentos', 'Rastrear falhas sem interromper todo o fluxo'],
             decisions: ['Centralizar transformações para evitar regras duplicadas entre sistemas.', 'Usar identificadores externos para garantir idempotência em reprocessamentos.', 'Registrar contexto da execução para facilitar auditoria e troubleshooting.'],
-            result: 'O fluxo reduziu tarefas manuais, aumentou a consistência das informações comerciais e criou uma base mais confiável para evoluir novas integrações.',
-            resultBenefits: ['Redução de trabalho manual', 'Maior desacoplamento entre sistemas', 'Melhor confiabilidade', 'Base preparada para novas integrações'],
+            outcome: 'O fluxo reduziu tarefas manuais, aumentou a consistência das informações comerciais e criou uma base mais confiável para evoluir novas integrações.',
+            benefits: ['Redução de trabalho manual', 'Maior desacoplamento entre sistemas', 'Melhor confiabilidade', 'Base preparada para novas integrações'],
             skills: ['Integração de sistemas', 'Design de APIs', 'Modelagem de dados', 'Observabilidade', 'Serverless Architecture', 'Event-Driven Architecture'],
           },
         },
@@ -134,7 +134,7 @@ export const content: Record<Language, SiteContent> = {
           caseStudy: {
             businessContext: 'O objetivo foi desenvolver uma aplicação capaz de receber mensagens pelo Telegram, interpretar a intenção do utilizador e automatizar a criação de conteúdo para LinkedIn através de modelos de linguagem, mantendo uma arquitetura modular, escalável e preparada para evolução contínua.',
             responsibility: 'Fui responsável pelo desenho da arquitetura, implementação do backend em Python, integração com OpenAI, Telegram e LinkedIn, organização do fluxo de processamento, testes automatizados, pipeline de CI/CD e deploy da aplicação em ambiente serverless na AWS.',
-            architecture: 'A aplicação recebe eventos enviados pelo Telegram, processa mensagens de texto ou áudio, recupera o contexto recente da conversa e encaminha uma solicitação estruturada ao agente baseado em LangChain. Após classificar a intenção, o fluxo responde diretamente ao utilizador ou gera texto e imagem para publicação automática no LinkedIn.',
+            solutionOperation: 'A aplicação recebe eventos enviados pelo Telegram, processa mensagens de texto ou áudio, recupera o contexto recente da conversa e encaminha uma solicitação estruturada ao agente baseado em LangChain. Após classificar a intenção, o fluxo responde diretamente ao utilizador ou gera texto e imagem para publicação automática no LinkedIn.',
             requestFlow: [
               { name: 'Telegram', description: 'Envia mensagens de texto ou áudio para a aplicação.',},
               { name: 'AWS Lambda', description: 'Recebe o webhook, interpreta a requisição e inicia o fluxo serverless.',},
@@ -145,8 +145,8 @@ export const content: Record<Language, SiteContent> = {
             ],
             challenges: ['Integrar múltiplas APIs externas mantendo baixo acoplamento.', 'Preservar contexto conversacional com consumo controlado de tokens.', 'Executar todo o fluxo em arquitetura serverless mantendo baixa latência.'],
             decisions: ['Separação entre agente, casos de uso e integrações externas.', 'Utilização de imagens Docker para execução da AWS Lambda.', 'Isolamento dos clientes OpenAI, Telegram e LinkedIn para aumentar testabilidade e facilitar evolução.'],
-            result: 'O projeto resultou em uma aplicação serverless executada na AWS capaz de processar mensagens, transcrever áudio, gerar conteúdo utilizando LLMs e automatizar publicações no LinkedIn. A arquitetura modular, os testes automatizados e o pipeline de CI/CD tornam a solução mais simples de evoluir, manter e expandir.',
-            resultBenefits: ['Arquitetura modular e desacoplada', 'Automação completa do fluxo de conteúdo', 'Deploy automatizado na AWS', 'Base preparada para evolução e testes'],
+            outcome: 'O projeto resultou em uma aplicação serverless executada na AWS capaz de processar mensagens, transcrever áudio, gerar conteúdo utilizando LLMs e automatizar publicações no LinkedIn. A arquitetura modular, os testes automatizados e o pipeline de CI/CD tornam a solução mais simples de evoluir, manter e expandir.',
+            benefits: ['Arquitetura modular e desacoplada', 'Automação completa do fluxo de conteúdo', 'Deploy automatizado na AWS', 'Base preparada para evolução e testes'],
             skills: ['Backend Engineering', 'Cloud Engineering (AWS)', 'Serverless Architecture', 'API Integration', 'CI/CD & Automated Testing', 'LLM Integration'],
           },
         },
@@ -161,7 +161,7 @@ export const content: Record<Language, SiteContent> = {
           caseStudy: {
             businessContext: 'A operação dependia de processos manuais para integrar sistemas, coletar informações e processar dados. Essas atividades consumiam tempo da equipa de suporte, dificultavam a escalabilidade e aumentavam o risco de erros operacionais.',
             responsibility: 'Desenvolvi as automações em Python, projetei os workflows executados na AWS e implementei mecanismos de validação, tratamento de falhas, observabilidade e reprocessamento para garantir execuções confiáveis em produção.',
-            architecture: 'A arquitetura orientada a eventos coordena a execução das automações através de workflows desacoplados, permitindo processamento assíncrono, recuperação de falhas e evolução independente das etapas.',
+            solutionOperation: 'A arquitetura orientada a eventos coordena a execução das automações através de workflows desacoplados, permitindo processamento assíncrono, recuperação de falhas e evolução independente das etapas.',
             requestFlow: [
               { name: 'Scheduler', description: 'Inicia a automação no horário ou evento configurado.' },
               { name: 'Workflow', description: 'Orquestra as etapas, mantém o estado e controla as falhas.' },
@@ -176,8 +176,8 @@ export const content: Record<Language, SiteContent> = {
             reliability: 'Cada execução mantém seu estado e contexto para permitir rastreabilidade completa. Falhas temporárias utilizam políticas de retry; quando a recuperação automática não é possível, o workflow preserva informações suficientes para análise e reprocessamento seguro.',
             challenges: ['Processar volumes variáveis sem intervenção manual', 'Lidar com falhas temporárias de serviços externos', 'Manter cada execução rastreável','Garantir execuções idempotentes e rastreáveis.'],
             decisions: ['Adotar processamento assíncrono orientado a eventos', 'Dividir o processamento em etapas independentes e desacopladas.', 'Aplicar retentativas controladas e estados explícitos de falha'],
-            result: 'As automações reduziram significativamente o trabalho manual da equipa, aumentaram a previsibilidade das execuções e permitiram escalar o processamento sem crescimento proporcional do esforço operacional.',
-            resultBenefits: ['Redução do esforço operacional', 'Processamento escalável', 'Maior confiabilidade das execuções', 'Recuperação automática de falhas'],
+            outcome: 'As automações reduziram significativamente o trabalho manual da equipa, aumentaram a previsibilidade das execuções e permitiram escalar o processamento sem crescimento proporcional do esforço operacional.',
+            benefits: ['Redução do esforço operacional', 'Processamento escalável', 'Maior confiabilidade das execuções', 'Recuperação automática de falhas'],
             skills: ['Python', 'Serverless Workflows', 'Automation', 'Data Processing', 'Event-Driven Architecture', 'Reliability Engineering'],
           },
         },
@@ -192,20 +192,20 @@ export const content: Record<Language, SiteContent> = {
           caseStudy: {
             businessContext: 'A escola pretendia escalar a operação digital através de uma plataforma própria, reduzindo processos manuais, centralizando a gestão de alunos e disponibilizando uma experiência moderna de aprendizagem acessível em qualquer dispositivo.',
             responsibility: 'Fui responsável pelo desenvolvimento completo da solução, desde a definição da arquitetura até à disponibilização em produção. Implementei frontend, backend, APIs REST, modelação da base de dados, integrações externas, pagamentos, funcionalidades educacionais e módulos baseados em Inteligência Artificial.',
-            architecture: 'A aplicação segue uma arquitetura desacoplada. O frontend comunica exclusivamente através de APIs REST responsáveis pela autenticação, gestão académica, pagamentos e progresso do estudante. Serviços externos processam pagamentos e funcionalidades de Inteligência Artificial mantendo a aplicação principal focada nas regras de negócio.',
+            solutionOperation: 'A aplicação segue uma arquitetura desacoplada. O frontend comunica exclusivamente através de APIs REST responsáveis pela autenticação, gestão académica, pagamentos e progresso do estudante. Serviços externos processam pagamentos e funcionalidades de Inteligência Artificial mantendo a aplicação principal focada nas regras de negócio.',
             requestFlow: [
               { name: 'User', description: 'Inicia autenticação, aprendizagem, pagamentos ou consulta do progresso.' },
               { name: 'Frontend', technologies: ['HTML5', 'JavaScript', 'jQuery', 'AJAX'], description: 'Apresenta a interface da plataforma e comunica com o backend através de APIs REST.' },
               { name: 'Backend', technologies: ['PHP', 'REST API'], description: 'Centraliza as regras de negócio, autenticação, gestão académica e a integração com serviços externos.' },
               { name: 'Database', technologies: ['MySQL'], description: 'Armazena utilizadores, cursos, progresso, pagamentos e restantes dados da plataforma.' },
             ],
-            externalIntegrations: [
+            externalServices: [
               { name: 'Stripe', technologies: ['Payments API'], description: 'Processa pagamentos, subscrições e eventos financeiros da plataforma.' },
               { name: 'OpenAI', technologies: ['OpenAI API'], description: 'Disponibiliza funcionalidades de IA generativa para apoio à aprendizagem e interação com o estudante.' },
               { name: 'PayPal', technologies: ['Payments API'], description: 'Disponibiliza um método alternativo de pagamento para utilizadores internacionais.' },
               { name: 'Google Cloud Speech', technologies: ['Speech-to-Text', 'Text-to-Speech'], description: 'Converte voz em texto e texto em voz para diversos idiomas em funcionalidades de aprendizagem.' },
             ],
-            userJourney: [
+            productJourney: [
               { name: 'Subscrição', description: 'O estudante escolhe um plano e ativa a subscrição.' },
               { name: 'Aprendizagem', description: 'Consome conteúdos e realiza atividades interativas.' },
               { name: 'Acompanhamento', description: 'Visualiza progresso, feedback e recomendações personalizadas.' },
@@ -213,8 +213,8 @@ export const content: Record<Language, SiteContent> = {
             ],
             challenges: ['Garantir uma boa experiência em smartphones e tablets.', 'Integrar o novo sistema com aplicações administrativas existentes.', 'Sincronizar pagamentos e gestão de assinaturas.', 'Criar atividades interativas mantendo boa usabilidade.', 'Incorporar funcionalidades de IA sem comprometer o fluxo de aprendizagem.'],
             decisions: ['Separação entre frontend e backend através de APIs REST.', 'Arquitetura modular para permitir evolução independente das funcionalidades.', 'Integração com sistemas legados evitando migrações de alto risco.', 'Utilização de serviços externos especializados para pagamentos.', 'Organização da aplicação para facilitar manutenção e crescimento futuro.'],
-            result: 'A plataforma foi disponibilizada em produção e utilizada comercialmente pela escola, permitindo centralizar o ensino online, gestão académica, pagamentos e acompanhamento do progresso dos estudantes numa única solução preparada para evolução contínua.',
-            resultBenefits: ['Experiência digital unificada', 'Gestão centralizada de alunos e cursos', 'Pagamentos e assinaturas automatizados', 'Arquitetura preparada para evolução contínua'],
+            outcome: 'A plataforma foi disponibilizada em produção e utilizada comercialmente pela escola, permitindo centralizar o ensino online, gestão académica, pagamentos e acompanhamento do progresso dos estudantes numa única solução preparada para evolução contínua.',
+            benefits: ['Experiência digital unificada', 'Gestão centralizada de alunos e cursos', 'Pagamentos e assinaturas automatizados', 'Arquitetura preparada para evolução contínua'],
             skills: ['Arquitetura Full Stack', 'Design de APIs REST', 'Integração de Sistemas', 'Payment Integration', 'Modelação Relacional', 'Desenvolvimento SaaS'],
           },
         },
@@ -311,9 +311,9 @@ export const content: Record<Language, SiteContent> = {
       stack: 'Technologies',
       caseStudy: {
         businessContext: 'Business context',
-        architectureImage: 'System overview',
+        systemOverview: 'System overview',
         architecture: 'Architecture',
-        applicationFunctioning: 'How the application works',
+        solutionOperation: 'How the solution works',
         aiPipeline: 'AI pipeline',
         agentArchitecture: 'Agent architecture',
         processingPipeline: 'Processing pipeline',
@@ -343,8 +343,8 @@ export const content: Record<Language, SiteContent> = {
           caseStudy: {
             businessContext: 'The commercial operation depended on information distributed between Salesforce and external services, making data synchronization essential for reliable processes and reduced manual work.',
             responsibility: 'I designed and implemented the integration flow, defined data mappings, and organized failure handling to make synchronization observable and reliable.',
-            architecture: 'The solution decouples the data source from the integration layer, allowing each system to evolve independently while improving process resilience and observability.',
-            architectureNodes: [
+            solutionOperation: 'The solution decouples the data source from the integration layer, allowing each system to evolve independently while improving process resilience and observability.',
+            supportingNodes: [
               { name: 'External System', detail: 'External lookup service', type: 'external' },
               { name: 'Dead Letter Queue (DLQ)', detail: 'Amazon SQS failures', type: 'dlq' },
             ],
@@ -357,8 +357,8 @@ export const content: Record<Language, SiteContent> = {
             ],
             challenges: ['Reconcile different data models', 'Prevent duplicate records during reprocessing', 'Trace failures without stopping the entire flow'],
             decisions: ['Centralize transformations to avoid duplicating rules across systems.', 'Use external identifiers to guarantee idempotency during reprocessing.', 'Record execution context to simplify auditing and troubleshooting.'],
-            result: 'The flow reduced manual work, improved commercial data consistency, and established a reliable foundation for additional integrations.',
-            resultBenefits: ['Reduced manual work', 'Greater system decoupling', 'Improved reliability', 'Foundation for new integrations'],
+            outcome: 'The flow reduced manual work, improved commercial data consistency, and established a reliable foundation for additional integrations.',
+            benefits: ['Reduced manual work', 'Greater system decoupling', 'Improved reliability', 'Foundation for new integrations'],
             skills: ['Systems integration', 'API design', 'Data modeling', 'Observability', 'Serverless Architecture', 'Event-Driven Architecture'],
           },
         },
@@ -373,7 +373,7 @@ export const content: Record<Language, SiteContent> = {
           caseStudy: {
             businessContext: 'The goal was to develop an application capable of receiving messages through Telegram, interpreting the user’s intent, and automating LinkedIn content creation with language models while maintaining a modular, scalable architecture prepared for continuous evolution.',
             responsibility: 'I was responsible for the architecture design, Python backend implementation, OpenAI, Telegram, and LinkedIn integrations, processing workflow organization, automated tests, CI/CD pipeline, and deployment of the application in a serverless AWS environment.',
-            architecture: 'The application receives events sent by Telegram, processes text or audio messages, retrieves the recent conversation context, and forwards a structured request to the LangChain-based agent. After classifying the intent, the workflow either responds directly to the user or generates text and an image for automatic publication on LinkedIn.',
+            solutionOperation: 'The application receives events sent by Telegram, processes text or audio messages, retrieves the recent conversation context, and forwards a structured request to the LangChain-based agent. After classifying the intent, the workflow either responds directly to the user or generates text and an image for automatic publication on LinkedIn.',
             requestFlow: [
               { name: 'Telegram', description: 'Sends text or audio messages to the application.' },
               { name: 'AWS Lambda', description: 'Receives the webhook, interprets the request, and starts the serverless workflow.' },
@@ -384,8 +384,8 @@ export const content: Record<Language, SiteContent> = {
             ],
             challenges: ['Integrate multiple external APIs while maintaining low coupling.', 'Preserve conversational context with controlled token consumption.', 'Run the entire workflow on a serverless architecture while maintaining low latency.'],
             decisions: ['Separate the agent, use cases, and external integrations.', 'Use Docker images to run the AWS Lambda function.', 'Isolate the OpenAI, Telegram, and LinkedIn clients to improve testability and simplify future evolution.'],
-            result: 'The project resulted in a serverless application running on AWS that can process messages, transcribe audio, generate content using LLMs, and automate LinkedIn posts. Its modular architecture, automated tests, and CI/CD pipeline make the solution easier to evolve, maintain, and expand.',
-            resultBenefits: ['Modular and decoupled architecture', 'Complete content workflow automation', 'Automated deployment on AWS', 'Foundation prepared for evolution and testing'],
+            outcome: 'The project resulted in a serverless application running on AWS that can process messages, transcribe audio, generate content using LLMs, and automate LinkedIn posts. Its modular architecture, automated tests, and CI/CD pipeline make the solution easier to evolve, maintain, and expand.',
+            benefits: ['Modular and decoupled architecture', 'Complete content workflow automation', 'Automated deployment on AWS', 'Foundation prepared for evolution and testing'],
             skills: ['Backend Engineering', 'Cloud Engineering (AWS)', 'Serverless Architecture', 'API Integration', 'CI/CD & Automated Testing', 'LLM Integration'],
           },
         },
@@ -400,7 +400,7 @@ export const content: Record<Language, SiteContent> = {
           caseStudy: {
             businessContext: 'The operation relied on manual processes to integrate systems, collect information, and process data. These activities consumed support team time, limited scalability, and increased the risk of operational errors.',
             responsibility: 'I developed the Python automations, designed the workflows running on AWS, and implemented validation, failure handling, observability, and reprocessing mechanisms to ensure reliable production execution.',
-            architecture: 'The event-driven architecture coordinates automation through decoupled workflows, enabling asynchronous processing, failure recovery, and the independent evolution of each step.',
+            solutionOperation: 'The event-driven architecture coordinates automation through decoupled workflows, enabling asynchronous processing, failure recovery, and the independent evolution of each step.',
             requestFlow: [
               { name: 'Scheduler', description: 'Starts the automation at the configured time or event.' },
               { name: 'Workflow', description: 'Orchestrates the steps, preserves state, and controls failures.' },
@@ -415,8 +415,8 @@ export const content: Record<Language, SiteContent> = {
             reliability: 'Each execution preserves its state and context for complete traceability. Temporary failures use retry policies; when automatic recovery is not possible, the workflow retains enough information for analysis and safe reprocessing.',
             challenges: ['Process variable workloads without manual intervention', 'Handle temporary failures in external services', 'Keep every execution traceable', 'Ensure executions are idempotent and traceable.'],
             decisions: ['Adopt asynchronous, event-driven processing', 'Split processing into independent, decoupled steps.', 'Apply controlled retries and explicit failure states'],
-            result: 'The automations significantly reduced the team’s manual workload, improved execution predictability, and enabled processing to scale without a proportional increase in operational effort.',
-            resultBenefits: ['Reduced operational effort', 'Scalable processing', 'More reliable execution', 'Automatic failure recovery'],
+            outcome: 'The automations significantly reduced the team’s manual workload, improved execution predictability, and enabled processing to scale without a proportional increase in operational effort.',
+            benefits: ['Reduced operational effort', 'Scalable processing', 'More reliable execution', 'Automatic failure recovery'],
             skills: ['Python', 'Serverless Workflows', 'Automation', 'Data Processing', 'Event-Driven Architecture', 'Reliability Engineering'],
           },
         },
@@ -431,20 +431,20 @@ export const content: Record<Language, SiteContent> = {
           caseStudy: {
             businessContext: 'The school wanted to scale its digital operation through a proprietary platform, reducing manual processes, centralizing student management, and providing a modern learning experience accessible from any device.',
             responsibility: 'I was responsible for the complete development of the solution, from defining the architecture to releasing it into production. I implemented the frontend, backend, REST APIs, database modeling, external integrations, payments, educational features, and AI-powered modules.',
-            architecture: 'The application follows a decoupled architecture. The frontend communicates exclusively through REST APIs responsible for authentication, academic management, payments, and student progress. External services handle payments and AI capabilities, keeping the core application focused on business rules.',
+            solutionOperation: 'The application follows a decoupled architecture. The frontend communicates exclusively through REST APIs responsible for authentication, academic management, payments, and student progress. External services handle payments and AI capabilities, keeping the core application focused on business rules.',
             requestFlow: [
               { name: 'User', description: 'Initiates authentication, learning, payments, or a progress query.' },
               { name: 'Frontend', technologies: ['HTML5', 'JavaScript', 'jQuery', 'AJAX'], description: 'Presents the platform interface and communicates with the backend through REST APIs.' },
               { name: 'Backend', technologies: ['PHP', 'REST API'], description: 'Centralizes business rules, authentication, academic management, and external service integrations.' },
               { name: 'Database', technologies: ['MySQL'], description: 'Stores users, courses, progress, payments, and other platform data.' },
             ],
-            externalIntegrations: [
+            externalServices: [
               { name: 'Stripe', technologies: ['Payments API'], description: 'Processes payments, subscriptions, and financial events for the platform.' },
               { name: 'OpenAI', technologies: ['OpenAI API'], description: 'Provides generative AI features to support learning and student interaction.' },
               { name: 'PayPal', technologies: ['Payments API'], description: 'Provides an alternative payment method for international users.' },
               { name: 'Google Cloud Speech', technologies: ['Speech-to-Text', 'Text-to-Speech'], description: 'Converts speech to text and text to speech for learning features in multiple languages.' },
             ],
-            userJourney: [
+            productJourney: [
               { name: 'Subscription', description: 'The student selects a plan and activates the subscription.' },
               { name: 'Learning', description: 'Consumes content and completes interactive activities.' },
               { name: 'Tracking', description: 'Views progress, feedback, and personalized recommendations.' },
@@ -452,8 +452,8 @@ export const content: Record<Language, SiteContent> = {
             ],
             challenges: ['Ensure a strong experience on smartphones and tablets.', 'Integrate the new system with existing administrative applications.', 'Synchronize payments and subscription management.', 'Create interactive activities while maintaining good usability.', 'Incorporate AI capabilities without disrupting the learning flow.'],
             decisions: ['Separate the frontend and backend through REST APIs.', 'Use a modular architecture so features can evolve independently.', 'Integrate with legacy systems to avoid high-risk migrations.', 'Use specialized external services for payments.', 'Organize the application for easier maintenance and future growth.'],
-            result: 'The platform was released into production and used commercially by the school, centralizing online learning, academic management, payments, and student progress tracking in a single solution prepared for continuous evolution.',
-            resultBenefits: ['Unified digital experience', 'Centralized student and course management', 'Automated payments and subscriptions', 'Architecture prepared for continuous evolution'],
+            outcome: 'The platform was released into production and used commercially by the school, centralizing online learning, academic management, payments, and student progress tracking in a single solution prepared for continuous evolution.',
+            benefits: ['Unified digital experience', 'Centralized student and course management', 'Automated payments and subscriptions', 'Architecture prepared for continuous evolution'],
             skills: ['Full-Stack Architecture', 'REST API Design', 'Systems Integration', 'Payment Integration', 'Relational Modeling', 'SaaS Development'],
           },
         },
