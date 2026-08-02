@@ -2018,10 +2018,12 @@ footer {
   .principles-grid article,
   .experience-timeline li,
   .architecture-visual,
+  .case-study > .section,
   .case-architecture-diagram,
   .case-sections > article,
   .case-skills li,
   .contact-link {
+    page-break-inside: avoid;
     break-inside: avoid;
   }
 
