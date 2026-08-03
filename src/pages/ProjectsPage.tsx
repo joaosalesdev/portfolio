@@ -6,6 +6,9 @@ export function ProjectsPage({ text }: { text: SiteContent }) {
     <main>
       <section className="page-hero section">
         <p className="eyebrow">{text.projects.eyebrow}</p>
+        <p className="projects-caption">
+          Experiências reais em produção, documentadas como estudos de caso.
+        </p>
         <h1>{text.projects.title}</h1>
         <p className="hero-description">{text.projects.description}</p>
       </section>

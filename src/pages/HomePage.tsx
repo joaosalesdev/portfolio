@@ -8,9 +8,9 @@ import type { SiteContent } from '../types'
 
 export function HomePage({ text }: { text: SiteContent }) {
   return (
-    <main>
+    <main className="home-page">
       <Hero text={text} />
-      <section className="section">
+      <section className="section home-section specialties-section" id="specialties">
         <div className="section-heading">
           <p className="eyebrow">{text.home.specialtiesLabel}</p>
           <h2>{text.home.specialtiesTitle}</h2>
@@ -21,10 +21,13 @@ export function HomePage({ text }: { text: SiteContent }) {
           ))}
         </div>
       </section>
-      <section className="section featured-projects">
+      <section className="section home-section featured-projects">
         <div className="section-heading heading-with-action">
           <div>
             <p className="eyebrow">{text.home.featuredLabel}</p>
+            <p className="projects-caption">
+              Experiências reais em produção, documentadas como estudos de caso.
+            </p>
             <h2>{text.home.featuredTitle}</h2>
           </div>
           <Link className="text-link" to="/projects">{text.common.featuredLink} →</Link>
@@ -40,7 +43,7 @@ export function HomePage({ text }: { text: SiteContent }) {
           ))}
         </div>
       </section>
-      <section className="section experience-section">
+      <section className="section home-section experience-section">
         <div className="experience-intro">
           <p className="eyebrow">{text.home.experienceLabel}</p>
           <h2>{text.home.experienceTitle}</h2>

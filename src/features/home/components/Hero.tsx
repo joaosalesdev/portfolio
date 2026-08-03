@@ -11,14 +11,26 @@ export function Hero({ text }: { text: SiteContent }) {
         <p className="hero-description">{text.home.description}</p>
         <div className="hero-actions">
           <Link className="button primary" to="/projects">
-            {text.home.primaryAction}
+            <span>{text.home.primaryAction}</span>
+            <span className="button-arrow" aria-hidden="true">→</span>
           </Link>
           <a className="button secondary" href="#contact">
-            {text.home.secondaryAction}
+            <span>{text.home.secondaryAction}</span>
+            <span className="button-arrow" aria-hidden="true">↓</span>
           </a>
         </div>
+        <ul className="hero-highlights" aria-label="Professional highlights">
+          <li>Backend Engineering</li>
+          <li>Production Systems</li>
+          <li>Python &amp; AWS</li>
+          <li>Portugal</li>
+        </ul>
       </div>
       <ArchitectureVisual />
+      <a className="scroll-indicator" href="#specialties" aria-label="Explore more content">
+        <span>Explore</span>
+        <span aria-hidden="true">↓</span>
+      </a>
     </section>
   )
 }
