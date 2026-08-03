@@ -2,6 +2,12 @@ import type { Project, SiteContent } from '../../../types'
 import { CaseBreadcrumbs } from '../CaseBreadcrumbs'
 import { AiAgentPipeline } from './AiAgentPipeline'
 
+function renderEmphasizedText(content: string) {
+  return content.split('**').map((part, index) => (
+    index % 2 === 1 ? <strong key={`${part}-${index}`}>{part}</strong> : part
+  ))
+}
+
 export function MelitaCaseStudy({ project, text }: { project: Project; text: SiteContent }) {
   const introductionSections = [
     { title: text.projects.caseStudy.businessContext, content: project.caseStudy.businessContext },
@@ -80,7 +86,9 @@ export function MelitaCaseStudy({ project, text }: { project: Project; text: Sit
           <article>
             <h2>{text.projects.caseStudy.productionImpact}</h2>
             <ul className="case-detail-list">
-              {project.caseStudy.productionImpact.map((item) => <li key={item}>{item}</li>)}
+              {project.caseStudy.productionImpact.map((item) => (
+                <li key={item}>{renderEmphasizedText(item)}</li>
+              ))}
             </ul>
           </article>
         )}
