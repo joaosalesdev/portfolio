@@ -199,7 +199,7 @@ h3 {
 h1 {
   max-width: 790px;
   margin-bottom: 1.75rem;
-  font-size: clamp(2.5rem, 5.4vw, 4.75rem);
+  font-size: clamp(2.25rem, 4.6vw, 4.25rem);
   letter-spacing: -0.05em;
 }
 
@@ -793,10 +793,6 @@ p {
     linear-gradient(180deg, rgba(12, 26, 45, 0.78), rgba(12, 26, 45, 0.96) 20%, rgba(12, 26, 45, 0.9));
 }
 
-.home-page .project-card {
-  border-radius: var(--radius-small);
-}
-
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -809,6 +805,7 @@ p {
   flex-direction: column;
   overflow: hidden;
   border: 1px solid var(--border);
+  border-radius: var(--radius-small);
   background: linear-gradient(155deg, rgba(12, 26, 45, 0.72), rgba(7, 17, 31, 0.98) 45%);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.025), 0 12px 32px rgba(0, 0, 0, 0.1);
   transition:
@@ -983,6 +980,8 @@ p {
 .project-card h2,
 .project-card h3 {
   margin: 0 0 0.9rem;
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  letter-spacing: -0.025em;
 }
 
 .project-card p {
@@ -3239,7 +3238,7 @@ footer {
 
   .case-study-hero h1 {
     margin-bottom: 1rem;
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 
   .case-study-hero .hero-description {
