@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import type { Language, SiteContent } from '../../types'
 
 const SITE_URL = 'https://joaosalesdev.github.io/portfolio'
-const SOCIAL_IMAGE = `${SITE_URL}/images/og-image.png`
+const SOCIAL_IMAGE = `${SITE_URL}/images/og-architecture.png`
 
 function setMeta(selector: string, attribute: 'name' | 'property', key: string, content: string) {
   let element = document.head.querySelector<HTMLMetaElement>(selector)

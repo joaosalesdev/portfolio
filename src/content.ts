@@ -320,7 +320,7 @@ export const content: Record<Language, SiteContent> = {
       journeyTitle: 'From curiosity to software engineering',
       journey: [
         'My journey in technology began with a curiosity to understand how computers worked. Across hardware, software, and web development, I built a solid foundation that naturally evolved into software engineering.',
-        'Throughout my career, I moved from web development to systems integration, backend development, and distributed systems. Today, I focus on building scalable backend solutions for cloud environments, following software engineering best practices.',
+        'Throughout my career, I moved from web development to systems integration, backend development, and distributed systems. Today, I focus on building scalable backend solutions for cloud environments, applying software engineering principles.',
         'Along the way, I contributed to commercial applications, systems integrations, SaaS platforms, process automation, and solutions running in production. Each project strengthened my interest in architecture, scalability, and building software to solve real problems.',
       ],
       principlesLabel: 'Principles',
@@ -378,7 +378,7 @@ export const content: Record<Language, SiteContent> = {
           imageAlt: 'Serverless architecture for the Salesforce integration with AWS services',
           caseStudy: {
             businessContext: 'The commercial operation depended on information distributed between Salesforce and external services, making data synchronization essential for reliable processes and reduced manual work.',
-            responsibility: 'I designed and implemented the integration flow, defined data mappings, and organized failure handling to make synchronization observable and reliable.',
+            responsibility: 'I designed and implemented the integration flow, defined data mappings, and organized failure handling to make synchronization observable and secure.',
             solutionOperation: 'The solution decouples the data source from the integration layer, allowing each system to evolve independently while improving process resilience and observability.',
             supportingNodes: [
               { name: 'External System', detail: 'External lookup service', type: 'external' },
@@ -500,7 +500,7 @@ export const content: Record<Language, SiteContent> = {
         summary: 'Development of backend applications using Python and AWS, focused on APIs, serverless architectures, distributed systems, platform integrations, and process automation running in production.',
       },
       {
-        role: 'Full Stack Developer',
+        role: 'Software Engineer (Full Stack)',
         company: 'Smart Pages, Corp',
         period: '2017 — 2024',
         summary: 'Development of commercial web applications, SaaS platforms, and systems integrations. Involvement throughout the development lifecycle, from requirements to deployment and production maintenance.',

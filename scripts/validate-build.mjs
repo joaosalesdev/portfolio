@@ -37,7 +37,7 @@ for (const route of routes) {
   }
 }
 
-for (const asset of ['robots.txt', 'sitemap.xml', 'site.webmanifest', 'images/og-image.png', '404.html']) {
+for (const asset of ['robots.txt', 'sitemap.xml', 'site.webmanifest', 'images/og-architecture.png', '404.html']) {
   try {
     await access(new URL(asset, outputDirectory))
   } catch {
