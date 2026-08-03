@@ -76,6 +76,8 @@ export type SiteContent = {
     eyebrow: string
     title: string
     description: string
+    evolutionLabel: string
+    evolutionTitle: string
     viewProject: string
     challenge: string
     stack: string

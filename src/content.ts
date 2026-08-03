@@ -74,6 +74,8 @@ export const content: Record<Language, SiteContent> = {
       title: 'Sistemas construídos para resolver problemas reais',
       description:
         'Projetos de backend, cloud, automação e integração desenvolvidos a partir de desafios reais de negócio.',
+      evolutionLabel: 'Projetos selecionados',
+      evolutionTitle: 'Mapa cronológico dos projetos, do mais antigo ao mais recente',
       viewProject: 'Ver estudo de caso',
       challenge: 'Problema',
       stack: 'Tecnologias',
@@ -339,6 +341,8 @@ export const content: Record<Language, SiteContent> = {
       title: 'Systems built to solve real business problems',
       description:
         'Backend, cloud, automation, and integration projects designed to solve real business challenges.',
+      evolutionLabel: 'Selected projects',
+      evolutionTitle: 'Chronological project map, from earliest to most recent',
       viewProject: 'View case study',
       challenge: 'Problem',
       stack: 'Technologies',
