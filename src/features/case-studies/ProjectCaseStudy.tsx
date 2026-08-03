@@ -4,6 +4,7 @@ import { ProcessAutomationCaseStudy } from './automation/ProcessAutomationCaseSt
 import { ItalianLearningCaseStudy } from './italian-learning/ItalianLearningCaseStudy'
 import { MelitaCaseStudy } from './melita/MelitaCaseStudy'
 import { CaseArchitectureDiagram } from './salesforce/CaseArchitectureDiagram'
+import { ConfidentialityNotice } from './ConfidentialityNotice'
 
 export function ProjectCaseStudy({ project, text }: { project: Project; text: SiteContent }) {
   if (project.slug === 'melita-ai-agent') {
@@ -98,6 +99,14 @@ function DefaultCaseStudy({ project, text }: { project: Project; text: SiteConte
             </ul>
           </article>
         ))}
+        {project.caseStudy.productionImpact && (
+          <article>
+            <h2>{text.projects.caseStudy.productionImpact}</h2>
+            <ul className="case-detail-list">
+              {project.caseStudy.productionImpact.map((item) => <li key={item}>{item}</li>)}
+            </ul>
+          </article>
+        )}
         <article>
           <h2>{text.projects.caseStudy.results}</h2>
           <div className="case-result-summary">
@@ -110,6 +119,10 @@ function DefaultCaseStudy({ project, text }: { project: Project; text: SiteConte
           </div>
         </article>
       </section>
+
+      {project.caseStudy.confidentialityNotice && (
+        <ConfidentialityNotice notice={project.caseStudy.confidentialityNotice} text={text} />
+      )}
 
       <section className="case-skills section">
         <div className="case-section-heading">

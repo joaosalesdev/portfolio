@@ -1,6 +1,7 @@
 import type { Project, SiteContent } from '../../../types'
 import { CaseBreadcrumbs } from '../CaseBreadcrumbs'
 import { AutomationWorkflow } from './AutomationWorkflow'
+import { ConfidentialityNotice } from '../ConfidentialityNotice'
 
 export function ProcessAutomationCaseStudy({ project, text }: { project: Project; text: SiteContent }) {
   const introductionSections = [
@@ -107,6 +108,10 @@ export function ProcessAutomationCaseStudy({ project, text }: { project: Project
           </div>
         </article>
       </section>
+
+      {project.caseStudy.confidentialityNotice && (
+        <ConfidentialityNotice notice={project.caseStudy.confidentialityNotice} text={text} />
+      )}
 
       <section className="case-skills section">
         <div className="case-section-heading">
