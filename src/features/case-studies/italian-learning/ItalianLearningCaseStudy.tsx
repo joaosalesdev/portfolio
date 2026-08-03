@@ -1,6 +1,7 @@
 import type { Project, SiteContent } from '../../../types'
 import { CaseBreadcrumbs } from '../CaseBreadcrumbs'
 import { WebApplicationArchitecture } from './WebApplicationArchitecture'
+import { ProductionEvidence } from '../ProductionEvidence'
 
 export function ItalianLearningCaseStudy({ project, text }: { project: Project; text: SiteContent }) {
   const introductionSections = [
@@ -97,6 +98,16 @@ export function ItalianLearningCaseStudy({ project, text }: { project: Project; 
           </div>
         </article>
       </section>
+
+      {project.caseStudy.productionEvidence && (
+        <ProductionEvidence
+          evidence={project.caseStudy.productionEvidence}
+          text={text}
+          eyebrow={text.projects.caseStudy.productPreviewLabel}
+          title={text.projects.caseStudy.productPreview}
+          introduction={text.projects.caseStudy.productPreviewIntroduction}
+        />
+      )}
 
       <section className="case-skills section">
         <div className="case-section-heading">

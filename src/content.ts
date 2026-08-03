@@ -99,6 +99,13 @@ export const content: Record<Language, SiteContent> = {
         decisions: 'Decisões arquiteturais',
         challenges: 'Principais desafios',
         productionImpact: 'Resultados em produção',
+        productionEvidence: 'Evidências de produção',
+        productionEvidenceIntroduction: 'As imagens abaixo apresentam evidências reais da utilização da aplicação em ambiente de produção e do seu fluxo operacional.',
+        enlargeEvidence: 'Ampliar evidência',
+        closeEvidence: 'Fechar imagem ampliada',
+        productPreviewLabel: 'Representação ilustrativa',
+        productPreview: 'Visão da plataforma',
+        productPreviewIntroduction: 'As imagens abaixo são representações ilustrativas temporárias das principais experiências e áreas operacionais da plataforma.',
         results: 'Resultado',
         skills: 'Competências demonstradas',
       },
@@ -161,6 +168,38 @@ export const content: Record<Language, SiteContent> = {
               'Um dos conteúdos gerados alcançou **mais de 2.000 impressões, 28 reações e 1 compartilhamento no LinkedIn**, demonstrando utilização real e engajamento do público.',
               '**Estimativa conservadora:** considerando aproximadamente 20 minutos para produzir manualmente um post técnico com texto, imagem e revisão, a automação já representou uma **economia superior a 13 horas de trabalho**.',
               'Arquitetura serverless executada na AWS, permitindo operação contínua com baixa necessidade de administração de infraestrutura e baixo custo operacional.',
+            ],
+            productionEvidence: [
+              {
+                title: 'Publicação automatizada',
+                description: 'Conteúdo gerado pela aplicação e publicado no LinkedIn, com mais de 2.000 impressões, 28 reações e 1 compartilhamento.',
+                images: [
+                  { src: '/images/projects/melita/linkedin-publication.png', alt: 'Publicação criada pelo Melita no LinkedIn com as métricas de impressões, reações e compartilhamento' },
+                ],
+              },
+              {
+                title: 'Conversa no Telegram',
+                description: 'Solicitação interpretada pelo agente, seguida pela geração da imagem, criação do texto e confirmação da publicação.',
+                images: [
+                  { src: '/images/projects/melita/telegram-request.png', alt: 'Conversa no Telegram com a solicitação de um post sobre arquitetura orientada a eventos' },
+                  { src: '/images/projects/melita/telegram-generated-image.png', alt: 'Imagem gerada automaticamente pelo Melita durante a conversa no Telegram' },
+                  { src: '/images/projects/melita/telegram-published-content.png', alt: 'Conteúdo técnico gerado e confirmação de publicação no Telegram' },
+                ],
+              },
+              {
+                title: 'Pipeline de deploy',
+                description: 'GitHub Actions executando integração e entrega contínua para testar, construir e publicar novas versões da aplicação.',
+                images: [
+                  { src: '/images/projects/melita/github-actions-pipeline.png', alt: 'Execuções concluídas com sucesso no pipeline de CI/CD do Melita no GitHub Actions' },
+                ],
+              },
+              {
+                title: 'Infraestrutura AWS',
+                description: 'Função AWS Lambda utilizada para executar continuamente a aplicação em uma arquitetura serverless de baixa manutenção.',
+                images: [
+                  { src: '/images/projects/melita/aws-lambda-production.png', alt: 'Função melita-ai-agent-lambda em execução na infraestrutura AWS' },
+                ],
+              },
             ],
             outcome: 'O projeto resultou em uma aplicação serverless executada na AWS capaz de processar mensagens, transcrever áudio, gerar conteúdo utilizando LLMs e automatizar publicações no LinkedIn. A arquitetura modular, os testes automatizados e o pipeline de CI/CD tornam a solução mais simples de evoluir, manter e expandir.',
             benefits: ['Arquitetura modular e desacoplada', 'Automação completa do fluxo de conteúdo', 'Deploy automatizado na AWS', 'Base preparada para evolução e testes'],
@@ -243,6 +282,36 @@ export const content: Record<Language, SiteContent> = {
               'Disponibiliza uma experiência de aprendizagem acessível em smartphones, tablets e computadores.',
               'Integra-se com aplicações administrativas existentes sem exigir migrações de alto risco.',
               'Arquitetura modular preparada para manutenção e evolução contínua do produto.',
+            ],
+            productionEvidence: [
+              {
+                title: 'Jornada do estudante',
+                description: 'Painel centralizado com progresso, atividade semanal, aulas concluídas e continuidade da aprendizagem.',
+                images: [
+                  { src: '/images/projects/italian-learning/student-dashboard.png', alt: 'Representação ilustrativa do painel de aprendizagem e progresso do estudante' },
+                ],
+              },
+              {
+                title: 'Aprendizagem interativa',
+                description: 'Experiência de aula com diálogos, vocabulário, gravação de pronúncia e feedback imediato.',
+                images: [
+                  { src: '/images/projects/italian-learning/interactive-lesson.png', alt: 'Representação ilustrativa de uma aula interativa de italiano com exercício de pronúncia' },
+                ],
+              },
+              {
+                title: 'Gestão académica',
+                description: 'Visão administrativa de estudantes, cursos, matrículas, instrutores e indicadores de conclusão.',
+                images: [
+                  { src: '/images/projects/italian-learning/academic-management.png', alt: 'Representação ilustrativa do painel de gestão académica da escola' },
+                ],
+              },
+              {
+                title: 'Pagamentos e subscrições',
+                description: 'Gestão de planos, cobranças recorrentes, transações e integrações com métodos de pagamento.',
+                images: [
+                  { src: '/images/projects/italian-learning/subscription-management.png', alt: 'Representação ilustrativa da gestão de pagamentos e subscrições da plataforma' },
+                ],
+              },
             ],
             outcome: 'A plataforma foi disponibilizada em produção e utilizada comercialmente pela escola, permitindo centralizar o ensino online, gestão académica, pagamentos e acompanhamento do progresso dos estudantes numa única solução preparada para evolução contínua.',
             benefits: ['Experiência digital unificada', 'Gestão centralizada de alunos e cursos', 'Pagamentos e assinaturas automatizados', 'Arquitetura preparada para evolução contínua'],
@@ -392,6 +461,13 @@ export const content: Record<Language, SiteContent> = {
         decisions: 'Architectural decisions',
         challenges: 'Key challenges',
         productionImpact: 'Production results',
+        productionEvidence: 'Production evidence',
+        productionEvidenceIntroduction: 'The images below provide real evidence of the application running in production and illustrate its operational workflow.',
+        enlargeEvidence: 'Enlarge evidence',
+        closeEvidence: 'Close enlarged image',
+        productPreviewLabel: 'Illustrative representation',
+        productPreview: 'Platform overview',
+        productPreviewIntroduction: 'The images below are temporary illustrative representations of the platform’s main user experiences and operational areas.',
         results: 'Outcome',
         skills: 'Skills demonstrated',
       },
@@ -454,6 +530,38 @@ export const content: Record<Language, SiteContent> = {
               'One of the generated posts reached **more than 2,000 impressions, 28 reactions, and 1 share on LinkedIn**, demonstrating real-world use and audience engagement.',
               'Conservative estimate: assuming approximately 20 minutes to manually produce a technical post with text, image, and review, the automation has already represented **more than 13 hours of work saved**.',
               '**Serverless architecture running on AWS**, enabling continuous operation with little infrastructure administration and low operating costs.',
+            ],
+            productionEvidence: [
+              {
+                title: 'Automated publication',
+                description: 'Content generated by the application and published on LinkedIn, reaching more than 2,000 impressions, 28 reactions, and 1 share.',
+                images: [
+                  { src: '/images/projects/melita/linkedin-publication.png', alt: 'Post created by Melita on LinkedIn showing impression, reaction, and share metrics' },
+                ],
+              },
+              {
+                title: 'Telegram conversation',
+                description: 'A request interpreted by the agent, followed by image generation, copy creation, and publication confirmation.',
+                images: [
+                  { src: '/images/projects/melita/telegram-request.png', alt: 'Telegram conversation requesting a post about event-driven architecture' },
+                  { src: '/images/projects/melita/telegram-generated-image.png', alt: 'Image automatically generated by Melita during the Telegram conversation' },
+                  { src: '/images/projects/melita/telegram-published-content.png', alt: 'Generated technical content and publication confirmation in Telegram' },
+                ],
+              },
+              {
+                title: 'Deployment pipeline',
+                description: 'GitHub Actions running continuous integration and delivery to test, build, and publish new application versions.',
+                images: [
+                  { src: '/images/projects/melita/github-actions-pipeline.png', alt: 'Successfully completed CI/CD pipeline runs for Melita in GitHub Actions' },
+                ],
+              },
+              {
+                title: 'AWS infrastructure',
+                description: 'AWS Lambda function used to run the application continuously on a low-maintenance serverless architecture.',
+                images: [
+                  { src: '/images/projects/melita/aws-lambda-production.png', alt: 'Melita AI Agent Lambda function running on AWS infrastructure' },
+                ],
+              },
             ],
             outcome: 'The project resulted in a serverless application running on AWS that can process messages, transcribe audio, generate content using LLMs, and automate LinkedIn posts. Its modular architecture, automated tests, and CI/CD pipeline make the solution easier to evolve, maintain, and expand.',
             benefits: ['Modular and decoupled architecture', 'Complete content workflow automation', 'Automated deployment on AWS', 'Foundation prepared for evolution and testing'],
@@ -536,6 +644,36 @@ export const content: Record<Language, SiteContent> = {
               'Provides a learning experience accessible on smartphones, tablets, and computers.',
               'Integrates with existing administrative applications without requiring high-risk migrations.',
               'Modular architecture prepared for ongoing product maintenance and evolution.',
+            ],
+            productionEvidence: [
+              {
+                title: 'Student journey',
+                description: 'A centralized dashboard for progress, weekly activity, completed lessons, and learning continuity.',
+                images: [
+                  { src: '/images/projects/italian-learning/student-dashboard.png', alt: 'Illustrative representation of the student learning and progress dashboard' },
+                ],
+              },
+              {
+                title: 'Interactive learning',
+                description: 'A lesson experience combining dialogues, vocabulary, pronunciation recording, and immediate feedback.',
+                images: [
+                  { src: '/images/projects/italian-learning/interactive-lesson.png', alt: 'Illustrative representation of an interactive Italian pronunciation lesson' },
+                ],
+              },
+              {
+                title: 'Academic management',
+                description: 'An administrative view of students, courses, enrollments, instructors, and completion indicators.',
+                images: [
+                  { src: '/images/projects/italian-learning/academic-management.png', alt: 'Illustrative representation of the school academic management dashboard' },
+                ],
+              },
+              {
+                title: 'Payments and subscriptions',
+                description: 'Management of plans, recurring billing, transactions, and payment method integrations.',
+                images: [
+                  { src: '/images/projects/italian-learning/subscription-management.png', alt: 'Illustrative representation of platform payment and subscription management' },
+                ],
+              },
             ],
             outcome: 'The platform was released into production and used commercially by the school, centralizing online learning, academic management, payments, and student progress tracking in a single solution prepared for continuous evolution.',
             benefits: ['Unified digital experience', 'Centralized student and course management', 'Automated payments and subscriptions', 'Architecture prepared for continuous evolution'],

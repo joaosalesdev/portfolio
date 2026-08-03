@@ -1,6 +1,7 @@
 import type { Project, SiteContent } from '../../../types'
 import { CaseBreadcrumbs } from '../CaseBreadcrumbs'
 import { AiAgentPipeline } from './AiAgentPipeline'
+import { ProductionEvidence } from '../ProductionEvidence'
 
 function renderEmphasizedText(content: string) {
   return content.split('**').map((part, index) => (
@@ -102,6 +103,10 @@ export function MelitaCaseStudy({ project, text }: { project: Project; text: Sit
           </div>
         </article>
       </section>
+
+      {project.caseStudy.productionEvidence && (
+        <ProductionEvidence evidence={project.caseStudy.productionEvidence} text={text} />
+      )}
 
       <section className="case-skills section">
         <div className="case-section-heading">

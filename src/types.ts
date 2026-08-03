@@ -18,6 +18,12 @@ export type ArchitectureNode = {
   type: 'external' | 'dlq'
 }
 
+export type ProductionEvidence = {
+  title: string
+  description: string
+  images: Array<{ src: string; alt: string }>
+}
+
 export type Project = {
   slug: string
   title: string
@@ -39,6 +45,7 @@ export type Project = {
     challenges: string[]
     decisions: string[]
     productionImpact?: string[]
+    productionEvidence?: ProductionEvidence[]
     outcome: string
     benefits: string[]
     skills: string[]
@@ -102,6 +109,13 @@ export type SiteContent = {
       decisions: string
       challenges: string
       productionImpact: string
+      productionEvidence: string
+      productionEvidenceIntroduction: string
+      enlargeEvidence: string
+      closeEvidence: string
+      productPreviewLabel: string
+      productPreview: string
+      productPreviewIntroduction: string
       results: string
       skills: string
     }
