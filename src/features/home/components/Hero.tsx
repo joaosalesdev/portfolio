@@ -20,10 +20,9 @@ export function Hero({ text }: { text: SiteContent }) {
           </a>
         </div>
         <ul className="hero-highlights" aria-label="Professional highlights">
-          <li>Backend Engineering</li>
-          <li>Production Systems</li>
-          <li>Python &amp; AWS</li>
-          <li>Portugal</li>
+          {text.home.heroHighlights.map((highlight) => (
+            <li key={highlight}>{highlight}</li>
+          ))}
         </ul>
       </div>
       <ArchitectureVisual />

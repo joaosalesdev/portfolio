@@ -59,6 +59,7 @@ export type SiteContent = {
     description: string
     primaryAction: string
     secondaryAction: string
+    heroHighlights: string[]
     specialtiesLabel: string
     specialtiesTitle: string
     specialties: Specialty[]

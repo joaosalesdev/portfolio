@@ -10,6 +10,12 @@ export const content: Record<Language, SiteContent> = {
         'Desenvolvo APIs, integrações entre sistemas e arquiteturas cloud utilizando Python e AWS para construir aplicações escaláveis, resilientes e executadas em produção.',
       primaryAction: 'Ver projetos',
       secondaryAction: 'Entrar em contato',
+      heroHighlights: [
+        'Backend Engineering',
+        'Distributed Systems',
+        'AWS Cloud',
+        'Production Systems',
+      ],
       specialtiesLabel: 'Especialidades',
       specialtiesTitle: 'Tecnologia aplicada a problemas reais',
       specialties: [
@@ -248,6 +254,12 @@ export const content: Record<Language, SiteContent> = {
         'I build APIs, systems integrations, and cloud architectures using Python and AWS to create scalable, resilient applications running in production.',
       primaryAction: 'View projects',
       secondaryAction: 'Get in touch',
+      heroHighlights: [
+        'Backend Engineering',
+        'Production Systems',
+        'Python & AWS',
+        'Portugal',
+      ],
       specialtiesLabel: 'Expertise',
       specialtiesTitle: 'Technology applied to real problems',
       specialties: [
