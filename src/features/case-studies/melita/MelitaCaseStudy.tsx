@@ -76,6 +76,14 @@ export function MelitaCaseStudy({ project, text }: { project: Project; text: Sit
             </ul>
           </article>
         ))}
+        {project.caseStudy.productionImpact && (
+          <article>
+            <h2>{text.projects.caseStudy.productionImpact}</h2>
+            <ul className="case-detail-list">
+              {project.caseStudy.productionImpact.map((item) => <li key={item}>{item}</li>)}
+            </ul>
+          </article>
+        )}
         <article>
           <h2>{text.projects.caseStudy.results}</h2>
           <div className="case-result-summary">

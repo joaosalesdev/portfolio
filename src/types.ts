@@ -38,6 +38,7 @@ export type Project = {
     productJourney?: RequestFlowStep[]
     challenges: string[]
     decisions: string[]
+    productionImpact?: string[]
     outcome: string
     benefits: string[]
     skills: string[]
@@ -100,6 +101,7 @@ export type SiteContent = {
       requestFlow: string
       decisions: string
       challenges: string
+      productionImpact: string
       results: string
       skills: string
     }
