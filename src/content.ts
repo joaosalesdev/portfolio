@@ -2,7 +2,7 @@ import type { Language, SiteContent } from './types'
 
 export const content: Record<Language, SiteContent> = {
   pt: {
-    nav: { home: 'Home', about: 'Sobre', projects: 'Projetos' },
+    nav: { home: 'Home', about: 'Sobre mim', projects: 'Projetos' },
     home: {
       eyebrow: 'Software Engineer | Backend & Cloud',
       title: 'Engenharia de sistemas backend escaláveis',
@@ -42,7 +42,7 @@ export const content: Record<Language, SiteContent> = {
     },
     about: {
       eyebrow: 'Sobre mim',
-      title: 'Engenharia de software para sistemas distribuídos, cloud e automação.',
+      title: 'Engenharia de software para sistemas distribuídos, cloud e automação',
       journeyLabel: 'Trajetória',
       journeyTitle: 'Da curiosidade à engenharia de software',
       journey: [
@@ -280,7 +280,7 @@ export const content: Record<Language, SiteContent> = {
     },
     about: {
       eyebrow: 'About me',
-      title: 'Software engineering for distributed systems, cloud, and automation.',
+      title: 'Software engineering for distributed systems, cloud, and automation',
       journeyLabel: 'Journey',
       journeyTitle: 'From curiosity to software engineering',
       journey: [
