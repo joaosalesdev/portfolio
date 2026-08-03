@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { ContactSection } from '../features/home/components/ContactSection'
 import type { SiteContent } from '../types'
 
@@ -21,9 +22,35 @@ function CareerTimelineVisual() {
 }
 
 export function AboutPage({ text }: { text: SiteContent }) {
+  const pageRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const sections = pageRef.current?.querySelectorAll<HTMLElement>('[data-about-reveal]')
+
+    if (!sections?.length || !('IntersectionObserver' in window)) {
+      sections?.forEach((section) => section.classList.add('is-visible'))
+      return
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return
+
+          entry.target.classList.add('is-visible')
+          observer.unobserve(entry.target)
+        })
+      },
+      { rootMargin: '0px 0px -10% 0px', threshold: 0.08 },
+    )
+
+    sections.forEach((section) => observer.observe(section))
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <main className="about-page">
-      <section className="section about-hero">
+    <main ref={pageRef} className="about-page">
+      <section className="section about-hero" data-about-reveal>
         <div className="about-hero-copy">
           <p className="eyebrow">{text.about.eyebrow}</p>
           <h1>{text.about.title}</h1>
@@ -31,7 +58,7 @@ export function AboutPage({ text }: { text: SiteContent }) {
         <CareerTimelineVisual />
       </section>
 
-      <section className="section about-journey">
+      <section className="section about-journey" data-about-reveal>
         <header className="about-section-intro">
           <p className="eyebrow">{text.about.journeyLabel}</p>
           <h2>{text.about.journeyTitle}</h2>
@@ -48,7 +75,7 @@ export function AboutPage({ text }: { text: SiteContent }) {
         </ol>
       </section>
 
-      <section className="section about-principles">
+      <section className="section about-principles" data-about-reveal>
         <div className="section-heading">
           <p className="eyebrow">{text.about.principlesLabel}</p>
         </div>
@@ -62,7 +89,7 @@ export function AboutPage({ text }: { text: SiteContent }) {
         </div>
       </section>
 
-      <section className="section about-goals">
+      <section className="section about-goals" data-about-reveal>
         <div className="goals-marker" aria-hidden="true">
           <span />
           <span />

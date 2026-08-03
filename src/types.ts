@@ -23,7 +23,6 @@ export type Project = {
   title: string
   summary: string
   challenge: string
-  solution: string
   stack: string[]
   image?: string
   imageAlt: string
@@ -79,7 +78,6 @@ export type SiteContent = {
     viewProject: string
     backToProjects: string
     challenge: string
-    solution: string
     stack: string
     caseStudy: {
       businessContext: string

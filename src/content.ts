@@ -71,7 +71,6 @@ export const content: Record<Language, SiteContent> = {
       viewProject: 'Ver estudo de caso',
       backToProjects: 'Voltar aos projetos',
       challenge: 'Problema',
-      solution: 'Solução',
       stack: 'Tecnologias',
       caseStudy: {
         businessContext: 'Contexto do negócio',
@@ -101,7 +100,6 @@ export const content: Record<Language, SiteContent> = {
           title: 'Integração Salesforce',
           summary: 'Integração distribuída entre Salesforce e serviços AWS utilizando arquitetura serverless e orientada a eventos.',
           challenge: 'Integrar sistemas independentes de forma confiável, reduzindo trabalho manual e garantindo consistência entre as informações.',
-          solution: 'Fluxos de integração que mantêm os dados sincronizados e rastreáveis.',
           stack: ['Python', 'Lambda', 'API Gateway', 'SQS', 'Docker', 'Event-Driven'],
           imageAlt: 'Arquitetura serverless da integração Salesforce com serviços AWS',
           caseStudy: {
@@ -131,7 +129,6 @@ export const content: Record<Language, SiteContent> = {
           title: 'Melita AI Agent',
           summary: 'Assistente de IA serverless desenvolvido em Python e AWS Lambda para processamento de mensagens, automação conversacional e geração de conteúdo para LinkedIn utilizando LLMs.',
           challenge: 'Construir uma aplicação capaz de processar mensagens de texto e áudio, preservar o contexto das conversas, integrar múltiplos serviços externos e executar todo o fluxo em uma arquitetura serverless na AWS.',
-          solution: 'Um agente orientado por objetivos com instruções e contexto estruturados.',
           stack: ['Python', 'LangChain', 'Lambda', 'Docker', 'CI/CD', 'LLM Integration'],
           imageAlt: 'Fluxo de funcionamento do agente de inteligência artificial Melita',
           caseStudy: {
@@ -158,7 +155,6 @@ export const content: Record<Language, SiteContent> = {
           title: 'Plataforma de Automação de Processos',
           summary: 'Plataforma de automação de processos desenvolvida em Python e AWS para integrar sistemas, processar dados e executar workflows distribuídos de forma escalável e orientada a eventos.',
           challenge: 'Processos executados manualmente consumiam horas da equipa de suporte, dificultavam o crescimento operacional e exigiam acompanhamento constante para garantir consistência das execuções.',
-          solution: 'Rotinas Python executadas na AWS para processar e distribuir dados.',
           stack: ['Python', 'Docker', 'EventBridge', 'Step Functions', 'RPA', 'Data Processing'],
           imageAlt: 'Arquitetura da plataforma de automação de processos em AWS',
           caseStudy: {
@@ -189,7 +185,6 @@ export const content: Record<Language, SiteContent> = {
           title: 'Plataforma SaaS de Ensino de Italiano',
           summary: 'Plataforma SaaS desenvolvida para digitalizar completamente uma escola internacional de italiano, centralizando gestão académica, pagamentos, aprendizagem online e recursos baseados em Inteligência Artificial numa única solução utilizada em produção.',
           challenge: 'A operação encontrava-se distribuída entre diferentes ferramentas e processos manuais. Era necessário criar uma plataforma única capaz de integrar gestão académica, pagamentos, conteúdos, progresso dos alunos e funcionalidades inteligentes mantendo boa experiência em dispositivos móveis.',
-          solution: 'Uma plataforma centrada na experiência e evolução de cada estudante.',
           stack: ['JavaScript', 'MySQL', 'REST API', 'Stripe', 'PayPal', 'Artificial Intelligence'],
           imageAlt: 'Arquitetura da plataforma SaaS de ensino de italiano',
           caseStudy: {
@@ -280,29 +275,30 @@ export const content: Record<Language, SiteContent> = {
         'My path combines development, automation, and systems integration. I seek to understand the context before choosing technology and value simple, sustainable solutions.',
       contactLabel: 'Contact',
       contactTitle: 'Shall we build something together?',
-      contact: 'I am available to talk about projects, opportunities, and good ideas.',
+      contact: 'Let’s talk about software engineering, opportunities, or new challenges.',
     },
     about: {
       eyebrow: 'About me',
-      title: 'Technology with curiosity, clarity, and purpose.',
+      title: 'Software engineering for distributed systems, cloud, and automation.',
       journeyLabel: 'Journey',
-      journeyTitle: 'Building a complete perspective',
+      journeyTitle: 'From curiosity to software engineering',
       journey: [
-        'I am a developer interested in solving problems through technology. I enjoy understanding how every part of a system connects and how software can make people’s work easier.',
-        'My path combines Python, cloud, integrations, and web development. I am currently deepening my experience with React and digital product development.',
+        'My journey in technology began with a curiosity to understand how computers worked. Across hardware, software, and web development, I built a solid foundation that naturally evolved into software engineering.',
+        'Over the course of my career, I progressed from web development to systems integration, backend applications, and distributed architectures. Today, I focus on building scalable solutions using Python, AWS, and software engineering principles.',
+        'Along the way, I contributed to commercial applications, systems integrations, SaaS platforms, process automation, and solutions running in production. Each project strengthened my interest in architecture, scalability, and building software to solve real problems.',
       ],
       principlesLabel: 'Principles',
       principles: [
         'Solve real problems.',
         'Simplicity before complexity.',
         'Decoupled architectures.',
-        'Automate whenever possible.',
+        'Automation with purpose.',
         'Continuous learning.',
       ],
       goalsLabel: 'Goals',
       goalsTitle: 'The next chapter',
       goals:
-        'I want to keep growing as a developer, collaborate with diverse teams, and build products that create measurable impact for people and businesses.',
+        'I want to contribute to building distributed systems, take part in architectural decisions, and grow as a Software Engineer in environments that value quality, collaboration, and continuous learning.',
     },
     projects: {
       eyebrow: 'ENGINEERING PORTFOLIO',
@@ -312,7 +308,6 @@ export const content: Record<Language, SiteContent> = {
       viewProject: 'View case study',
       backToProjects: 'Back to projects',
       challenge: 'Problem',
-      solution: 'Solution',
       stack: 'Technologies',
       caseStudy: {
         businessContext: 'Business context',
@@ -342,7 +337,6 @@ export const content: Record<Language, SiteContent> = {
           title: 'Salesforce Integration',
           summary: 'Distributed integration between Salesforce and AWS services using a serverless, event-driven architecture.',
           challenge: 'Integrate independent systems reliably, reducing manual work and ensuring information remains consistent.',
-          solution: 'Integration workflows that keep data synchronized and traceable.',
           stack: ['Python', 'Lambda', 'API Gateway', 'SQS', 'Docker', 'Event-Driven'],
           imageAlt: 'Serverless architecture for the Salesforce integration with AWS services',
           caseStudy: {
@@ -372,7 +366,6 @@ export const content: Record<Language, SiteContent> = {
           title: 'Melita AI Agent',
           summary: 'Serverless AI assistant built with Python and AWS Lambda for message processing, conversational automation, and LinkedIn content generation using LLMs.',
           challenge: 'Build an application capable of processing text and audio messages, preserving conversation context, integrating multiple external services, and running the entire workflow on a serverless AWS architecture.',
-          solution: 'A goal-oriented agent with structured instructions and context.',
           stack: ['Python', 'LangChain', 'Lambda', 'Docker', 'CI/CD', 'LLM Integration'],
           imageAlt: 'Workflow of the Melita artificial intelligence agent',
           caseStudy: {
@@ -399,7 +392,6 @@ export const content: Record<Language, SiteContent> = {
           title: 'Process Automation Platform',
           summary: 'Process automation platform built with Python and AWS to integrate systems, process data, and execute distributed workflows in a scalable, event-driven architecture.',
           challenge: 'Manually executed processes consumed hours of the support team’s time, constrained operational growth, and required constant monitoring to ensure consistent execution.',
-          solution: 'Python routines running on AWS to process and distribute data.',
           stack: ['Python', 'Docker', 'EventBridge', 'Step Functions', 'RPA', 'Data Processing'],
           imageAlt: 'Architecture of the process automation platform on AWS',
           caseStudy: {
@@ -430,7 +422,6 @@ export const content: Record<Language, SiteContent> = {
           title: 'Italian Learning SaaS Platform',
           summary: 'A SaaS platform built to fully digitize an international Italian language school, centralizing academic management, payments, online learning, and AI-powered features in a single production system.',
           challenge: 'The operation was spread across different tools and manual processes. A unified platform was needed to bring together academic management, payments, content, student progress, and intelligent features while maintaining a strong mobile experience.',
-          solution: 'A platform centered on each student’s experience and progress.',
           stack: ['JavaScript', 'MySQL', 'REST API', 'Stripe', 'PayPal', 'Artificial Intelligence'],
           imageAlt: 'Architecture of the Italian learning SaaS platform',
           caseStudy: {
