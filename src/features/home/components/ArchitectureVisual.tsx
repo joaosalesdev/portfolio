@@ -7,12 +7,12 @@ const nodes = [
   { name: 'External API', category: 'integration', className: 'node-external-api' },
 ]
 
-export function ArchitectureVisual() {
+export function ArchitectureVisual({ label }: { label: string }) {
   return (
     <div
       className="architecture-visual"
       role="img"
-      aria-label="Cloud architecture connecting Client and API Gateway to Lambda, SQS, Docker and External API"
+      aria-label={label}
     >
       <div className="architecture-grid" aria-hidden="true" />
       <svg className="architecture-lines" viewBox="0 0 520 390" aria-hidden="true">

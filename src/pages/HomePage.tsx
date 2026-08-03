@@ -5,10 +5,13 @@ import { Hero } from '../features/home/components/Hero'
 import { SpecialtyCard } from '../features/home/components/SpecialtyCard'
 import { ProjectCard } from '../features/projects/components/ProjectCard'
 import type { SiteContent } from '../types'
+import { useLocalizedPath } from '../i18n/LanguageContext'
 
 export function HomePage({ text }: { text: SiteContent }) {
+  const localizedPath = useLocalizedPath()
+
   return (
-    <main className="home-page">
+    <main className="home-page" id="main-content" tabIndex={-1}>
       <Hero text={text} />
       <section className="section home-section specialties-section" id="specialties">
         <div className="section-heading">
@@ -25,12 +28,10 @@ export function HomePage({ text }: { text: SiteContent }) {
         <div className="section-heading heading-with-action">
           <div>
             <p className="eyebrow">{text.home.featuredLabel}</p>
-            <p className="projects-caption">
-              Experiências reais em produção, documentadas como estudos de caso.
-            </p>
+            <p className="projects-caption">{text.common.projectsCaption}</p>
             <h2>{text.home.featuredTitle}</h2>
           </div>
-          <Link className="text-link" to="/projects">{text.common.featuredLink} →</Link>
+          <Link className="text-link" to={localizedPath('projects')}>{text.common.featuredLink} →</Link>
         </div>
         <div className="projects-grid">
           {text.projects.items.slice(0, 4).map((project) => (
@@ -38,6 +39,7 @@ export function HomePage({ text }: { text: SiteContent }) {
               project={project}
               actionLabel={text.projects.viewProject}
               fallbackText={text.common.imageUnavailable}
+              technologiesLabel={text.common.technologies}
               key={project.slug}
             />
           ))}

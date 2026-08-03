@@ -7,14 +7,14 @@ A bilingual engineering portfolio focused on Backend Engineering, Cloud, distrib
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=white)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vite.dev/)
-[![GitHub Pages](https://img.shields.io/badge/Deployed-GitHub%20Pages-222222?style=flat-square&logo=github&logoColor=white)](https://joaosalesdev.github.io/portfolio/)
+[![GitHub Pages](https://img.shields.io/badge/Deployed-GitHub%20Pages-222222?style=flat-square&logo=github&logoColor=white)](https://joaosalesdev.github.io/portfolio/en/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-45D7E8?style=flat-square)](./LICENSE)
 
-### [View the live portfolio →](https://joaosalesdev.github.io/portfolio/)
+### [View the live portfolio →](https://joaosalesdev.github.io/portfolio/en/)
 
 </div>
 
-[![Portfolio home page](./public/images/portfolio-preview.png)](https://joaosalesdev.github.io/portfolio/)
+[![Portfolio home page](./docs/assets/portfolio-preview.png)](https://joaosalesdev.github.io/portfolio/en/)
 
 ## About
 
@@ -27,11 +27,13 @@ Each case study connects a business problem to implementation responsibilities, 
 - Responsive interface for desktop, tablet, and mobile
 - Dark technical UI with restrained motion and reduced-motion support
 - Portuguese and English content
+- Indexable localized URLs with route-specific metadata
 - Selected production projects presented as case studies
 - Architecture and workflow diagrams built as React components
 - Client-side routing between pages and case studies
 - Reusable components and typed content models
 - Automated build and deployment through GitHub Actions
+- Generated sitemap, robots directives, social cards, and structured data
 
 ## Tech Stack
 
@@ -59,7 +61,9 @@ Each case study connects a business problem to implementation responsibilities, 
 ```text
 portfolio/
 ├── .github/workflows/       # GitHub Pages deployment workflow
-├── public/                  # Static assets and portfolio preview
+├── docs/assets/             # Repository documentation assets
+├── public/                  # Static application and social assets
+├── scripts/                 # Static route generation and build validation
 └── src/
     ├── components/layout/   # Shared header and footer
     ├── features/
@@ -98,10 +102,11 @@ Vite will print the local development URL in the terminal.
 ```bash
 npm run lint
 npm run build
+npm run validate:build
 npm run preview
 ```
 
-The production output is generated in `dist/`. `npm run preview` serves that build locally for verification.
+The production output is generated in `dist/`. The validation script checks localized routes and required SEO artifacts, while `npm run preview` serves the build locally for verification. Run `npm run check` to execute the complete quality pipeline.
 
 ## Deployment
 

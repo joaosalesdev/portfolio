@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
 import type { Project, SiteContent } from '../../types'
+import { CaseBreadcrumbs } from './CaseBreadcrumbs'
 import { ProcessAutomationCaseStudy } from './automation/ProcessAutomationCaseStudy'
 import { ItalianLearningCaseStudy } from './italian-learning/ItalianLearningCaseStudy'
 import { MelitaCaseStudy } from './melita/MelitaCaseStudy'
@@ -18,6 +18,10 @@ export function ProjectCaseStudy({ project, text }: { project: Project; text: Si
     return <ItalianLearningCaseStudy project={project} text={text} />
   }
 
+  return <DefaultCaseStudy project={project} text={text} />
+}
+
+function DefaultCaseStudy({ project, text }: { project: Project; text: SiteContent }) {
   const introductionSections = [
     { title: text.projects.caseStudy.businessContext, content: project.caseStudy.businessContext },
     { title: text.projects.challenge, content: project.challenge },
@@ -34,9 +38,9 @@ export function ProjectCaseStudy({ project, text }: { project: Project; text: Si
   ]
 
   return (
-    <main className="case-study">
+    <main className="case-study" id="main-content" tabIndex={-1}>
       <section className="case-study-hero section">
-        <Link className="back-link" to="/projects">← {text.projects.backToProjects}</Link>
+        <CaseBreadcrumbs project={project} text={text} />
         <p className="eyebrow">{text.projects.eyebrow}</p>
         <h1>{project.title}</h1>
         <p className="hero-description">{project.summary}</p>
@@ -109,7 +113,6 @@ export function ProjectCaseStudy({ project, text }: { project: Project; text: Si
 
       <section className="case-skills section">
         <div className="case-section-heading">
-          <p className="eyebrow">{text.projects.caseStudy.skills}</p>
           <h2>{text.projects.caseStudy.skills}</h2>
         </div>
         <ul>

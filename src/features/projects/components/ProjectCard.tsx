@@ -1,18 +1,26 @@
 import { Link } from 'react-router-dom'
 import type { Project } from '../../../types'
+import { useLocalizedPath } from '../../../i18n/LanguageContext'
 import { ImagePlaceholder } from './ImagePlaceholder'
 
 type ProjectCardProps = {
   project: Project
   actionLabel: string
   fallbackText: string
+  technologiesLabel: string
+  headingLevel?: 'h2' | 'h3'
 }
 
 export function ProjectCard({
   project,
   actionLabel,
   fallbackText,
+  technologiesLabel,
+  headingLevel = 'h3',
 }: ProjectCardProps) {
+  const localizedPath = useLocalizedPath()
+  const Heading = headingLevel
+
   return (
     <article className="project-card">
       {project.image ? (
@@ -34,12 +42,12 @@ export function ProjectCard({
         </div>
       )}
       <div className="project-card-body">
-        <h3>{project.title}</h3>
+        <Heading>{project.title}</Heading>
         <p>{project.summary}</p>
-        <ul aria-label="Technologies">
+        <ul aria-label={technologiesLabel}>
           {project.stack.map((item) => <li key={item}>{item}</li>)}
         </ul>
-        <Link className="card-link" to={`/projects/${project.slug}`}>
+        <Link className="card-link" to={localizedPath(`projects/${project.slug}`)}>
           {actionLabel} <span aria-hidden="true">→</span>
         </Link>
       </div>

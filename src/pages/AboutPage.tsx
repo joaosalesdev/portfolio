@@ -49,7 +49,7 @@ export function AboutPage({ text }: { text: SiteContent }) {
   }, [])
 
   return (
-    <main ref={pageRef} className="about-page">
+    <main ref={pageRef} className="about-page" id="main-content" tabIndex={-1}>
       <section className="section about-hero" data-about-reveal>
         <div className="about-hero-copy">
           <p className="eyebrow">{text.about.eyebrow}</p>
@@ -78,6 +78,7 @@ export function AboutPage({ text }: { text: SiteContent }) {
       <section className="section about-principles" data-about-reveal>
         <div className="section-heading">
           <p className="eyebrow">{text.about.principlesLabel}</p>
+          <h2 className="sr-only">{text.about.principlesLabel}</h2>
         </div>
         <div className="principles-grid">
           {text.about.principles.map((principle) => (

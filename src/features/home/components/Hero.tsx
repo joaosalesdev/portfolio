@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom'
 import type { SiteContent } from '../../../types'
+import { useLocalizedPath } from '../../../i18n/LanguageContext'
 import { ArchitectureVisual } from './ArchitectureVisual'
 
 export function Hero({ text }: { text: SiteContent }) {
+  const localizedPath = useLocalizedPath()
+
   return (
     <section className="hero section">
       <div className="hero-copy">
@@ -10,7 +13,7 @@ export function Hero({ text }: { text: SiteContent }) {
         <h1>{text.home.title}</h1>
         <p className="hero-description">{text.home.description}</p>
         <div className="hero-actions">
-          <Link className="button primary" to="/projects">
+          <Link className="button primary" to={localizedPath('projects')}>
             <span>{text.home.primaryAction}</span>
             <span className="button-arrow" aria-hidden="true">→</span>
           </Link>
@@ -19,15 +22,15 @@ export function Hero({ text }: { text: SiteContent }) {
             <span className="button-arrow" aria-hidden="true">↓</span>
           </a>
         </div>
-        <ul className="hero-highlights" aria-label="Professional highlights">
+        <ul className="hero-highlights" aria-label={text.common.professionalHighlights}>
           {text.home.heroHighlights.map((highlight) => (
             <li key={highlight}>{highlight}</li>
           ))}
         </ul>
       </div>
-      <ArchitectureVisual />
-      <a className="scroll-indicator" href="#specialties" aria-label="Explore more content">
-        <span>Explore</span>
+      <ArchitectureVisual label={text.common.architectureLabel} />
+      <a className="scroll-indicator" href="#specialties" aria-label={text.common.exploreMore}>
+        <span>{text.common.explore}</span>
         <span aria-hidden="true">↓</span>
       </a>
     </section>

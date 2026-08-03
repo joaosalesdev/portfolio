@@ -77,7 +77,6 @@ export type SiteContent = {
     title: string
     description: string
     viewProject: string
-    backToProjects: string
     challenge: string
     stack: string
     caseStudy: {
@@ -122,5 +121,27 @@ export type SiteContent = {
     email: string
     footer: string
     imageUnavailable: string
+    projectsCaption: string
+    explore: string
+    exploreMore: string
+    professionalHighlights: string
+    mainNavigation: string
+    selectLanguage: string
+    skipToContent: string
+    pageLoaded: string
+    loading: string
+    technologies: string
+    architectureLabel: string
+    emailLabel: string
+    networkLabel: string
+    codeLabel: string
+    breadcrumbs: string
+    opensNewTab: string
+    notFoundTitle: string
+    notFoundMessage: string
+    backHome: string
+    errorTitle: string
+    errorMessage: string
+    reload: string
   }
 }

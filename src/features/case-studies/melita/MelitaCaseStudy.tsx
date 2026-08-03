@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
 import type { Project, SiteContent } from '../../../types'
+import { CaseBreadcrumbs } from '../CaseBreadcrumbs'
 import { AiAgentPipeline } from './AiAgentPipeline'
 
 export function MelitaCaseStudy({ project, text }: { project: Project; text: SiteContent }) {
@@ -14,9 +14,9 @@ export function MelitaCaseStudy({ project, text }: { project: Project; text: Sit
   ]
 
   return (
-    <main className="case-study melita-case-study">
+    <main className="case-study melita-case-study" id="main-content" tabIndex={-1}>
       <section className="case-study-hero section">
-        <Link className="back-link" to="/projects">← {text.projects.backToProjects}</Link>
+        <CaseBreadcrumbs project={project} text={text} />
         <p className="eyebrow">{text.projects.eyebrow}</p>
         <h1>{project.title}</h1>
         <p className="hero-description">{project.summary}</p>
@@ -89,7 +89,6 @@ export function MelitaCaseStudy({ project, text }: { project: Project; text: Sit
 
       <section className="case-skills section">
         <div className="case-section-heading">
-          <p className="eyebrow">{text.projects.caseStudy.skills}</p>
           <h2>{text.projects.caseStudy.skills}</h2>
         </div>
         <ul>

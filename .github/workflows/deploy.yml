@@ -37,8 +37,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Lint application
+        run: npm run lint
+
       - name: Build application
         run: npm run build
+
+      - name: Validate generated routes and metadata
+        run: npm run validate:build
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
