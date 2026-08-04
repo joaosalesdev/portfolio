@@ -23,6 +23,9 @@ export function ProjectCaseStudy({ project, text }: { project: Project; text: Si
 }
 
 function DefaultCaseStudy({ project, text }: { project: Project; text: SiteContent }) {
+  const hasStructuredProductionImpact = Boolean(
+    project.caseStudy.productionImpactBefore && project.caseStudy.productionImpactAfter,
+  )
   const introductionSections = [
     { title: text.projects.caseStudy.businessContext, content: project.caseStudy.businessContext },
     { title: text.projects.challenge, content: project.challenge },
@@ -99,7 +102,23 @@ function DefaultCaseStudy({ project, text }: { project: Project; text: SiteConte
             </ul>
           </article>
         ))}
-        {project.caseStudy.productionImpact && (
+        {hasStructuredProductionImpact ? (
+          <article>
+            <h2>{text.projects.caseStudy.structuredProductionImpact}</h2>
+            <div className="case-result-summary">
+              <h3>{text.projects.caseStudy.beforeImplementation}</h3>
+              <p>{project.caseStudy.productionImpactBefore}</p>
+              <h3>{text.projects.caseStudy.afterImplementation}</h3>
+              <p>{project.caseStudy.productionImpactAfter}</p>
+              <h3>{text.projects.caseStudy.benefitsObtained}</h3>
+              <ul>
+                {project.caseStudy.benefits.map((benefit) => (
+                  <li key={benefit}>{benefit}</li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        ) : project.caseStudy.productionImpact && (
           <article>
             <h2>{text.projects.caseStudy.productionImpact}</h2>
             <ul className="case-detail-list">
@@ -107,17 +126,19 @@ function DefaultCaseStudy({ project, text }: { project: Project; text: SiteConte
             </ul>
           </article>
         )}
-        <article>
-          <h2>{text.projects.caseStudy.results}</h2>
-          <div className="case-result-summary">
-            <p>{project.caseStudy.outcome}</p>
-            <ul>
-              {project.caseStudy.benefits.map((benefit) => (
-                <li key={benefit}>{benefit}</li>
-              ))}
-            </ul>
-          </div>
-        </article>
+        {!hasStructuredProductionImpact && (
+          <article>
+            <h2>{text.projects.caseStudy.results}</h2>
+            <div className="case-result-summary">
+              <p>{project.caseStudy.outcome}</p>
+              <ul>
+                {project.caseStudy.benefits.map((benefit) => (
+                  <li key={benefit}>{benefit}</li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        )}
       </section>
 
       {project.caseStudy.confidentialityNotice && (

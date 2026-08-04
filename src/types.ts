@@ -45,6 +45,8 @@ export type Project = {
     challenges: string[]
     decisions: string[]
     productionImpact?: string[]
+    productionImpactBefore?: string
+    productionImpactAfter?: string
     productionEvidence?: ProductionEvidence[]
     confidentialityNotice?: string
     outcome: string
@@ -110,6 +112,10 @@ export type SiteContent = {
       decisions: string
       challenges: string
       productionImpact: string
+      structuredProductionImpact: string
+      beforeImplementation: string
+      afterImplementation: string
+      benefitsObtained: string
       productionEvidence: string
       productionEvidenceIntroduction: string
       enlargeEvidence: string
