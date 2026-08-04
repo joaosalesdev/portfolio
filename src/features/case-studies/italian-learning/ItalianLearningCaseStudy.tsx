@@ -1,7 +1,8 @@
 import type { Project, SiteContent } from '../../../types'
 import { CaseBreadcrumbs } from '../CaseBreadcrumbs'
 import { WebApplicationArchitecture } from './WebApplicationArchitecture'
-import { ProductionEvidence } from '../ProductionEvidence'
+import { PublicProductEvidence } from './PublicProductEvidence'
+import { PlatformFeaturesEvidence } from './PlatformFeaturesEvidence'
 
 export function ItalianLearningCaseStudy({ project, text }: { project: Project; text: SiteContent }) {
   const introductionSections = [
@@ -88,6 +89,11 @@ export function ItalianLearningCaseStudy({ project, text }: { project: Project; 
             </ul>
           </article>
         )}
+      </section>
+
+      <PublicProductEvidence project={project} text={text} />
+
+      <section className="case-sections section case-sections--result">
         <article>
           <h2>{text.projects.caseStudy.results}</h2>
           <div className="case-result-summary">
@@ -99,15 +105,7 @@ export function ItalianLearningCaseStudy({ project, text }: { project: Project; 
         </article>
       </section>
 
-      {project.caseStudy.productionEvidence && (
-        <ProductionEvidence
-          evidence={project.caseStudy.productionEvidence}
-          text={text}
-          eyebrow={text.projects.caseStudy.productPreviewLabel}
-          title={text.projects.caseStudy.productPreview}
-          introduction={text.projects.caseStudy.productPreviewIntroduction}
-        />
-      )}
+      <PlatformFeaturesEvidence project={project} text={text} />
 
       <section className="case-skills section">
         <div className="case-section-heading">

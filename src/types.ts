@@ -48,6 +48,17 @@ export type Project = {
     productionImpactBefore?: string
     productionImpactAfter?: string
     productionEvidence?: ProductionEvidence[]
+    publicEvidence?: {
+      items: string[]
+      url: string
+      image: { src: string; alt: string }
+    }
+    platformFeatures?: Array<{
+      title: string
+      description: string
+      tags: string[]
+      image: { src: string; alt: string }
+    }>
     confidentialityNotice?: string
     outcome: string
     benefits: string[]
@@ -118,11 +129,15 @@ export type SiteContent = {
       benefitsObtained: string
       productionEvidence: string
       productionEvidenceIntroduction: string
+      publicEvidenceLabel: string
+      publicEvidenceTitle: string
+      publicEvidenceCaption: string
+      publicEvidenceLink: string
+      realProductLabel: string
+      platformFeaturesTitle: string
+      platformFeaturesIntroduction: string
       enlargeEvidence: string
       closeEvidence: string
-      productPreviewLabel: string
-      productPreview: string
-      productPreviewIntroduction: string
       confidentialityLabel: string
       results: string
       skills: string
