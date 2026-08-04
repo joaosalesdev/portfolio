@@ -101,22 +101,22 @@ export function ProcessAutomationCaseStudy({ project, text }: { project: Project
                 <section className="automation-production-card" key={item.title}>
                   <h3>{item.title}</h3>
                   <div>
-                    <h4>Problema</h4>
+                    <h4>{text.projects.challenge}</h4>
                     <p>{item.problem}</p>
                   </div>
                   <div>
-                    <h4>Arquitetura</h4>
+                    <h4>{text.projects.caseStudy.architecture}</h4>
                     <p>{item.architecture}</p>
                   </div>
                   <div>
-                    <h4>Impacto operacional</h4>
+                    <h4>{text.projects.caseStudy.operationalImpact}</h4>
                     <p>{item.impact}</p>
                   </div>
                 </section>
               ))}
             </div>
             <aside className="automation-production-result">
-              <p>{project.caseStudy.productionExamples.result}</p>
+              <p>{project.caseStudy.productionExamples.highlight}</p>
             </aside>
           </article>
         ) : project.caseStudy.productionImpact && (

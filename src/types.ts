@@ -34,16 +34,18 @@ export type Project = {
   imageAlt: string
   caseStudy: {
     businessContext: string
-    responsibility: string
-    solutionOperation: string
     supportingNodes?: ArchitectureNode[]
     requestFlow: RequestFlowStep[]
     recoveryFlow?: RequestFlowStep[]
-    reliability?: string
     externalServices?: RequestFlowStep[]
+    responsibility: string
+    solutionOperation: string
+    reliability?: string
     productJourney?: RequestFlowStep[]
     challenges: string[]
     decisions: string[]
+    productionImpactBefore?: string
+    productionImpactAfter?: string
     productionImpact?: string[]
     productionExamples?: {
       title: string
@@ -54,10 +56,8 @@ export type Project = {
         architecture: string
         impact: string
       }>
-      result: string
+      highlight: string
     }
-    productionImpactBefore?: string
-    productionImpactAfter?: string
     productionEvidence?: ProductionEvidence[]
     publicEvidence?: {
       items: string[]
@@ -70,9 +70,9 @@ export type Project = {
       tags: string[]
       image: { src: string; alt: string }
     }>
-    confidentialityNotice?: string
     outcome: string
     benefits: string[]
+    confidentialityNotice?: string
     skills: string[]
   }
 }
@@ -85,7 +85,7 @@ export type Experience = {
 }
 
 export type SiteContent = {
-  nav: { home: string; projects: string; about: string }
+  nav: { home: string; about: string; projects: string }
   home: {
     eyebrow: string
     title: string
@@ -104,6 +104,18 @@ export type SiteContent = {
     contactLabel: string
     contactTitle: string
     contact: string
+  }
+  about: {
+    eyebrow: string
+    title: string
+    journeyLabel: string
+    journeyTitle: string
+    journey: string[]
+    principlesLabel: string
+    principles: string[]
+    goalsLabel: string
+    goalsTitle: string
+    goals: string
   }
   projects: {
     eyebrow: string
@@ -131,9 +143,10 @@ export type SiteContent = {
       externalServices: string
       responsibility: string
       requestFlow: string
-      decisions: string
       challenges: string
+      decisions: string
       productionImpact: string
+      operationalImpact: string
       structuredProductionImpact: string
       beforeImplementation: string
       afterImplementation: string
@@ -156,44 +169,32 @@ export type SiteContent = {
     items: Project[]
   }
   experience: Experience[]
-  about: {
-    eyebrow: string
-    title: string
-    journeyLabel: string
-    journeyTitle: string
-    journey: string[]
-    principlesLabel: string
-    principles: string[]
-    goalsLabel: string
-    goalsTitle: string
-    goals: string
-  }
   common: {
-    featuredLink: string
-    email: string
-    footer: string
-    imageUnavailable: string
-    projectsCaption: string
-    explore: string
-    exploreMore: string
-    professionalHighlights: string
     mainNavigation: string
     selectLanguage: string
     skipToContent: string
     pageLoaded: string
     loading: string
-    technologies: string
-    architectureLabel: string
-    emailLabel: string
-    networkLabel: string
-    codeLabel: string
-    breadcrumbs: string
-    opensNewTab: string
-    notFoundTitle: string
-    notFoundMessage: string
-    backHome: string
     errorTitle: string
     errorMessage: string
     reload: string
+    professionalHighlights: string
+    architectureLabel: string
+    explore: string
+    exploreMore: string
+    projectsCaption: string
+    featuredLink: string
+    imageUnavailable: string
+    technologies: string
+    emailLabel: string
+    email: string
+    networkLabel: string
+    codeLabel: string
+    opensNewTab: string
+    breadcrumbs: string
+    notFoundTitle: string
+    notFoundMessage: string
+    backHome: string
+    footer: string
   }
 }
