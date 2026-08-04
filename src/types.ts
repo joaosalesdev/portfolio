@@ -45,6 +45,17 @@ export type Project = {
     challenges: string[]
     decisions: string[]
     productionImpact?: string[]
+    productionExamples?: {
+      title: string
+      introduction: string
+      items: Array<{
+        title: string
+        problem: string
+        architecture: string
+        impact: string
+      }>
+      result: string
+    }
     productionImpactBefore?: string
     productionImpactAfter?: string
     productionEvidence?: ProductionEvidence[]

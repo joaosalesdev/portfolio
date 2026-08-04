@@ -90,7 +90,36 @@ export function ProcessAutomationCaseStudy({ project, text }: { project: Project
             </ul>
           </article>
         ))}
-        {project.caseStudy.productionImpact && (
+        {project.caseStudy.productionExamples ? (
+          <article className="automation-production-examples">
+            <div className="automation-production-heading">
+              <h2>{project.caseStudy.productionExamples.title}</h2>
+              <p>{project.caseStudy.productionExamples.introduction}</p>
+            </div>
+            <div className="automation-production-grid">
+              {project.caseStudy.productionExamples.items.map((item) => (
+                <section className="automation-production-card" key={item.title}>
+                  <h3>{item.title}</h3>
+                  <div>
+                    <h4>Problema</h4>
+                    <p>{item.problem}</p>
+                  </div>
+                  <div>
+                    <h4>Arquitetura</h4>
+                    <p>{item.architecture}</p>
+                  </div>
+                  <div>
+                    <h4>Impacto operacional</h4>
+                    <p>{item.impact}</p>
+                  </div>
+                </section>
+              ))}
+            </div>
+            <aside className="automation-production-result">
+              <p>{project.caseStudy.productionExamples.result}</p>
+            </aside>
+          </article>
+        ) : project.caseStudy.productionImpact && (
           <article>
             <h2>{text.projects.caseStudy.productionImpact}</h2>
             <ul className="case-detail-list">
