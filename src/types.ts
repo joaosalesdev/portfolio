@@ -30,6 +30,8 @@ export type Project = {
   summary: string
   challenge: string
   stack: string[]
+  coverImage: string
+  coverImageAlt: string
   image?: string
   imageAlt: string
   caseStudy: {

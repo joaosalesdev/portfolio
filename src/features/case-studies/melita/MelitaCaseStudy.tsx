@@ -2,6 +2,7 @@ import type { Project, SiteContent } from '../../../types'
 import { CaseBreadcrumbs } from '../CaseBreadcrumbs'
 import { AiAgentPipeline } from './AiAgentPipeline'
 import { ProductionEvidence } from '../ProductionEvidence'
+import { CaseStudyCover } from '../CaseStudyCover'
 
 function renderEmphasizedText(content: string) {
   return content.split('**').map((part, index) => (
@@ -27,6 +28,7 @@ export function MelitaCaseStudy({ project, text }: { project: Project; text: Sit
         <p className="eyebrow">{text.projects.eyebrow}</p>
         <h1>{project.title}</h1>
         <p className="hero-description">{project.summary}</p>
+        <CaseStudyCover project={project} />
       </section>
 
       <section className="case-sections section">

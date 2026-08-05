@@ -23,10 +23,10 @@ export function ProjectCard({
 
   return (
     <article className="project-card">
-      {project.image ? (
+      {project.coverImage ? (
         <ImagePlaceholder
-          src={project.image}
-          alt={project.imageAlt}
+          src={project.coverImage}
+          alt={project.coverImageAlt}
           fallbackText={fallbackText}
         />
       ) : (

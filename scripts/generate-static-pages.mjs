@@ -54,6 +54,12 @@ function escapeHtml(value) {
 
 function render(page) {
   const canonical = `${siteUrl}${page.path}`
+  const pageSocialImage = page.projectTitle ? `${siteUrl}/images/case-studies/${page.path.match(/\/projects\/([^/]+)\//)?.[1]}.png` : socialImage
+  const pageSocialImageAlt = page.projectTitle
+    ? `${page.projectTitle} case study architecture cover`
+    : page.language === 'pt'
+      ? 'João Paulo Sales Magalhães, Engenheiro Backend e Cloud especializado em Python, AWS e sistemas serverless'
+      : 'João Paulo Sales Magalhães, Backend and Cloud Engineer specializing in Python, AWS and serverless systems'
   const alternatePath = page.path.replace(/^\/(en|pt)\//, page.language === 'en' ? '/pt/' : '/en/')
   const xDefaultPath = page.path.replace(/^\/(en|pt)\//, '/en/')
   const graph = [
@@ -65,7 +71,7 @@ function render(page) {
   }
   if (page.projectTitle) {
     graph.push(
-      { '@type': 'CreativeWork', name: page.projectTitle, description: page.description, url: canonical, inLanguage: page.language === 'pt' ? 'pt-PT' : 'en', author: { '@id': personId }, isPartOf: { '@id': websiteId } },
+      { '@type': 'CreativeWork', name: page.projectTitle, description: page.description, image: pageSocialImage, url: canonical, inLanguage: page.language === 'pt' ? 'pt-PT' : 'en', author: { '@id': personId }, isPartOf: { '@id': websiteId } },
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
@@ -86,12 +92,15 @@ function render(page) {
     .replace(/<meta property="og:description" content="[^"]*"\s*\/>/, `<meta property="og:description" content="${escapeHtml(page.description)}" />`)
     .replace(/<meta property="og:type" content="[^"]*"\s*\/>/, `<meta property="og:type" content="${page.type}" />`)
     .replace(/<meta property="og:url" content="[^"]*"\s*\/>/, `<meta property="og:url" content="${canonical}" />`)
-    .replace(/<meta property="og:image:alt" content="[^"]*"\s*\/>/, `<meta property="og:image:alt" content="${page.language === 'pt' ? 'João Paulo Sales Magalhães, Engenheiro Backend e Cloud especializado em Python, AWS e sistemas serverless' : 'João Paulo Sales Magalhães, Backend and Cloud Engineer specializing in Python, AWS and serverless systems'}" />`)
+    .replace(/<meta property="og:image" content="[^"]*"\s*\/>/, `<meta property="og:image" content="${pageSocialImage}" />`)
+    .replace(/<meta property="og:image:secure_url" content="[^"]*"\s*\/>/, `<meta property="og:image:secure_url" content="${pageSocialImage}" />`)
+    .replace(/<meta property="og:image:alt" content="[^"]*"\s*\/>/, `<meta property="og:image:alt" content="${escapeHtml(pageSocialImageAlt)}" />`)
     .replace(/<meta property="og:locale" content="[^"]*"\s*\/>/, `<meta property="og:locale" content="${page.language === 'pt' ? 'pt_PT' : 'en_US'}" />`)
     .replace(/<meta property="og:locale:alternate" content="[^"]*"\s*\/>/, `<meta property="og:locale:alternate" content="${page.language === 'pt' ? 'en_US' : 'pt_PT'}" />`)
     .replace(/<meta name="twitter:title" content="[^"]*"\s*\/>/, `<meta name="twitter:title" content="${escapeHtml(page.title)}" />`)
     .replace(/<meta name="twitter:description" content="[^"]*"\s*\/>/, `<meta name="twitter:description" content="${escapeHtml(page.description)}" />`)
-    .replace(/<meta name="twitter:image:alt" content="[^"]*"\s*\/>/, `<meta name="twitter:image:alt" content="${page.language === 'pt' ? 'João Paulo Sales Magalhães, Engenheiro Backend e Cloud especializado em Python, AWS e sistemas serverless' : 'João Paulo Sales Magalhães, Backend and Cloud Engineer specializing in Python, AWS and serverless systems'}" />`)
+    .replace(/<meta name="twitter:image" content="[^"]*"\s*\/>/, `<meta name="twitter:image" content="${pageSocialImage}" />`)
+    .replace(/<meta name="twitter:image:alt" content="[^"]*"\s*\/>/, `<meta name="twitter:image:alt" content="${escapeHtml(pageSocialImageAlt)}" />`)
     .replace('</head>', `    <link rel="alternate" hreflang="${page.language === 'pt' ? 'pt-PT' : 'en'}" href="${canonical}" />\n    <link rel="alternate" hreflang="${page.language === 'en' ? 'pt-PT' : 'en'}" href="${siteUrl}${alternatePath}" />\n    <link rel="alternate" hreflang="x-default" href="${siteUrl}${xDefaultPath}" />\n    <script id="structured-data" type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replaceAll('<', '\\u003c')}</script>\n  </head>`)
 }
 

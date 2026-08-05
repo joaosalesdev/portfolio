@@ -126,6 +126,8 @@ export const content: Record<Language, SiteContent> = {
           summary: 'Os clientes não possuíam acesso automático às informações dos veículos, tornando necessária a consulta manual por parte da equipa operacional sempre que esses dados eram solicitados. O objetivo da solução era disponibilizar essa informação de forma automatizada, integrada ao Salesforce e preparada para operar em grande escala.',
           challenge: 'Integrar sistemas independentes de forma confiável, reduzindo trabalho manual e garantindo consistência entre as informações.',
           stack: ['Python', 'Lambda', 'API Gateway', 'SQS', 'Docker', 'Event-Driven'],
+          coverImage: '/images/case-studies/salesforce-serverless-integration.png',
+          coverImageAlt: 'Fluxo serverless orientado a eventos do Salesforce através de API Gateway, SQS e Lambda até sistemas externos',
           imageAlt: 'Arquitetura serverless da integração Salesforce com serviços AWS',
           caseStudy: {
             businessContext: 'As informações necessárias para o processo comercial estavam distribuídas entre o Salesforce e serviços externos, exigindo uma integração confiável para sincronizar dados e reduzir atividades manuais. Como resultado, este projeto permitiu disponibilizar aos clientes uma nova funcionalidade integrada ao Salesforce, automatizando um processo que anteriormente dependia de consultas manuais realizadas pela equipa operacional.',
@@ -166,6 +168,8 @@ export const content: Record<Language, SiteContent> = {
           summary: 'Assistente de IA serverless desenvolvido em Python e AWS Lambda para processamento de mensagens, automação conversacional e geração de conteúdo para LinkedIn utilizando LLMs.',
           challenge: 'Construir uma aplicação capaz de processar mensagens de texto e áudio, preservar o contexto das conversas, integrar múltiplos serviços externos e executar todo o fluxo em uma arquitetura serverless na AWS.',
           stack: ['Python', 'LangChain', 'Lambda', 'Docker', 'CI/CD', 'LLM Integration'],
+          coverImage: '/images/case-studies/melita-ai-agent.png',
+          coverImageAlt: 'Pipeline do Melita AI Agent conectando Telegram, Lambda, contexto conversacional, agente LLM e LinkedIn',
           imageAlt: 'Fluxo de funcionamento do agente de inteligência artificial Melita',
           caseStudy: {
             businessContext: 'O objetivo foi desenvolver uma aplicação capaz de receber mensagens pelo Telegram, interpretar a intenção do utilizador e automatizar a criação de conteúdo para LinkedIn através de modelos de linguagem, mantendo uma arquitetura modular, escalável e preparada para evolução contínua.',
@@ -233,6 +237,8 @@ export const content: Record<Language, SiteContent> = {
           summary: 'Durante minha atuação como Backend Engineer, desenvolvi diversas automações corporativas utilizando Python e AWS para integrar sistemas, processar dados e eliminar atividades operacionais repetitivas. Embora cada automação atendesse a um processo diferente, todas compartilhavam princípios de arquitetura serverless, processamento orientado a eventos e integração entre sistemas.',
           challenge: 'Processos executados manualmente consumiam horas da equipa de suporte, dificultavam o crescimento operacional e exigiam acompanhamento constante para garantir consistência das execuções.',
           stack: ['Python', 'AWS Lambda', 'Amazon ECS', 'Amazon EventBridge', 'AWS Step Functions', 'Docker', 'Amazon ECR', 'CloudWatch', 'Secrets Manager', 'Playwright', 'Integração de Sistemas'],
+          coverImage: '/images/case-studies/process-automation-platform.png',
+          coverImageAlt: 'Workflow de automação empresarial com EventBridge, Step Functions e execução distribuída entre Lambda e ECS',
           imageAlt: 'Arquitetura da Automação de Processos Empresariais com Python e AWS em AWS',
           caseStudy: {
             businessContext: 'A operação dependia de processos manuais para integrar sistemas, coletar informações e processar dados. Essas atividades consumiam tempo da equipa de suporte, dificultavam a escalabilidade e aumentavam o risco de erros operacionais.',
@@ -296,6 +302,8 @@ export const content: Record<Language, SiteContent> = {
           summary: 'Plataforma SaaS desenvolvida para digitalizar completamente uma escola internacional de italiano, centralizando gestão académica, pagamentos, aprendizagem online e recursos baseados em Inteligência Artificial numa única solução utilizada em produção.',
           challenge: 'A operação encontrava-se distribuída entre diferentes ferramentas e processos manuais. Era necessário criar uma plataforma única capaz de integrar gestão académica, pagamentos, conteúdos, progresso dos alunos e funcionalidades inteligentes mantendo boa experiência em dispositivos móveis.',
           stack: ['JavaScript', 'MySQL', 'REST API', 'Stripe', 'PayPal', 'Artificial Intelligence'],
+          coverImage: '/images/case-studies/italian-learning-saas.png',
+          coverImageAlt: 'Ecossistema da plataforma SaaS de ensino conectando estudantes, cursos, pagamentos, recursos de voz e inteligência artificial',
           imageAlt: 'Arquitetura da plataforma SaaS de ensino de italiano',
           caseStudy: {
             businessContext: 'A escola pretendia escalar a operação digital através de uma plataforma própria, reduzindo processos manuais, centralizando a gestão de alunos e disponibilizando uma experiência moderna de aprendizagem acessível em qualquer dispositivo.',
@@ -546,6 +554,8 @@ export const content: Record<Language, SiteContent> = {
           summary: 'Customers did not have automatic access to vehicle information, which meant the operations team had to perform manual lookups whenever that data was requested. The goal was to provide this information automatically through a Salesforce integration designed to operate at scale.',
           challenge: 'Integrate independent systems reliably, reducing manual work and ensuring information remains consistent.',
           stack: ['Python', 'Lambda', 'API Gateway', 'SQS', 'Docker', 'Event-Driven'],
+          coverImage: '/images/case-studies/salesforce-serverless-integration.png',
+          coverImageAlt: 'Event-driven Salesforce integration flowing through API Gateway, SQS, and Lambda to external systems',
           imageAlt: 'Serverless architecture for the Salesforce integration with AWS services',
           caseStudy: {
             businessContext: 'The information required by the commercial process was distributed between Salesforce and external services, requiring a reliable integration to synchronize data and reduce manual work. As a result, this project made a new Salesforce-integrated feature available to customers, automating a process that had previously depended on manual lookups by the operations team.',
@@ -586,6 +596,8 @@ export const content: Record<Language, SiteContent> = {
           summary: 'Serverless AI assistant built with Python and AWS Lambda for message processing, conversational automation, and LinkedIn content generation using LLMs.',
           challenge: 'Build an application capable of processing text and audio messages, preserving conversation context, integrating multiple external services, and running the entire workflow on a serverless AWS architecture.',
           stack: ['Python', 'LangChain', 'Lambda', 'Docker', 'CI/CD', 'LLM Integration'],
+          coverImage: '/images/case-studies/melita-ai-agent.png',
+          coverImageAlt: 'Melita AI Agent pipeline connecting Telegram, Lambda, conversation context, an LLM agent, and LinkedIn',
           imageAlt: 'Workflow of the Melita artificial intelligence agent',
           caseStudy: {
             businessContext: 'The goal was to develop an application capable of receiving messages through Telegram, interpreting the user’s intent, and automating LinkedIn content creation with language models while maintaining a modular, scalable architecture prepared for continuous evolution.',
@@ -653,6 +665,8 @@ export const content: Record<Language, SiteContent> = {
           summary: 'During my work as a Backend Engineer, I developed several corporate automations using Python and AWS to integrate systems, process data, and eliminate repetitive operational tasks. Although each automation addressed a different process, they all shared principles of serverless architecture, event-driven processing, and systems integration.',
           challenge: 'Manually executed processes consumed hours of the support team’s time, constrained operational growth, and required constant monitoring to ensure consistent execution.',
           stack: ['Python', 'AWS Lambda', 'Amazon ECS', 'Amazon EventBridge', 'AWS Step Functions', 'Docker', 'Amazon ECR', 'CloudWatch', 'Secrets Manager', 'Playwright', 'Systems Integration'],
+          coverImage: '/images/case-studies/process-automation-platform.png',
+          coverImageAlt: 'Business automation workflow using EventBridge, Step Functions, and distributed execution across Lambda and ECS',
           imageAlt: 'Architecture of Business Process Automation with Python and AWS on AWS',
           caseStudy: {
             businessContext: 'The operation relied on manual processes to integrate systems, collect information, and process data. These activities consumed support team time, limited scalability, and increased the risk of operational errors.',
@@ -716,6 +730,8 @@ export const content: Record<Language, SiteContent> = {
           summary: 'A SaaS platform built to fully digitize an international Italian language school, centralizing academic management, payments, online learning, and AI-powered features in a single production system.',
           challenge: 'The operation was spread across different tools and manual processes. A unified platform was needed to bring together academic management, payments, content, student progress, and intelligent features while maintaining a strong mobile experience.',
           stack: ['JavaScript', 'MySQL', 'REST API', 'Stripe', 'PayPal', 'Artificial Intelligence'],
+          coverImage: '/images/case-studies/italian-learning-saas.png',
+          coverImageAlt: 'Italian learning SaaS ecosystem connecting students, courses, payments, speech capabilities, and artificial intelligence',
           imageAlt: 'Architecture of the Italian learning SaaS platform',
           caseStudy: {
             businessContext: 'The school wanted to scale its digital operation through a proprietary platform, reducing manual processes, centralizing student management, and providing a modern learning experience accessible from any device.',

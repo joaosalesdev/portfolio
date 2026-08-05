@@ -2,12 +2,8 @@ import { access, readFile } from 'node:fs/promises'
 
 const outputDirectory = new URL('../dist/', import.meta.url)
 const languages = ['en', 'pt']
-const projectSlugs = [
-  'salesforce-serverless-integration',
-  'melita-ai-agent',
-  'process-automation-platform',
-  'italian-learning-saas',
-]
+const contentSource = await readFile(new URL('../src/content.ts', import.meta.url), 'utf8')
+const projectSlugs = [...new Set([...contentSource.matchAll(/slug: '([^']+)'/g)].map((match) => match[1]))]
 
 const routes = languages.flatMap((language) => [
   `${language}/index.html`,
@@ -47,6 +43,13 @@ for (const route of routes) {
 
   const structuredDataCount = (html.match(/id="structured-data"/g) ?? []).length
   if (structuredDataCount !== 1) errors.push(`${route}: expected one structured data block, found ${structuredDataCount}`)
+
+  const projectSlug = projectSlugs.find((slug) => route.includes(`/projects/${slug}/`))
+  if (projectSlug) {
+    const expectedImage = `https://joaosalesdev.github.io/portfolio/images/case-studies/${projectSlug}.png`
+    if (!html.includes(`<meta property="og:image" content="${expectedImage}"`)) errors.push(`${route}: incorrect project Open Graph image`)
+    if (!html.includes(`<meta name="twitter:image" content="${expectedImage}"`)) errors.push(`${route}: incorrect project Twitter image`)
+  }
 }
 
 for (const asset of [
@@ -68,6 +71,7 @@ for (const asset of [
   'safari-pinned-tab.svg',
   'browserconfig.xml',
   'images/social-card.png',
+  ...projectSlugs.map((slug) => `images/case-studies/${slug}.png`),
   '404.html',
 ]) {
   try {

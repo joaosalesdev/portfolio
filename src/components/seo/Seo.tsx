@@ -39,6 +39,10 @@ export function Seo({ language, text }: { language: Language; text: SiteContent 
   const { pathname } = useLocation()
   const projectSlug = pathname.match(/\/projects\/([^/]+)/)?.[1]
   const project = text.projects.items.find((item) => item.slug === projectSlug)
+  const socialImage = project ? `${SITE_URL}${project.coverImage}` : SOCIAL_IMAGE
+  const socialImageAlt = project?.coverImageAlt ?? (language === 'pt'
+    ? 'João Paulo Sales Magalhães, Engenheiro Backend e Cloud especializado em Python, AWS e sistemas serverless'
+    : 'João Paulo Sales Magalhães, Backend and Cloud Engineer specializing in Python, AWS and serverless systems')
   const isKnownPage = Boolean(
     project
     || pathname.endsWith('/projects')
@@ -93,29 +97,25 @@ export function Seo({ language, text }: { language: Language; text: SiteContent 
     setMeta('meta[property="og:description"]', 'property', 'og:description', metadata.description)
     setMeta('meta[property="og:type"]', 'property', 'og:type', metadata.type)
     setMeta('meta[property="og:url"]', 'property', 'og:url', canonical)
-    setMeta('meta[property="og:image"]', 'property', 'og:image', SOCIAL_IMAGE)
-    setMeta('meta[property="og:image:secure_url"]', 'property', 'og:image:secure_url', SOCIAL_IMAGE)
+    setMeta('meta[property="og:image"]', 'property', 'og:image', socialImage)
+    setMeta('meta[property="og:image:secure_url"]', 'property', 'og:image:secure_url', socialImage)
     setMeta('meta[property="og:image:type"]', 'property', 'og:image:type', 'image/png')
     setMeta('meta[property="og:image:width"]', 'property', 'og:image:width', '1200')
     setMeta('meta[property="og:image:height"]', 'property', 'og:image:height', '630')
-    setMeta('meta[property="og:image:alt"]', 'property', 'og:image:alt', language === 'pt'
-      ? 'João Paulo Sales Magalhães, Engenheiro Backend e Cloud especializado em Python, AWS e sistemas serverless'
-      : 'João Paulo Sales Magalhães, Backend and Cloud Engineer specializing in Python, AWS and serverless systems')
+    setMeta('meta[property="og:image:alt"]', 'property', 'og:image:alt', socialImageAlt)
     setMeta('meta[property="og:locale"]', 'property', 'og:locale', language === 'pt' ? 'pt_PT' : 'en_US')
     setMeta('meta[property="og:locale:alternate"]', 'property', 'og:locale:alternate', language === 'pt' ? 'en_US' : 'pt_PT')
     setMeta('meta[name="twitter:card"]', 'name', 'twitter:card', 'summary_large_image')
     setMeta('meta[name="twitter:title"]', 'name', 'twitter:title', metadata.title)
     setMeta('meta[name="twitter:description"]', 'name', 'twitter:description', metadata.description)
-    setMeta('meta[name="twitter:image"]', 'name', 'twitter:image', SOCIAL_IMAGE)
-    setMeta('meta[name="twitter:image:alt"]', 'name', 'twitter:image:alt', language === 'pt'
-      ? 'João Paulo Sales Magalhães, Engenheiro Backend e Cloud especializado em Python, AWS e sistemas serverless'
-      : 'João Paulo Sales Magalhães, Backend and Cloud Engineer specializing in Python, AWS and serverless systems')
+    setMeta('meta[name="twitter:image"]', 'name', 'twitter:image', socialImage)
+    setMeta('meta[name="twitter:image:alt"]', 'name', 'twitter:image:alt', socialImageAlt)
     setMeta('meta[name="robots"]', 'name', 'robots', isKnownPage ? ROBOTS_INDEX : ROBOTS_NOINDEX)
     setLink('canonical', canonical)
     setLink('alternate', canonical, currentHrefLanguage)
     setLink('alternate', `${SITE_URL}${alternatePath}/`, alternateLanguage)
     setLink('alternate', `${SITE_URL}${canonicalPath.replace(/^\/(pt|en)/, '/en')}/`, 'x-default')
-  }, [alternateLanguage, alternatePath, canonical, canonicalPath, currentHrefLanguage, isKnownPage, language, metadata])
+  }, [alternateLanguage, alternatePath, canonical, canonicalPath, currentHrefLanguage, isKnownPage, language, metadata, socialImage, socialImageAlt])
 
   const structuredData = useMemo(() => ({
     '@context': 'https://schema.org',
@@ -156,6 +156,7 @@ export function Seo({ language, text }: { language: Language; text: SiteContent 
         '@type': 'CreativeWork',
         name: project.title,
         description: project.summary,
+        image: socialImage,
         url: canonical,
         inLanguage: language === 'pt' ? 'pt-PT' : 'en',
         author: { '@id': PERSON_ID },
@@ -170,7 +171,7 @@ export function Seo({ language, text }: { language: Language; text: SiteContent 
         ],
       }] : []),
     ],
-  }), [canonical, language, metadata.description, metadata.title, pathname, project, text.nav.home, text.nav.projects])
+  }), [canonical, language, metadata.description, metadata.title, pathname, project, socialImage, text.nav.home, text.nav.projects])
 
   useEffect(() => {
     let script = document.head.querySelector<HTMLScriptElement>('#structured-data')

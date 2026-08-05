@@ -5,6 +5,7 @@ import { ItalianLearningCaseStudy } from './italian-learning/ItalianLearningCase
 import { MelitaCaseStudy } from './melita/MelitaCaseStudy'
 import { CaseArchitectureDiagram } from './salesforce/CaseArchitectureDiagram'
 import { ConfidentialityNotice } from './ConfidentialityNotice'
+import { CaseStudyCover } from './CaseStudyCover'
 
 export function ProjectCaseStudy({ project, text }: { project: Project; text: SiteContent }) {
   if (project.slug === 'melita-ai-agent') {
@@ -48,6 +49,7 @@ function DefaultCaseStudy({ project, text }: { project: Project; text: SiteConte
         <p className="eyebrow">{text.projects.eyebrow}</p>
         <h1>{project.title}</h1>
         <p className="hero-description">{project.summary}</p>
+        <CaseStudyCover project={project} />
       </section>
 
       <section className="case-sections section">
