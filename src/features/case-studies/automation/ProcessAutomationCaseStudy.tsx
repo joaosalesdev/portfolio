@@ -2,7 +2,6 @@ import type { Project, SiteContent } from '../../../types'
 import { CaseBreadcrumbs } from '../CaseBreadcrumbs'
 import { AutomationWorkflow } from './AutomationWorkflow'
 import { ConfidentialityNotice } from '../ConfidentialityNotice'
-import { CaseStudyCover } from '../CaseStudyCover'
 
 export function ProcessAutomationCaseStudy({ project, text }: { project: Project; text: SiteContent }) {
   const introductionSections = [
@@ -22,7 +21,6 @@ export function ProcessAutomationCaseStudy({ project, text }: { project: Project
         <p className="eyebrow">{text.projects.eyebrow}</p>
         <h1>{project.title}</h1>
         <p className="hero-description">{project.summary}</p>
-        <CaseStudyCover project={project} />
       </section>
 
       <section className="case-sections section">

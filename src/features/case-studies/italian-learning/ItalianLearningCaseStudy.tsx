@@ -3,7 +3,6 @@ import { CaseBreadcrumbs } from '../CaseBreadcrumbs'
 import { WebApplicationArchitecture } from './WebApplicationArchitecture'
 import { PublicProductEvidence } from './PublicProductEvidence'
 import { PlatformFeaturesEvidence } from './PlatformFeaturesEvidence'
-import { CaseStudyCover } from '../CaseStudyCover'
 
 export function ItalianLearningCaseStudy({ project, text }: { project: Project; text: SiteContent }) {
   const introductionSections = [
@@ -23,7 +22,6 @@ export function ItalianLearningCaseStudy({ project, text }: { project: Project; 
         <p className="eyebrow">{text.projects.eyebrow}</p>
         <h1>{project.title}</h1>
         <p className="hero-description">{project.summary}</p>
-        <CaseStudyCover project={project} />
       </section>
 
       <section className="case-sections section">

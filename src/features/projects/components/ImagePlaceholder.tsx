@@ -1,7 +1,5 @@
 import { useState } from 'react'
 
-const resolveAssetPath = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
-
 type ImagePlaceholderProps = {
   src?: string
   alt: string
@@ -21,7 +19,7 @@ export function ImagePlaceholder({
     return (
       <div className="project-media">
         <img
-          src={resolveAssetPath(src)}
+          src={src}
           alt={alt}
           loading={eager ? 'eager' : 'lazy'}
           onError={() => setHasError(true)}
