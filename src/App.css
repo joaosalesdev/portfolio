@@ -3290,6 +3290,10 @@ footer {
 }
 
 @media (max-width: 520px) {
+  .brand {
+    font-size: 0.98rem;
+  }
+
   .section,
   footer {
     width: min(var(--content), 88vw);

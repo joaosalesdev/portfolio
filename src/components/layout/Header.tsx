@@ -14,7 +14,7 @@ export function Header({ language, onLanguageChange, text }: HeaderProps) {
   return (
     <header className="site-header">
       <Link className="brand" to={localizedPath()} aria-label={text.nav.home}>
-        João <span>Paulo</span>
+        João Paulo <span>Sales Magalhães</span>
       </Link>
       <nav aria-label={text.common.mainNavigation}>
         <NavLink end to={localizedPath()}>{text.nav.home}</NavLink>

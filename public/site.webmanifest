@@ -1,7 +1,7 @@
 {
-  "name": "João Paulo — Software Engineering Portfolio",
-  "short_name": "João Paulo",
-  "description": "Backend and Cloud Engineering portfolio focused on Python, AWS and production systems.",
+  "name": "João Paulo Sales Magalhães — Backend & Cloud Engineer",
+  "short_name": "João Sales Magalhães",
+  "description": "Backend and Cloud Engineering portfolio focused on Python, AWS, serverless systems and event-driven architecture.",
   "start_url": "/portfolio/en/",
   "scope": "/portfolio/",
   "display": "standalone",
@@ -13,6 +13,30 @@
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
+    },
+    {
+      "src": "/portfolio/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/portfolio/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/portfolio/maskable-icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/portfolio/maskable-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

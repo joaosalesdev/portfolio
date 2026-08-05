@@ -3,20 +3,23 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const siteUrl = 'https://joaosalesdev.github.io/portfolio'
+const socialImage = `${siteUrl}/images/social-card.png`
+const personId = `${siteUrl}/#person`
+const websiteId = `${siteUrl}/#website`
 const outputDirectory = new URL('../dist/', import.meta.url)
 const outputPath = fileURLToPath(outputDirectory)
 const template = await readFile(new URL('index.html', outputDirectory), 'utf8')
 
 const shared = {
   en: {
-    home: { title: 'João Paulo | Backend & Cloud Engineer — Python & AWS', description: 'Software Engineer focused on backend systems, cloud architecture, Python and AWS. Production projects documented as technical case studies.' },
-    about: { title: 'About | João Paulo — Backend & Cloud Engineer', description: 'Professional journey, engineering principles and goals focused on backend systems, distributed architectures and cloud computing.' },
-    projects: { title: 'Software Engineering Projects | João Paulo', description: 'Backend, cloud, automation and integration projects developed from real business challenges and documented as technical case studies.' },
+    home: { title: 'João Paulo Sales Magalhães | Backend & Cloud Engineer', description: 'Backend and Cloud Engineer building production systems with Python, AWS, serverless architectures, APIs and event-driven integrations.' },
+    about: { title: 'About João Paulo Sales Magalhães | Backend & Cloud Engineer', description: 'Backend and Cloud Engineer experienced in Python, AWS, serverless systems, distributed architectures and production software.' },
+    projects: { title: 'Backend & Cloud Projects | João Paulo Sales Magalhães', description: 'Production case studies covering Python, AWS, serverless automation, APIs, distributed workflows and system integrations.' },
   },
   pt: {
-    home: { title: 'João Paulo | Backend & Cloud Engineer — Python & AWS', description: 'Software Engineer especializado em sistemas backend, cloud, Python e AWS. Projetos reais documentados como estudos de caso técnicos.' },
-    about: { title: 'Sobre | João Paulo — Backend & Cloud Engineer', description: 'Trajetória profissional, princípios de engenharia e objetivos focados em sistemas backend, arquiteturas distribuídas e cloud.' },
-    projects: { title: 'Projetos de Engenharia de Software | João Paulo', description: 'Projetos de backend, cloud, automação e integração desenvolvidos a partir de desafios reais e documentados como estudos de caso.' },
+    home: { title: 'João Paulo Sales Magalhães | Backend & Cloud Engineer', description: 'Engenheiro Backend e Cloud desenvolvendo sistemas em produção com Python, AWS, arquiteturas serverless, APIs e integrações orientadas a eventos.' },
+    about: { title: 'Sobre João Paulo Sales Magalhães | Backend & Cloud Engineer', description: 'Engenheiro Backend e Cloud com experiência em Python, AWS, sistemas serverless, arquiteturas distribuídas e software em produção.' },
+    projects: { title: 'Projetos Backend & Cloud | João Paulo Sales Magalhães', description: 'Estudos de caso em produção sobre Python, AWS, automação serverless, APIs, workflows distribuídos e integrações.' },
   },
 }
 
@@ -37,11 +40,11 @@ const projects = {
 
 const pages = []
 for (const language of ['en', 'pt']) {
-  pages.push({ language, path: `/${language}/`, ...shared[language].home, type: 'website' })
+  pages.push({ language, path: `/${language}/`, ...shared[language].home, type: 'profile' })
   pages.push({ language, path: `/${language}/about/`, ...shared[language].about, type: 'profile' })
   pages.push({ language, path: `/${language}/projects/`, ...shared[language].projects, type: 'website' })
   for (const [slug, title, description] of projects[language]) {
-    pages.push({ language, path: `/${language}/projects/${slug}/`, title: `${title} | João Paulo`, description, type: 'article', projectTitle: title })
+    pages.push({ language, path: `/${language}/projects/${slug}/`, title: `${title} | João Paulo Sales Magalhães`, description, type: 'article', projectTitle: title })
   }
 }
 
@@ -54,12 +57,15 @@ function render(page) {
   const alternatePath = page.path.replace(/^\/(en|pt)\//, page.language === 'en' ? '/pt/' : '/en/')
   const xDefaultPath = page.path.replace(/^\/(en|pt)\//, '/en/')
   const graph = [
-    { '@type': 'Person', '@id': `${siteUrl}/#person`, name: 'João Paulo', jobTitle: 'Software Engineer | Backend & Cloud', url: `${siteUrl}/en/`, sameAs: ['https://github.com/joaosalesdev', 'https://www.linkedin.com/in/joao-sales-magalhaes/'], knowsAbout: ['Backend Engineering', 'Cloud Computing', 'Python', 'AWS', 'Distributed Systems'] },
-    { '@type': 'WebSite', '@id': `${siteUrl}/#website`, name: 'João Paulo — Software Engineering Portfolio', url: `${siteUrl}/en/`, inLanguage: ['en', 'pt'], author: { '@id': `${siteUrl}/#person` } },
+    { '@type': 'Person', '@id': personId, name: 'João Paulo Sales Magalhães', jobTitle: 'Backend & Cloud Engineer', url: `${siteUrl}/en/`, image: socialImage, description: 'Backend and Cloud Engineer building production systems with Python, AWS, serverless architectures, APIs, and event-driven integrations.', sameAs: ['https://github.com/joaosalesdev', 'https://www.linkedin.com/in/joao-sales-magalhaes/'], knowsAbout: ['Backend Engineering', 'Cloud Engineering', 'Python', 'FastAPI', 'Amazon Web Services', 'Serverless Architecture', 'Cloud Native', 'Event-Driven Architecture', 'Distributed Systems', 'REST APIs', 'Microservices', 'Docker', 'CI/CD'] },
+    { '@type': 'WebSite', '@id': websiteId, name: 'João Paulo Sales Magalhães — Backend & Cloud Engineering Portfolio', url: `${siteUrl}/en/`, inLanguage: ['en', 'pt-PT'], author: { '@id': personId } },
   ]
+  if (page.path.endsWith('/about/')) {
+    graph.push({ '@type': 'ProfilePage', '@id': `${canonical}#webpage`, name: page.title, description: page.description, url: canonical, inLanguage: page.language === 'pt' ? 'pt-PT' : 'en', mainEntity: { '@id': personId }, isPartOf: { '@id': websiteId } })
+  }
   if (page.projectTitle) {
     graph.push(
-      { '@type': 'CreativeWork', name: page.projectTitle, description: page.description, url: canonical, inLanguage: page.language, author: { '@id': `${siteUrl}/#person` } },
+      { '@type': 'CreativeWork', name: page.projectTitle, description: page.description, url: canonical, inLanguage: page.language === 'pt' ? 'pt-PT' : 'en', author: { '@id': personId }, isPartOf: { '@id': websiteId } },
       {
         '@type': 'BreadcrumbList',
         itemListElement: [
@@ -80,9 +86,13 @@ function render(page) {
     .replace(/<meta property="og:description" content="[^"]*"\s*\/>/, `<meta property="og:description" content="${escapeHtml(page.description)}" />`)
     .replace(/<meta property="og:type" content="[^"]*"\s*\/>/, `<meta property="og:type" content="${page.type}" />`)
     .replace(/<meta property="og:url" content="[^"]*"\s*\/>/, `<meta property="og:url" content="${canonical}" />`)
+    .replace(/<meta property="og:image:alt" content="[^"]*"\s*\/>/, `<meta property="og:image:alt" content="${page.language === 'pt' ? 'João Paulo Sales Magalhães, Engenheiro Backend e Cloud especializado em Python, AWS e sistemas serverless' : 'João Paulo Sales Magalhães, Backend and Cloud Engineer specializing in Python, AWS and serverless systems'}" />`)
+    .replace(/<meta property="og:locale" content="[^"]*"\s*\/>/, `<meta property="og:locale" content="${page.language === 'pt' ? 'pt_PT' : 'en_US'}" />`)
+    .replace(/<meta property="og:locale:alternate" content="[^"]*"\s*\/>/, `<meta property="og:locale:alternate" content="${page.language === 'pt' ? 'en_US' : 'pt_PT'}" />`)
     .replace(/<meta name="twitter:title" content="[^"]*"\s*\/>/, `<meta name="twitter:title" content="${escapeHtml(page.title)}" />`)
     .replace(/<meta name="twitter:description" content="[^"]*"\s*\/>/, `<meta name="twitter:description" content="${escapeHtml(page.description)}" />`)
-    .replace('</head>', `    <link rel="alternate" hreflang="${page.language}" href="${canonical}" />\n    <link rel="alternate" hreflang="${page.language === 'en' ? 'pt' : 'en'}" href="${siteUrl}${alternatePath}" />\n    <link rel="alternate" hreflang="x-default" href="${siteUrl}${xDefaultPath}" />\n    <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replaceAll('<', '\\u003c')}</script>\n  </head>`)
+    .replace(/<meta name="twitter:image:alt" content="[^"]*"\s*\/>/, `<meta name="twitter:image:alt" content="${page.language === 'pt' ? 'João Paulo Sales Magalhães, Engenheiro Backend e Cloud especializado em Python, AWS e sistemas serverless' : 'João Paulo Sales Magalhães, Backend and Cloud Engineer specializing in Python, AWS and serverless systems'}" />`)
+    .replace('</head>', `    <link rel="alternate" hreflang="${page.language === 'pt' ? 'pt-PT' : 'en'}" href="${canonical}" />\n    <link rel="alternate" hreflang="${page.language === 'en' ? 'pt-PT' : 'en'}" href="${siteUrl}${alternatePath}" />\n    <link rel="alternate" hreflang="x-default" href="${siteUrl}${xDefaultPath}" />\n    <script id="structured-data" type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replaceAll('<', '\\u003c')}</script>\n  </head>`)
 }
 
 for (const page of pages) {
@@ -91,6 +101,19 @@ for (const page of pages) {
   await writeFile(destination, render(page))
 }
 
-await writeFile(new URL('404.html', outputDirectory), template)
-await writeFile(new URL('robots.txt', outputDirectory), `User-agent: *\nAllow: /portfolio/\n\nSitemap: ${siteUrl}/sitemap.xml\n`)
-await writeFile(new URL('sitemap.xml', outputDirectory), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map((page) => `  <url><loc>${siteUrl}${page.path}</loc></url>`).join('\n')}\n</urlset>\n`)
+await writeFile(new URL('404.html', outputDirectory), template.replace(/<meta name="robots" content="[^"]*"\s*\/>/, '<meta name="robots" content="noindex, follow" />'))
+await writeFile(new URL('robots.txt', outputDirectory), `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}/sitemap.xml\n`)
+await writeFile(new URL('sitemap.xml', outputDirectory), `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${pages.map((page) => {
+  const englishPath = page.path.replace(/^\/(en|pt)\//, '/en/')
+  const portuguesePath = page.path.replace(/^\/(en|pt)\//, '/pt/')
+  return `  <url>
+    <loc>${siteUrl}${page.path}</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="${siteUrl}${englishPath}" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="${siteUrl}${portuguesePath}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${siteUrl}${englishPath}" />
+  </url>`
+}).join('\n')}
+</urlset>
+`)

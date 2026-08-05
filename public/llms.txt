@@ -1,0 +1,36 @@
+# João Paulo Sales Magalhães — Backend & Cloud Engineer
+
+> Professional engineering portfolio documenting production backend, cloud, automation, integration, and SaaS projects.
+
+Canonical portfolio: https://joaosalesdev.github.io/portfolio/en/
+Portuguese version: https://joaosalesdev.github.io/portfolio/pt/
+LinkedIn: https://www.linkedin.com/in/joao-sales-magalhaes/
+GitHub: https://github.com/joaosalesdev
+
+## Professional focus
+
+João Paulo Sales Magalhães is a Backend & Cloud Engineer focused on Python, FastAPI, AWS, serverless systems, cloud-native applications, REST APIs, microservices, event-driven architecture, distributed systems, Docker, and CI/CD.
+
+João is interested in international Backend and Cloud Engineering opportunities, especially with product companies in Portugal and across Europe.
+
+## Production case studies
+
+- Salesforce serverless integration: https://joaosalesdev.github.io/portfolio/en/projects/salesforce-serverless-integration/
+  Distributed integration using Amazon API Gateway, Amazon SQS, AWS Lambda, asynchronous processing, failure handling, and external systems.
+
+- Melita AI Agent: https://joaosalesdev.github.io/portfolio/en/projects/melita-ai-agent/
+  Python and AWS Lambda application integrating Telegram, OpenAI, LangChain, LinkedIn, Docker, automated tests, and CI/CD.
+
+- Business process automation: https://joaosalesdev.github.io/portfolio/en/projects/process-automation-platform/
+  Production automation using Python, AWS Lambda, Amazon ECS, EventBridge, Step Functions, Docker, ECR, CloudWatch, and Secrets Manager.
+
+- Italian learning SaaS: https://joaosalesdev.github.io/portfolio/en/projects/italian-learning-saas/
+  Production SaaS platform covering academic management, online learning, payments, REST APIs, and external service integrations.
+
+## Preferred sources
+
+- About: https://joaosalesdev.github.io/portfolio/en/about/
+- Projects: https://joaosalesdev.github.io/portfolio/en/projects/
+- Sitemap: https://joaosalesdev.github.io/portfolio/sitemap.xml
+
+All claims should be attributed to the portfolio pages above. Project pages distinguish personal responsibilities, team responsibilities, architectural decisions, production outcomes, and confidentiality constraints.

@@ -3,7 +3,11 @@ import { useLocation } from 'react-router-dom'
 import type { Language, SiteContent } from '../../types'
 
 const SITE_URL = 'https://joaosalesdev.github.io/portfolio'
-const SOCIAL_IMAGE = `${SITE_URL}/images/og-architecture.png`
+const SOCIAL_IMAGE = `${SITE_URL}/images/social-card.png`
+const PERSON_ID = `${SITE_URL}/#person`
+const WEBSITE_ID = `${SITE_URL}/#website`
+const ROBOTS_INDEX = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+const ROBOTS_NOINDEX = 'noindex, follow'
 
 function setMeta(selector: string, attribute: 'name' | 'property', key: string, content: string) {
   let element = document.head.querySelector<HTMLMetaElement>(selector)
@@ -35,11 +39,17 @@ export function Seo({ language, text }: { language: Language; text: SiteContent 
   const { pathname } = useLocation()
   const projectSlug = pathname.match(/\/projects\/([^/]+)/)?.[1]
   const project = text.projects.items.find((item) => item.slug === projectSlug)
+  const isKnownPage = Boolean(
+    project
+    || pathname.endsWith('/projects')
+    || pathname.endsWith('/about')
+    || new RegExp(`/${language}/?$`).test(pathname),
+  )
 
   const metadata = useMemo(() => {
     if (project) {
       return {
-        title: `${project.title} | João Paulo`,
+        title: `${project.title} | João Paulo Sales Magalhães`,
         description: project.summary,
         type: 'article',
       }
@@ -47,7 +57,7 @@ export function Seo({ language, text }: { language: Language; text: SiteContent 
 
     if (pathname.endsWith('/projects')) {
       return {
-        title: language === 'pt' ? 'Projetos de Engenharia de Software | João Paulo' : 'Software Engineering Projects | João Paulo',
+        title: language === 'pt' ? 'Projetos Backend & Cloud | João Paulo Sales Magalhães' : 'Backend & Cloud Projects | João Paulo Sales Magalhães',
         description: text.projects.description,
         type: 'website',
       }
@@ -55,25 +65,26 @@ export function Seo({ language, text }: { language: Language; text: SiteContent 
 
     if (pathname.endsWith('/about')) {
       return {
-        title: language === 'pt' ? 'Sobre | João Paulo — Backend & Cloud Engineer' : 'About | João Paulo — Backend & Cloud Engineer',
+        title: language === 'pt' ? 'Sobre João Paulo Sales Magalhães | Backend & Cloud Engineer' : 'About João Paulo Sales Magalhães | Backend & Cloud Engineer',
         description: text.about.goals,
         type: 'profile',
       }
     }
 
     return {
-      title: 'João Paulo | Backend & Cloud Engineer — Python & AWS',
+      title: 'João Paulo Sales Magalhães | Backend & Cloud Engineer',
       description: language === 'pt'
-        ? 'Software Engineer especializado em sistemas backend, cloud, Python e AWS. Projetos reais documentados como estudos de caso técnicos.'
-        : 'Software Engineer focused on backend systems, cloud architecture, Python and AWS. Production projects documented as technical case studies.',
-      type: 'website',
+        ? 'Engenheiro Backend e Cloud desenvolvendo sistemas em produção com Python, AWS, arquiteturas serverless, APIs e integrações orientadas a eventos.'
+        : 'Backend and Cloud Engineer building production systems with Python, AWS, serverless architectures, APIs and event-driven integrations.',
+      type: 'profile',
     }
   }, [language, pathname, project, text])
 
   const canonicalPath = pathname.replace(/\/$/, '') || `/${language}`
   const canonical = `${SITE_URL}${canonicalPath}/`
   const alternatePath = canonicalPath.replace(/^\/(pt|en)/, language === 'pt' ? '/en' : '/pt')
-  const alternateLanguage = language === 'pt' ? 'en' : 'pt'
+  const currentHrefLanguage = language === 'pt' ? 'pt-PT' : 'en'
+  const alternateLanguage = language === 'pt' ? 'en' : 'pt-PT'
 
   useEffect(() => {
     document.title = metadata.title
@@ -83,47 +94,72 @@ export function Seo({ language, text }: { language: Language; text: SiteContent 
     setMeta('meta[property="og:type"]', 'property', 'og:type', metadata.type)
     setMeta('meta[property="og:url"]', 'property', 'og:url', canonical)
     setMeta('meta[property="og:image"]', 'property', 'og:image', SOCIAL_IMAGE)
+    setMeta('meta[property="og:image:secure_url"]', 'property', 'og:image:secure_url', SOCIAL_IMAGE)
+    setMeta('meta[property="og:image:type"]', 'property', 'og:image:type', 'image/png')
+    setMeta('meta[property="og:image:width"]', 'property', 'og:image:width', '1200')
+    setMeta('meta[property="og:image:height"]', 'property', 'og:image:height', '630')
+    setMeta('meta[property="og:image:alt"]', 'property', 'og:image:alt', language === 'pt'
+      ? 'João Paulo Sales Magalhães, Engenheiro Backend e Cloud especializado em Python, AWS e sistemas serverless'
+      : 'João Paulo Sales Magalhães, Backend and Cloud Engineer specializing in Python, AWS and serverless systems')
     setMeta('meta[property="og:locale"]', 'property', 'og:locale', language === 'pt' ? 'pt_PT' : 'en_US')
+    setMeta('meta[property="og:locale:alternate"]', 'property', 'og:locale:alternate', language === 'pt' ? 'en_US' : 'pt_PT')
     setMeta('meta[name="twitter:card"]', 'name', 'twitter:card', 'summary_large_image')
     setMeta('meta[name="twitter:title"]', 'name', 'twitter:title', metadata.title)
     setMeta('meta[name="twitter:description"]', 'name', 'twitter:description', metadata.description)
     setMeta('meta[name="twitter:image"]', 'name', 'twitter:image', SOCIAL_IMAGE)
+    setMeta('meta[name="twitter:image:alt"]', 'name', 'twitter:image:alt', language === 'pt'
+      ? 'João Paulo Sales Magalhães, Engenheiro Backend e Cloud especializado em Python, AWS e sistemas serverless'
+      : 'João Paulo Sales Magalhães, Backend and Cloud Engineer specializing in Python, AWS and serverless systems')
+    setMeta('meta[name="robots"]', 'name', 'robots', isKnownPage ? ROBOTS_INDEX : ROBOTS_NOINDEX)
     setLink('canonical', canonical)
-    setLink('alternate', canonical, language)
+    setLink('alternate', canonical, currentHrefLanguage)
     setLink('alternate', `${SITE_URL}${alternatePath}/`, alternateLanguage)
     setLink('alternate', `${SITE_URL}${canonicalPath.replace(/^\/(pt|en)/, '/en')}/`, 'x-default')
-  }, [alternateLanguage, alternatePath, canonical, canonicalPath, language, metadata])
+  }, [alternateLanguage, alternatePath, canonical, canonicalPath, currentHrefLanguage, isKnownPage, language, metadata])
 
-  const structuredData = {
+  const structuredData = useMemo(() => ({
     '@context': 'https://schema.org',
     '@graph': [
       {
         '@type': 'Person',
-        '@id': `${SITE_URL}/#person`,
-        name: 'João Paulo',
-        jobTitle: 'Software Engineer | Backend & Cloud',
+        '@id': PERSON_ID,
+        name: 'João Paulo Sales Magalhães',
+        jobTitle: 'Backend & Cloud Engineer',
         url: `${SITE_URL}/en/`,
+        image: SOCIAL_IMAGE,
+        description: 'Backend and Cloud Engineer building production systems with Python, AWS, serverless architectures, APIs, and event-driven integrations.',
         sameAs: [
           'https://github.com/joaosalesdev',
           'https://www.linkedin.com/in/joao-sales-magalhaes/',
         ],
-        knowsAbout: ['Backend Engineering', 'Cloud Computing', 'Python', 'AWS', 'Distributed Systems'],
+        knowsAbout: ['Backend Engineering', 'Cloud Engineering', 'Python', 'FastAPI', 'Amazon Web Services', 'Serverless Architecture', 'Cloud Native', 'Event-Driven Architecture', 'Distributed Systems', 'REST APIs', 'Microservices', 'Docker', 'CI/CD'],
       },
       {
         '@type': 'WebSite',
-        '@id': `${SITE_URL}/#website`,
-        name: 'João Paulo — Software Engineering Portfolio',
+        '@id': WEBSITE_ID,
+        name: 'João Paulo Sales Magalhães — Backend & Cloud Engineering Portfolio',
         url: `${SITE_URL}/en/`,
         inLanguage: ['en', 'pt'],
-        author: { '@id': `${SITE_URL}/#person` },
+        author: { '@id': PERSON_ID },
       },
+      ...(pathname.endsWith('/about') ? [{
+        '@type': 'ProfilePage',
+        '@id': `${canonical}#webpage`,
+        name: metadata.title,
+        description: metadata.description,
+        url: canonical,
+        inLanguage: language === 'pt' ? 'pt-PT' : 'en',
+        mainEntity: { '@id': PERSON_ID },
+        isPartOf: { '@id': WEBSITE_ID },
+      }] : []),
       ...(project ? [{
         '@type': 'CreativeWork',
         name: project.title,
         description: project.summary,
         url: canonical,
-        inLanguage: language,
-        author: { '@id': `${SITE_URL}/#person` },
+        inLanguage: language === 'pt' ? 'pt-PT' : 'en',
+        author: { '@id': PERSON_ID },
+        isPartOf: { '@id': WEBSITE_ID },
         keywords: project.stack.join(', '),
       }, {
         '@type': 'BreadcrumbList',
@@ -134,7 +170,18 @@ export function Seo({ language, text }: { language: Language; text: SiteContent 
         ],
       }] : []),
     ],
-  }
+  }), [canonical, language, metadata.description, metadata.title, pathname, project, text.nav.home, text.nav.projects])
 
-  return <script id="structured-data" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+  useEffect(() => {
+    let script = document.head.querySelector<HTMLScriptElement>('#structured-data')
+    if (!script) {
+      script = document.createElement('script')
+      script.id = 'structured-data'
+      script.type = 'application/ld+json'
+      document.head.appendChild(script)
+    }
+    script.textContent = JSON.stringify(structuredData).replaceAll('<', '\\u003c')
+  }, [structuredData])
+
+  return null
 }

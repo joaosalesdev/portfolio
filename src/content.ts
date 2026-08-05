@@ -4,17 +4,17 @@ export const content: Record<Language, SiteContent> = {
   pt: {
     nav: { home: 'Home', about: 'Sobre mim', projects: 'Projetos' },
     home: {
-      eyebrow: 'Software Engineer | Backend & Cloud',
-      title: 'Engenharia de sistemas backend escaláveis',
+      eyebrow: 'João Paulo Sales Magalhães | Backend & Cloud Engineer',
+      title: 'Sistemas backend escaláveis com Python e AWS',
       description:
-        'Desenvolvo soluções backend, APIs e integrações entre sistemas para construir aplicações cloud escaláveis, resilientes e executadas em produção utilizando AWS.',
+        'Desenvolvo sistemas backend, APIs REST e microsserviços com Python e FastAPI, utilizando AWS, serverless e arquiteturas orientadas a eventos para operar em produção.',
       primaryAction: 'Ver projetos',
       secondaryAction: 'Entrar em contato',
       heroHighlights: [
-        'Backend Engineering',
+        'Python & FastAPI',
+        'AWS & Serverless',
+        'Event-Driven Architecture',
         'Distributed Systems',
-        'AWS Cloud',
-        'Production Systems',
       ],
       specialtiesLabel: 'Especialidades',
       specialtiesTitle: 'Tecnologia aplicada a problemas reais',
@@ -44,7 +44,7 @@ export const content: Record<Language, SiteContent> = {
       contactLabel: 'Contato',
       contactTitle: 'Vamos conversar.',
       contact:
-        'Estou disponível para oportunidades em Backend e Cloud Engineering, contribuindo para o desenvolvimento de sistemas de produção confiáveis executados na AWS.',
+        'Estou disponível para oportunidades internacionais em Backend e Cloud Engineering, especialmente em empresas de produto em Portugal e na Europa.',
     },
     about: {
       eyebrow: 'Sobre mim',
@@ -424,17 +424,17 @@ export const content: Record<Language, SiteContent> = {
   en: {
     nav: { home: 'Home', about: 'About', projects: 'Projects' },
     home: {
-      eyebrow: 'Software Engineer | Backend & Cloud',
-      title: 'Engineering scalable backend systems',
+      eyebrow: 'João Paulo Sales Magalhães | Backend & Cloud Engineer',
+      title: 'Scalable backend systems with Python and AWS',
       description:
-        'I build backend solutions, APIs, and system integrations to create scalable, resilient cloud applications running in production using AWS.',
+        'I build backend systems, REST APIs, and microservices with Python and FastAPI, using AWS, serverless, and event-driven architectures for production workloads.',
       primaryAction: 'View projects',
       secondaryAction: 'Get in touch',
       heroHighlights: [
-        'Backend Engineering',
+        'Python & FastAPI',
+        'AWS & Serverless',
+        'Event-Driven Architecture',
         'Distributed Systems',
-        'AWS Cloud',
-        'Production Systems',
       ],
       specialtiesLabel: 'Expertise',
       specialtiesTitle: 'Technology applied to real problems',
@@ -464,7 +464,7 @@ export const content: Record<Language, SiteContent> = {
       contactLabel: 'Contact',
       contactTitle: 'Let’s talk.',
       contact:
-        'I am open to Backend and Cloud Engineering opportunities, contributing to the development of reliable production systems running on AWS.',
+        'I am open to international Backend and Cloud Engineering opportunities, especially with product companies in Portugal and across Europe.',
     },
     about: {
       eyebrow: 'About me',

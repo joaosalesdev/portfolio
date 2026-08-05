@@ -1,8 +1,8 @@
 <div align="center">
 
-# João Paulo — Software Engineering Portfolio
+# João Paulo Sales Magalhães — Backend & Cloud Engineering Portfolio
 
-A bilingual engineering portfolio focused on Backend Engineering, Cloud, distributed systems, and the technical decisions behind software running in production.
+A bilingual engineering portfolio focused on Python, AWS, serverless and event-driven systems, and the technical decisions behind software running in production.
 
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=white)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -18,7 +18,7 @@ A bilingual engineering portfolio focused on Backend Engineering, Cloud, distrib
 
 ## About
 
-This repository contains my professional portfolio as a Software Engineer specializing in backend and cloud systems. It presents selected production experience through technical case studies instead of treating projects as isolated visual samples.
+This repository contains my professional portfolio as a Backend & Cloud Engineer specializing in Python, AWS, serverless and event-driven systems. It presents selected production experience through technical case studies instead of treating projects as isolated visual samples.
 
 Each case study connects a business problem to implementation responsibilities, architectural decisions, system flows, reliability concerns, and outcomes. The portfolio is designed to complement the source code: the website explains what was built and why, while this repository shows how the frontend is organized and maintained.
 
@@ -131,7 +131,7 @@ The workflow can also be started manually through `workflow_dispatch`.
 
 ## Purpose
 
-This project is part of my professional presence as a **Software Engineer | Backend & Cloud**. It documents real development experience and gives recruiters, Engineering Managers, Tech Leads, and fellow engineers a clear path from project context to technical implementation.
+This project is part of my professional presence as a **Backend & Cloud Engineer**. It documents real development experience and gives recruiters, Engineering Managers, Tech Leads, and fellow engineers a clear path from project context to technical implementation.
 
 The repository is intentionally public so the portfolio can be evaluated as both a product and a maintained software project.
 
