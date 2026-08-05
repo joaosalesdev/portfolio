@@ -7,7 +7,7 @@ export const content: Record<Language, SiteContent> = {
       eyebrow: 'Software Engineer | Backend & Cloud',
       title: 'Engenharia de sistemas backend escaláveis',
       description:
-        'Desenvolvo APIs, integrações entre sistemas e arquiteturas cloud utilizando Python e AWS para construir aplicações escaláveis, resilientes e executadas em produção.',
+        'Desenvolvo soluções backend, APIs e integrações entre sistemas para construir aplicações cloud escaláveis, resilientes e executadas em produção utilizando AWS.',
       primaryAction: 'Ver projetos',
       secondaryAction: 'Entrar em contato',
       heroHighlights: [
@@ -44,7 +44,7 @@ export const content: Record<Language, SiteContent> = {
       contactLabel: 'Contato',
       contactTitle: 'Vamos conversar.',
       contact:
-        'Estou disponível para oportunidades em Backend e Cloud Engineering onde possa contribuir para sistemas de produção confiáveis utilizando Python e AWS.',
+        'Estou disponível para oportunidades em Backend e Cloud Engineering, contribuindo para o desenvolvimento de sistemas de produção confiáveis executados na AWS.',
     },
     about: {
       eyebrow: 'Sobre mim',
@@ -427,7 +427,7 @@ export const content: Record<Language, SiteContent> = {
       eyebrow: 'Software Engineer | Backend & Cloud',
       title: 'Engineering scalable backend systems',
       description:
-        'I build APIs, systems integrations, and cloud architectures using Python and AWS to create scalable, resilient applications running in production.',
+        'I build backend solutions, APIs, and system integrations to create scalable, resilient cloud applications running in production using AWS.',
       primaryAction: 'View projects',
       secondaryAction: 'Get in touch',
       heroHighlights: [
@@ -464,7 +464,7 @@ export const content: Record<Language, SiteContent> = {
       contactLabel: 'Contact',
       contactTitle: 'Let’s talk.',
       contact:
-        'I am open to Backend and Cloud Engineering opportunities where I can contribute to reliable production systems built with Python and AWS.',
+        'I am open to Backend and Cloud Engineering opportunities, contributing to the development of reliable production systems running on AWS.',
     },
     about: {
       eyebrow: 'About me',
