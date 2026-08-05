@@ -4,7 +4,7 @@ import type { SiteContent } from '../../../types'
 
 const chronologicalSlugs = [
   'italian-learning-saas',
-  'process-automation-platform',
+  'business-process-automations',
   'salesforce-serverless-integration',
   'melita-ai-agent',
 ]
@@ -19,7 +19,7 @@ function ProjectIcon({ slug }: { slug: string }) {
     )
   }
 
-  if (slug === 'process-automation-platform') {
+  if (slug === 'business-process-automations') {
     return (
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <circle cx="8" cy="12" r="3" />

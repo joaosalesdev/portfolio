@@ -21,7 +21,7 @@ João is interested in international Backend and Cloud Engineering opportunities
 - Melita AI Agent: https://joaosalesdev.github.io/portfolio/en/projects/melita-ai-agent/
   Python and AWS Lambda application integrating Telegram, OpenAI, LangChain, LinkedIn, Docker, automated tests, and CI/CD.
 
-- Business process automation: https://joaosalesdev.github.io/portfolio/en/projects/process-automation-platform/
+- Business process automations: https://joaosalesdev.github.io/portfolio/en/projects/business-process-automations/
   Production automation using Python, AWS Lambda, Amazon ECS, EventBridge, Step Functions, Docker, ECR, CloudWatch, and Secrets Manager.
 
 - Italian learning SaaS: https://joaosalesdev.github.io/portfolio/en/projects/italian-learning-saas/

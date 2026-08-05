@@ -27,13 +27,13 @@ const projects = {
   en: [
     ['salesforce-serverless-integration', 'Salesforce Integration', 'Distributed integration between Salesforce and AWS services using a serverless, event-driven architecture.'],
     ['melita-ai-agent', 'Melita AI Agent', 'Serverless AI assistant built with Python and AWS Lambda for message processing, conversational automation and LinkedIn content generation.'],
-    ['process-automation-platform', 'Process Automation Platform', 'Process automation platform built with Python and AWS to integrate systems, process data and execute distributed workflows.'],
+    ['business-process-automations', 'Business Process Automations with Python and AWS', 'Independent production automations built with Python and AWS to integrate systems, process data, and replace repetitive operational tasks.'],
     ['italian-learning-saas', 'Italian Learning SaaS Platform', 'Production SaaS platform centralizing academic management, payments, online learning and AI-powered features.'],
   ],
   pt: [
     ['salesforce-serverless-integration', 'Integração Salesforce', 'Integração distribuída entre Salesforce e serviços AWS utilizando arquitetura serverless e orientada a eventos.'],
     ['melita-ai-agent', 'Melita AI Agent', 'Assistente de IA serverless desenvolvido em Python e AWS Lambda para processamento de mensagens e automação conversacional.'],
-    ['process-automation-platform', 'Plataforma de Automação de Processos', 'Plataforma desenvolvida em Python e AWS para integrar sistemas, processar dados e executar workflows distribuídos.'],
+    ['business-process-automations', 'Automações de Processos Empresariais com Python e AWS', 'Automações independentes em produção desenvolvidas com Python e AWS para integrar sistemas, processar dados e eliminar tarefas operacionais repetitivas.'],
     ['italian-learning-saas', 'Plataforma SaaS de Ensino de Italiano', 'Plataforma SaaS em produção centralizando gestão académica, pagamentos, aprendizagem online e recursos de IA.'],
   ],
 }
@@ -47,6 +47,12 @@ for (const language of ['en', 'pt']) {
     pages.push({ language, path: `/${language}/projects/${slug}/`, title: `${title} | João Paulo Sales Magalhães`, description, type: 'article', projectTitle: title })
   }
 }
+
+const redirects = ['en', 'pt'].map((language) => ({
+  language,
+  from: `/${language}/projects/process-automation-platform/`,
+  to: `/${language}/projects/business-process-automations/`,
+}))
 
 function escapeHtml(value) {
   return value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
@@ -108,6 +114,28 @@ for (const page of pages) {
   const destination = join(outputPath, page.path.slice(1), 'index.html')
   await mkdir(dirname(destination), { recursive: true })
   await writeFile(destination, render(page))
+}
+
+for (const redirect of redirects) {
+  const destination = join(outputPath, redirect.from.slice(1), 'index.html')
+  const target = `${siteUrl}${redirect.to}`
+  const redirectHtml = `<!doctype html>
+<html lang="${redirect.language}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex, follow" />
+    <meta http-equiv="refresh" content="0; url=${target}" />
+    <link rel="canonical" href="${target}" />
+    <title>${redirect.language === 'pt' ? 'Redirecionando para Automações de Processos Empresariais' : 'Redirecting to Business Process Automations'}</title>
+    <script>window.location.replace(${JSON.stringify(target)})</script>
+  </head>
+  <body>
+    <p><a href="${target}">${redirect.language === 'pt' ? 'Acessar a nova página do estudo de caso' : 'Open the new case study page'}</a></p>
+  </body>
+</html>
+`
+  await mkdir(dirname(destination), { recursive: true })
+  await writeFile(destination, redirectHtml)
 }
 
 await writeFile(new URL('404.html', outputDirectory), template.replace(/<meta name="robots" content="[^"]*"\s*\/>/, '<meta name="robots" content="noindex, follow" />'))

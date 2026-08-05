@@ -5,7 +5,7 @@ Place project cover images and evidence screenshots in this directory.
 Suggested naming:
 
 - `salesforce-serverless-integration-cover.webp`
-- `process-automation-platform-cover.webp`
+- `business-process-automations-cover.webp`
 - `melita-ai-agent-cover.webp`
 - `italian-learning-saas-cover.webp`
 

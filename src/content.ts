@@ -232,14 +232,14 @@ export const content: Record<Language, SiteContent> = {
           },
         },
         {
-          slug: 'process-automation-platform',
+          slug: 'business-process-automations',
           title: 'Automação de Processos Empresariais com Python e AWS',
           summary: 'Durante minha atuação como Backend Engineer, desenvolvi diversas automações corporativas utilizando Python e AWS para integrar sistemas, processar dados e eliminar atividades operacionais repetitivas. Embora cada automação atendesse a um processo diferente, todas compartilhavam princípios de arquitetura serverless, processamento orientado a eventos e integração entre sistemas.',
           challenge: 'Processos executados manualmente consumiam horas da equipa de suporte, dificultavam o crescimento operacional e exigiam acompanhamento constante para garantir consistência das execuções.',
           stack: ['Python', 'AWS Lambda', 'Amazon ECS', 'Amazon EventBridge', 'AWS Step Functions', 'Docker', 'Amazon ECR', 'CloudWatch', 'Secrets Manager', 'Playwright', 'Integração de Sistemas'],
-          coverImage: '/images/case-studies/process-automation-platform.png',
-          coverImageAlt: 'Workflow de automação empresarial com EventBridge, Step Functions e execução distribuída entre Lambda e ECS',
-          imageAlt: 'Arquitetura da Automação de Processos Empresariais com Python e AWS em AWS',
+          coverImage: '/images/case-studies/business-process-automations.png',
+          coverImageAlt: 'Automações empresariais independentes com EventBridge, Step Functions e execução distribuída entre Lambda e ECS',
+          imageAlt: 'Arquiteturas das Automações de Processos Empresariais com Python e AWS',
           caseStudy: {
             businessContext: 'A operação dependia de processos manuais para integrar sistemas, coletar informações e processar dados. Essas atividades consumiam tempo da equipa de suporte, dificultavam a escalabilidade e aumentavam o risco de erros operacionais.',
             requestFlow: [
@@ -660,14 +660,14 @@ export const content: Record<Language, SiteContent> = {
           },
         },
         {
-          slug: 'process-automation-platform',
+          slug: 'business-process-automations',
           title: 'Business Process Automation with Python and AWS',
           summary: 'During my work as a Backend Engineer, I developed several corporate automations using Python and AWS to integrate systems, process data, and eliminate repetitive operational tasks. Although each automation addressed a different process, they all shared principles of serverless architecture, event-driven processing, and systems integration.',
           challenge: 'Manually executed processes consumed hours of the support team’s time, constrained operational growth, and required constant monitoring to ensure consistent execution.',
           stack: ['Python', 'AWS Lambda', 'Amazon ECS', 'Amazon EventBridge', 'AWS Step Functions', 'Docker', 'Amazon ECR', 'CloudWatch', 'Secrets Manager', 'Playwright', 'Systems Integration'],
-          coverImage: '/images/case-studies/process-automation-platform.png',
-          coverImageAlt: 'Business automation workflow using EventBridge, Step Functions, and distributed execution across Lambda and ECS',
-          imageAlt: 'Architecture of Business Process Automation with Python and AWS on AWS',
+          coverImage: '/images/case-studies/business-process-automations.png',
+          coverImageAlt: 'Independent business process automations using EventBridge, Step Functions, and distributed execution across Lambda and ECS',
+          imageAlt: 'Architectures of Business Process Automations with Python and AWS',
           caseStudy: {
             businessContext: 'The operation relied on manual processes to integrate systems, collect information, and process data. These activities consumed support team time, limited scalability, and increased the risk of operational errors.',
             requestFlow: [

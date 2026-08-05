@@ -11,6 +11,8 @@ const routes = languages.flatMap((language) => [
   `${language}/projects/index.html`,
   ...projectSlugs.map((slug) => `${language}/projects/${slug}/index.html`),
 ])
+const legacySlug = 'process-automation-platform'
+const currentSlug = 'business-process-automations'
 
 const errors = []
 
@@ -79,6 +81,15 @@ for (const asset of [
   } catch {
     errors.push(`Missing build artifact: ${asset}`)
   }
+}
+
+for (const language of languages) {
+  const redirectRoute = `${language}/projects/${legacySlug}/index.html`
+  const redirectHtml = await readFile(new URL(redirectRoute, outputDirectory), 'utf8')
+  const expectedTarget = `https://joaosalesdev.github.io/portfolio/${language}/projects/${currentSlug}/`
+  if (!redirectHtml.includes(`<meta name="robots" content="noindex, follow"`)) errors.push(`${redirectRoute}: missing noindex redirect directive`)
+  if (!redirectHtml.includes(`<link rel="canonical" href="${expectedTarget}"`)) errors.push(`${redirectRoute}: incorrect redirect canonical`)
+  if (!redirectHtml.includes(`window.location.replace(${JSON.stringify(expectedTarget)})`)) errors.push(`${redirectRoute}: incorrect JavaScript redirect`)
 }
 
 const sitemap = await readFile(new URL('sitemap.xml', outputDirectory), 'utf8')

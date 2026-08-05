@@ -12,7 +12,7 @@ export function ProjectCaseStudy({ project, text }: { project: Project; text: Si
     return <MelitaCaseStudy project={project} text={text} />
   }
 
-  if (project.slug === 'process-automation-platform') {
+  if (project.slug === 'business-process-automations') {
     return <ProcessAutomationCaseStudy project={project} text={text} />
   }
 
