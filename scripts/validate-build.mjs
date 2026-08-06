@@ -73,6 +73,7 @@ for (const asset of [
   'safari-pinned-tab.svg',
   'browserconfig.xml',
   'images/social-card.png',
+  'images/social-card-v2.jpg',
   ...projectSlugs.map((slug) => `images/case-studies/${slug}.png`),
   '404.html',
 ]) {
