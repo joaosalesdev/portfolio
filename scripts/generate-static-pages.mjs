@@ -3,7 +3,7 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const siteUrl = 'https://joaosalesdev.github.io/portfolio'
-const socialImage = `${siteUrl}/images/social-card.png`
+const socialImage = `${siteUrl}/images/social-card.png?v=20260806`
 const personId = `${siteUrl}/#person`
 const websiteId = `${siteUrl}/#website`
 const outputDirectory = new URL('../dist/', import.meta.url)

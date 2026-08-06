@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import type { Language, SiteContent } from '../../types'
 
 const SITE_URL = 'https://joaosalesdev.github.io/portfolio'
-const SOCIAL_IMAGE = `${SITE_URL}/images/social-card.png`
+const SOCIAL_IMAGE = `${SITE_URL}/images/social-card.png?v=20260806`
 const PERSON_ID = `${SITE_URL}/#person`
 const WEBSITE_ID = `${SITE_URL}/#website`
 const ROBOTS_INDEX = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
