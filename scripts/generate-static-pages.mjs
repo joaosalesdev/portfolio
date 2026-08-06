@@ -3,7 +3,7 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const siteUrl = 'https://joaosalesdev.github.io/portfolio'
-const socialImage = `${siteUrl}/images/social-card-v2.jpg`
+const socialImage = `${siteUrl}/images/og-architecture.png?v=20260806`
 const personId = `${siteUrl}/#person`
 const websiteId = `${siteUrl}/#website`
 const outputDirectory = new URL('../dist/', import.meta.url)
@@ -100,7 +100,7 @@ function render(page) {
     .replace(/<meta property="og:url" content="[^"]*"\s*\/>/, `<meta property="og:url" content="${canonical}" />`)
     .replace(/<meta property="og:image" content="[^"]*"\s*\/>/, `<meta property="og:image" content="${pageSocialImage}" />`)
     .replace(/<meta property="og:image:secure_url" content="[^"]*"\s*\/>/, `<meta property="og:image:secure_url" content="${pageSocialImage}" />`)
-    .replace(/<meta property="og:image:type" content="[^"]*"\s*\/>/, `<meta property="og:image:type" content="${page.projectTitle ? 'image/png' : 'image/jpeg'}" />`)
+    .replace(/<meta property="og:image:type" content="[^"]*"\s*\/>/, '<meta property="og:image:type" content="image/png" />')
     .replace(/<meta property="og:image:alt" content="[^"]*"\s*\/>/, `<meta property="og:image:alt" content="${escapeHtml(pageSocialImageAlt)}" />`)
     .replace(/<meta property="og:locale" content="[^"]*"\s*\/>/, `<meta property="og:locale" content="${page.language === 'pt' ? 'pt_PT' : 'en_US'}" />`)
     .replace(/<meta property="og:locale:alternate" content="[^"]*"\s*\/>/, `<meta property="og:locale:alternate" content="${page.language === 'pt' ? 'en_US' : 'pt_PT'}" />`)

@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import type { Language, SiteContent } from '../../types'
 
 const SITE_URL = 'https://joaosalesdev.github.io/portfolio'
-const SOCIAL_IMAGE = `${SITE_URL}/images/social-card-v2.jpg`
+const SOCIAL_IMAGE = `${SITE_URL}/images/og-architecture.png?v=20260806`
 const PERSON_ID = `${SITE_URL}/#person`
 const WEBSITE_ID = `${SITE_URL}/#website`
 const ROBOTS_INDEX = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
@@ -99,7 +99,7 @@ export function Seo({ language, text }: { language: Language; text: SiteContent 
     setMeta('meta[property="og:url"]', 'property', 'og:url', canonical)
     setMeta('meta[property="og:image"]', 'property', 'og:image', socialImage)
     setMeta('meta[property="og:image:secure_url"]', 'property', 'og:image:secure_url', socialImage)
-    setMeta('meta[property="og:image:type"]', 'property', 'og:image:type', project ? 'image/png' : 'image/jpeg')
+    setMeta('meta[property="og:image:type"]', 'property', 'og:image:type', 'image/png')
     setMeta('meta[property="og:image:width"]', 'property', 'og:image:width', '1200')
     setMeta('meta[property="og:image:height"]', 'property', 'og:image:height', '630')
     setMeta('meta[property="og:image:alt"]', 'property', 'og:image:alt', socialImageAlt)
