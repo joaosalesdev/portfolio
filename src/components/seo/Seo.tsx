@@ -3,7 +3,8 @@ import { useLocation } from 'react-router-dom'
 import type { Language, SiteContent } from '../../types'
 
 const SITE_URL = 'https://joaosalesdev.github.io/portfolio'
-const SOCIAL_IMAGE = `${SITE_URL}/images/og-architecture.png?v=20260806`
+const HOME_SOCIAL_IMAGE = `${SITE_URL}/images/og-architecture.png?v=20260806`
+const DEFAULT_SOCIAL_IMAGE = `${SITE_URL}/images/social-card-v2.jpg`
 const PERSON_ID = `${SITE_URL}/#person`
 const WEBSITE_ID = `${SITE_URL}/#website`
 const ROBOTS_INDEX = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
@@ -39,7 +40,8 @@ export function Seo({ language, text }: { language: Language; text: SiteContent 
   const { pathname } = useLocation()
   const projectSlug = pathname.match(/\/projects\/([^/]+)/)?.[1]
   const project = text.projects.items.find((item) => item.slug === projectSlug)
-  const socialImage = project ? `${SITE_URL}${project.coverImage}` : SOCIAL_IMAGE
+  const isHome = new RegExp(`/${language}/?$`).test(pathname)
+  const socialImage = project ? `${SITE_URL}${project.coverImage}` : isHome ? HOME_SOCIAL_IMAGE : DEFAULT_SOCIAL_IMAGE
   const socialImageAlt = project?.coverImageAlt ?? (language === 'pt'
     ? 'João Paulo Sales Magalhães, Engenheiro Backend e Cloud especializado em Python, AWS e sistemas serverless'
     : 'João Paulo Sales Magalhães, Backend and Cloud Engineer specializing in Python, AWS and serverless systems')
@@ -47,7 +49,7 @@ export function Seo({ language, text }: { language: Language; text: SiteContent 
     project
     || pathname.endsWith('/projects')
     || pathname.endsWith('/about')
-    || new RegExp(`/${language}/?$`).test(pathname),
+    || isHome,
   )
 
   const metadata = useMemo(() => {
@@ -76,10 +78,10 @@ export function Seo({ language, text }: { language: Language; text: SiteContent 
     }
 
     return {
-      title: 'João Paulo Sales Magalhães | Backend & Cloud Engineer',
+      title: 'João Paulo | Backend & Cloud Engineer — Python & AWS',
       description: language === 'pt'
-        ? 'Engenheiro Backend e Cloud desenvolvendo sistemas em produção com Python, AWS, arquiteturas serverless, APIs e integrações orientadas a eventos.'
-        : 'Backend and Cloud Engineer building production systems with Python, AWS, serverless architectures, APIs and event-driven integrations.',
+        ? 'Engenheiro de Software focado em sistemas backend, arquitetura cloud, Python e AWS.'
+        : 'Software Engineer focused on backend systems, cloud architecture, Python and AWS.',
       type: 'profile',
     }
   }, [language, pathname, project, text])
@@ -99,7 +101,7 @@ export function Seo({ language, text }: { language: Language; text: SiteContent 
     setMeta('meta[property="og:url"]', 'property', 'og:url', canonical)
     setMeta('meta[property="og:image"]', 'property', 'og:image', socialImage)
     setMeta('meta[property="og:image:secure_url"]', 'property', 'og:image:secure_url', socialImage)
-    setMeta('meta[property="og:image:type"]', 'property', 'og:image:type', 'image/png')
+    setMeta('meta[property="og:image:type"]', 'property', 'og:image:type', project || isHome ? 'image/png' : 'image/jpeg')
     setMeta('meta[property="og:image:width"]', 'property', 'og:image:width', '1200')
     setMeta('meta[property="og:image:height"]', 'property', 'og:image:height', '630')
     setMeta('meta[property="og:image:alt"]', 'property', 'og:image:alt', socialImageAlt)
@@ -115,7 +117,7 @@ export function Seo({ language, text }: { language: Language; text: SiteContent 
     setLink('alternate', canonical, currentHrefLanguage)
     setLink('alternate', `${SITE_URL}${alternatePath}/`, alternateLanguage)
     setLink('alternate', `${SITE_URL}${canonicalPath.replace(/^\/(pt|en)/, '/en')}/`, 'x-default')
-  }, [alternateLanguage, alternatePath, canonical, canonicalPath, currentHrefLanguage, isKnownPage, language, metadata, project, socialImage, socialImageAlt])
+  }, [alternateLanguage, alternatePath, canonical, canonicalPath, currentHrefLanguage, isHome, isKnownPage, language, metadata, project, socialImage, socialImageAlt])
 
   const structuredData = useMemo(() => ({
     '@context': 'https://schema.org',
@@ -126,7 +128,7 @@ export function Seo({ language, text }: { language: Language; text: SiteContent 
         name: 'João Paulo Sales Magalhães',
         jobTitle: 'Backend & Cloud Engineer',
         url: `${SITE_URL}/en/`,
-        image: SOCIAL_IMAGE,
+        image: DEFAULT_SOCIAL_IMAGE,
         description: 'Backend and Cloud Engineer building production systems with Python, AWS, serverless architectures, APIs, and event-driven integrations.',
         sameAs: [
           'https://github.com/joaosalesdev',

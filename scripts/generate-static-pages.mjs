@@ -3,7 +3,8 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const siteUrl = 'https://joaosalesdev.github.io/portfolio'
-const socialImage = `${siteUrl}/images/og-architecture.png?v=20260806`
+const homeSocialImage = `${siteUrl}/images/og-architecture.png?v=20260806`
+const defaultSocialImage = `${siteUrl}/images/social-card-v2.jpg`
 const personId = `${siteUrl}/#person`
 const websiteId = `${siteUrl}/#website`
 const outputDirectory = new URL('../dist/', import.meta.url)
@@ -12,12 +13,12 @@ const template = await readFile(new URL('index.html', outputDirectory), 'utf8')
 
 const shared = {
   en: {
-    home: { title: 'João Paulo Sales Magalhães | Backend & Cloud Engineer', description: 'Backend and Cloud Engineer building production systems with Python, AWS, serverless architectures, APIs and event-driven integrations.' },
+    home: { title: 'João Paulo | Backend & Cloud Engineer — Python & AWS', description: 'Software Engineer focused on backend systems, cloud architecture, Python and AWS.' },
     about: { title: 'About João Paulo Sales Magalhães | Backend & Cloud Engineer', description: 'Backend and Cloud Engineer experienced in Python, AWS, serverless systems, distributed architectures and production software.' },
     projects: { title: 'Backend & Cloud Projects | João Paulo Sales Magalhães', description: 'Production case studies covering Python, AWS, serverless automation, APIs, distributed workflows and system integrations.' },
   },
   pt: {
-    home: { title: 'João Paulo Sales Magalhães | Backend & Cloud Engineer', description: 'Engenheiro Backend e Cloud desenvolvendo sistemas em produção com Python, AWS, arquiteturas serverless, APIs e integrações orientadas a eventos.' },
+    home: { title: 'João Paulo | Backend & Cloud Engineer — Python & AWS', description: 'Engenheiro de Software focado em sistemas backend, arquitetura cloud, Python e AWS.' },
     about: { title: 'Sobre João Paulo Sales Magalhães | Backend & Cloud Engineer', description: 'Engenheiro Backend e Cloud com experiência em Python, AWS, sistemas serverless, arquiteturas distribuídas e software em produção.' },
     projects: { title: 'Projetos Backend & Cloud | João Paulo Sales Magalhães', description: 'Estudos de caso em produção sobre Python, AWS, automação serverless, APIs, workflows distribuídos e integrações.' },
   },
@@ -60,7 +61,10 @@ function escapeHtml(value) {
 
 function render(page) {
   const canonical = `${siteUrl}${page.path}`
-  const pageSocialImage = page.projectTitle ? `${siteUrl}/images/case-studies/${page.path.match(/\/projects\/([^/]+)\//)?.[1]}.png` : socialImage
+  const isHome = /^\/(en|pt)\/$/.test(page.path)
+  const pageSocialImage = page.projectTitle
+    ? `${siteUrl}/images/case-studies/${page.path.match(/\/projects\/([^/]+)\//)?.[1]}.png`
+    : isHome ? homeSocialImage : defaultSocialImage
   const pageSocialImageAlt = page.projectTitle
     ? `${page.projectTitle} case study architecture cover`
     : page.language === 'pt'
@@ -69,7 +73,7 @@ function render(page) {
   const alternatePath = page.path.replace(/^\/(en|pt)\//, page.language === 'en' ? '/pt/' : '/en/')
   const xDefaultPath = page.path.replace(/^\/(en|pt)\//, '/en/')
   const graph = [
-    { '@type': 'Person', '@id': personId, name: 'João Paulo Sales Magalhães', jobTitle: 'Backend & Cloud Engineer', url: `${siteUrl}/en/`, image: socialImage, description: 'Backend and Cloud Engineer building production systems with Python, AWS, serverless architectures, APIs, and event-driven integrations.', sameAs: ['https://github.com/joaosalesdev', 'https://www.linkedin.com/in/joao-sales-magalhaes/'], knowsAbout: ['Backend Engineering', 'Cloud Engineering', 'Python', 'FastAPI', 'Amazon Web Services', 'Serverless Architecture', 'Cloud Native', 'Event-Driven Architecture', 'Distributed Systems', 'REST APIs', 'Microservices', 'Docker', 'CI/CD'] },
+    { '@type': 'Person', '@id': personId, name: 'João Paulo Sales Magalhães', jobTitle: 'Backend & Cloud Engineer', url: `${siteUrl}/en/`, image: defaultSocialImage, description: 'Backend and Cloud Engineer building production systems with Python, AWS, serverless architectures, APIs, and event-driven integrations.', sameAs: ['https://github.com/joaosalesdev', 'https://www.linkedin.com/in/joao-sales-magalhaes/'], knowsAbout: ['Backend Engineering', 'Cloud Engineering', 'Python', 'FastAPI', 'Amazon Web Services', 'Serverless Architecture', 'Cloud Native', 'Event-Driven Architecture', 'Distributed Systems', 'REST APIs', 'Microservices', 'Docker', 'CI/CD'] },
     { '@type': 'WebSite', '@id': websiteId, name: 'João Paulo Sales Magalhães — Backend & Cloud Engineering Portfolio', url: `${siteUrl}/en/`, inLanguage: ['en', 'pt-PT'], author: { '@id': personId } },
   ]
   if (page.path.endsWith('/about/')) {
@@ -100,7 +104,7 @@ function render(page) {
     .replace(/<meta property="og:url" content="[^"]*"\s*\/>/, `<meta property="og:url" content="${canonical}" />`)
     .replace(/<meta property="og:image" content="[^"]*"\s*\/>/, `<meta property="og:image" content="${pageSocialImage}" />`)
     .replace(/<meta property="og:image:secure_url" content="[^"]*"\s*\/>/, `<meta property="og:image:secure_url" content="${pageSocialImage}" />`)
-    .replace(/<meta property="og:image:type" content="[^"]*"\s*\/>/, '<meta property="og:image:type" content="image/png" />')
+    .replace(/<meta property="og:image:type" content="[^"]*"\s*\/>/, `<meta property="og:image:type" content="${page.projectTitle || isHome ? 'image/png' : 'image/jpeg'}" />`)
     .replace(/<meta property="og:image:alt" content="[^"]*"\s*\/>/, `<meta property="og:image:alt" content="${escapeHtml(pageSocialImageAlt)}" />`)
     .replace(/<meta property="og:locale" content="[^"]*"\s*\/>/, `<meta property="og:locale" content="${page.language === 'pt' ? 'pt_PT' : 'en_US'}" />`)
     .replace(/<meta property="og:locale:alternate" content="[^"]*"\s*\/>/, `<meta property="og:locale:alternate" content="${page.language === 'pt' ? 'en_US' : 'pt_PT'}" />`)
