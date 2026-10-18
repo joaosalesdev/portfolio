@@ -138,3 +138,9 @@ The repository is intentionally public so the portfolio can be evaluated as both
 ## License
 
 This project is available under the [MIT License](./LICENSE).
+
+### Portfolio AI Assistant
+
+Chat flutuante disponível em todas as páginas pelo botão **AI Assistant**, com convite dispensável, opção de minimizar e histórico preservado durante a navegação. No celular, abre um painel amplo acima da navegação inferior. Envia `POST` com `{ "question": "..." }` e apresenta `answer`, associando as citações `[S1]` aos IDs de `sources`. O histórico fica apenas na memória da página; cada pergunta é enviada de forma independente.
+
+O endpoint AWS fornecido é o padrão. Para alterar, defina `VITE_ASSISTANT_API_URL` em `.env.local` antes do build. A API deve permitir CORS para a origem do frontend, método `POST` e cabeçalho `Content-Type`. Perguntas têm limite de 2.000 caracteres e as chamadas expiram após 60 segundos.

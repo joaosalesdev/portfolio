@@ -3043,7 +3043,8 @@ footer {
 
   .site-header nav a {
     display: grid;
-    min-width: 88px;
+    min-width: 0;
+    flex: 1;
     min-height: 52px;
     padding: 0.5rem;
     place-items: center;

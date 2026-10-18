@@ -15,6 +15,8 @@ const AboutPage = lazy(() => import('./pages/AboutPage').then((module) => ({ def
 const ProjectsPage = lazy(() => import('./pages/ProjectsPage').then((module) => ({ default: module.ProjectsPage })))
 const ProjectCaseStudy = lazy(() => import('./features/case-studies/ProjectCaseStudy').then((module) => ({ default: module.ProjectCaseStudy })))
 
+const AssistantWidget = lazy(() => import('./features/assistant/AssistantWidget').then((module) => ({ default: module.AssistantWidget })))
+
 function RouteEffects({ announcement }: { announcement: string }) {
   const { pathname } = useLocation()
 
@@ -77,6 +79,7 @@ function LocalizedPortfolio() {
         </Suspense>
       </ErrorBoundary>
       <Footer text={text} />
+      <Suspense fallback={null}><AssistantWidget /></Suspense>
     </LanguageProvider>
   )
 }
